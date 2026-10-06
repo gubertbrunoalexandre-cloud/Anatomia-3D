@@ -321,6 +321,32 @@
     border-radius: 5px; cursor: pointer;
   }
   #ctx-menu .ctx-item:hover { background: var(--panel-2); }
+  #ctx-menu .ctx-stack-header {
+    font-size: 10px; font-weight: 600; color: var(--text-dim);
+    text-transform: uppercase; letter-spacing: 0.03em;
+    padding: 8px 10px 4px;
+    border-top: 1px solid var(--border);
+    margin-top: 4px;
+  }
+  #ctx-menu .ctx-stack-item {
+    display: flex; align-items: center; gap: 4px;
+  }
+  #ctx-menu .ctx-stack-name {
+    flex: 1; min-width: 0;
+    display: block; text-align: left;
+    background: none; border: none; color: var(--text);
+    font-size: 12px; padding: 7px 8px;
+    border-radius: 5px; cursor: pointer;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  #ctx-menu .ctx-stack-name:hover { background: var(--panel-2); }
+  #ctx-menu .ctx-stack-pin {
+    flex: 0 0 auto;
+    background: none; border: none; color: #ff5fa0;
+    font-size: 13px; padding: 6px 7px;
+    border-radius: 5px; cursor: pointer;
+  }
+  #ctx-menu .ctx-stack-pin:hover { background: rgba(255,45,120,0.15); }
 
   /* ---- celular / telas estreitas ---- */
   @media (max-width: 768px) {
@@ -356,6 +382,8 @@
 
     #ctx-menu { min-width: 200px; max-width: 88vw; }
     #ctx-menu .ctx-item { padding: 12px 10px; font-size: 13.5px; } /* alvo de toque maior */
+    #ctx-menu .ctx-stack-name { padding: 11px 8px; font-size: 13px; }
+    #ctx-menu .ctx-stack-pin { padding: 10px 9px; font-size: 15px; }
   }
 </style>
 </head>
@@ -383,7 +411,10 @@
 
     <div id="pin-hint">
       Clique com o botão direito (ou toque longo) numa peça e escolha "Colocar
-      alfinete aqui". Arraste um alfinete existente para reposicioná-lo.
+      alfinete aqui". Arraste um alfinete existente para reposicioná-lo. Se
+      houver mais de uma peça no mesmo ponto (ex.: músculo atrás de
+      cartilagem), o menu lista as outras — ou clique várias vezes seguidas
+      no mesmo ponto pra alternar entre elas.
     </div>
 
     <div id="info-panel">

@@ -449,7 +449,13 @@ document.getElementById("info-close").addEventListener("click", closeInfoPanel);
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 
-function raycastHit(clientX, clientY) {
+// varias pecas do dataset ficam encaixadas umas dentro/atras das outras (ex.: musculos
+// da laringe dentro da cartilagem tireoide, musculos extraoculares atras do globo ocular)
+// - o raio de clique so acerta a peca mais externa/proxima da camera por padrao. Pra dar
+// acesso as pecas encobertas sem precisar ocultar/isolar manualmente, guardamos TODAS as
+// intersecoes (nao so a primeira) e permitimos "furar" a pilha por clique repetido ou pelo
+// menu de contexto (ver showContextMenu).
+function raycastAllHits(clientX, clientY) {
   const rect = renderer.domElement.getBoundingClientRect();
   pointer.x = ((clientX - rect.left) / rect.width) * 2 - 1;
   pointer.y = -((clientY - rect.top) / rect.height) * 2 + 1;
@@ -463,7 +469,23 @@ function raycastHit(clientX, clientY) {
       });
     }
   }
-  const hits = raycaster.intersectObjects(pickables, false);
+  const rawHits = raycaster.intersectObjects(pickables, false);
+
+  // uma malha curva/aberta pode ser atravessada mais de uma vez pelo mesmo raio (face
+  // da frente e face de tras) - mantem so a intersecao mais proxima de cada peca unica,
+  // senao ela apareceria duplicada na pilha de "outras pecas neste ponto"
+  const seen = new Set();
+  const hits = [];
+  for (const hit of rawHits) {
+    if (seen.has(hit.object)) continue;
+    seen.add(hit.object);
+    hits.push(hit);
+  }
+  return hits;
+}
+
+function raycastHit(clientX, clientY) {
+  const hits = raycastAllHits(clientX, clientY);
   return hits.length > 0 ? hits[0] : null;
 }
 
@@ -471,6 +493,10 @@ function meshAtEvent(event) {
   const hit = raycastHit(event.clientX, event.clientY);
   return hit ? hit.object : null;
 }
+
+// clicar repetidas vezes no mesmo ponto da tela avanca pra proxima peca da pilha de
+// intersecoes naquele ponto, em vez de sempre reselecionar a mais externa
+let clickCycle = { x: null, y: null, hits: null, index: 0 };
 
 renderer.domElement.addEventListener("click", (event) => {
   if (longPressFired) {
@@ -481,8 +507,17 @@ renderer.domElement.addEventListener("click", (event) => {
     pinInteractionJustHappened = false; // clique/arraste no alfinete ja tratou tudo
     return;
   }
-  const mesh = meshAtEvent(event);
-  if (mesh) selectMesh(mesh);
+  const hits = raycastAllHits(event.clientX, event.clientY);
+  if (!hits.length) {
+    clickCycle = { x: null, y: null, hits: null, index: 0 };
+    return;
+  }
+  const samePoint =
+    clickCycle.hits &&
+    Math.hypot(event.clientX - clickCycle.x, event.clientY - clickCycle.y) < 6;
+  const index = samePoint ? (clickCycle.index + 1) % hits.length : 0;
+  clickCycle = { x: event.clientX, y: event.clientY, hits, index };
+  selectMesh(hits[index].object);
 });
 
 // --- menu de contexto (botao direito) ---
@@ -492,7 +527,8 @@ function hideContextMenu() {
   ctxMenu.hidden = true;
 }
 
-function showContextMenu(x, y, hit) {
+function showContextMenu(x, y, hits) {
+  const hit = hits[0];
   const mesh = hit.object;
   const pt = displayName(mesh.name);
   ctxMenu.innerHTML = "";
@@ -527,10 +563,53 @@ function showContextMenu(x, y, hit) {
   makeItem("↺ Mostrar tudo", showAllMeshes);
   makeItem("🔎 Pesquisar sobre esta estrutura", () => searchStructure(mesh.name));
 
+  // quando ha mais de uma peca embaixo do cursor (ex.: musculo encaixado atras de
+  // cartilagem, ligamento atras de outro musculo), lista as demais pra selecionar ou
+  // colocar alfinete direto nelas - sem isso, so dava pra alcancar a mais externa
+  if (hits.length > 1) {
+    const stackHeader = document.createElement("div");
+    stackHeader.className = "ctx-stack-header";
+    stackHeader.textContent = "Outras peças neste ponto (atrás)";
+    ctxMenu.appendChild(stackHeader);
+
+    for (const otherHit of hits.slice(1, 7)) {
+      const otherMesh = otherHit.object;
+      const row = document.createElement("div");
+      row.className = "ctx-stack-item";
+
+      const nameBtn = document.createElement("button");
+      nameBtn.type = "button";
+      nameBtn.className = "ctx-stack-name";
+      nameBtn.textContent = displayName(otherMesh.name);
+      nameBtn.title = "Selecionar";
+      nameBtn.addEventListener("click", () => {
+        selectMesh(otherMesh);
+        hideContextMenu();
+      });
+
+      const pinBtn = document.createElement("button");
+      pinBtn.type = "button";
+      pinBtn.className = "ctx-stack-pin";
+      pinBtn.textContent = "📌";
+      pinBtn.title = "Colocar alfinete aqui";
+      pinBtn.addEventListener("click", () => {
+        const pin = addPin(otherHit);
+        selectPin(pin);
+        hideContextMenu();
+      });
+
+      row.appendChild(nameBtn);
+      row.appendChild(pinBtn);
+      ctxMenu.appendChild(row);
+    }
+  }
+
   ctxMenu.hidden = false;
-  // mantem o menu dentro da janela
+  // mantem o menu dentro da janela (mede a altura real, ja que o numero de linhas varia)
   const menuW = 240;
-  const menuH = ctxMenu.children.length * 34 + 12;
+  ctxMenu.style.left = "0px";
+  ctxMenu.style.top = "0px";
+  const menuH = ctxMenu.offsetHeight;
   const left = Math.min(x, window.innerWidth - menuW - 8);
   const top = Math.min(y, window.innerHeight - menuH - 8);
   ctxMenu.style.left = `${left}px`;
@@ -539,13 +618,13 @@ function showContextMenu(x, y, hit) {
 
 renderer.domElement.addEventListener("contextmenu", (event) => {
   event.preventDefault();
-  const hit = raycastHit(event.clientX, event.clientY);
-  if (!hit) {
+  const hits = raycastAllHits(event.clientX, event.clientY);
+  if (!hits.length) {
     hideContextMenu();
     return;
   }
-  selectMesh(hit.object);
-  showContextMenu(event.clientX, event.clientY, hit);
+  selectMesh(hits[0].object);
+  showContextMenu(event.clientX, event.clientY, hits);
 });
 
 // --- selecionar/arrastar alfinetes com o botao esquerdo do mouse ---
@@ -597,11 +676,11 @@ renderer.domElement.addEventListener("touchstart", (event) => {
   touchStartPos = { x: touch.clientX, y: touch.clientY };
   clearTimeout(touchTimer);
   touchTimer = setTimeout(() => {
-    const hit = raycastHit(touch.clientX, touch.clientY);
-    if (hit) {
+    const hits = raycastAllHits(touch.clientX, touch.clientY);
+    if (hits.length) {
       longPressFired = true;
-      selectMesh(hit.object);
-      showContextMenu(touch.clientX, touch.clientY, hit);
+      selectMesh(hits[0].object);
+      showContextMenu(touch.clientX, touch.clientY, hits);
       if (navigator.vibrate) navigator.vibrate(15);
     }
   }, 550);
