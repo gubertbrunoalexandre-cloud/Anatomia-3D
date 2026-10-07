@@ -1,0 +1,4 @@
+{
+  "_ajuda": "Correcoes MANUAIS por estrutura; sobrevivem a cada regeneracao de data/estruturas.json. Chave = id da estrutura (ex.: \"thyroid-cartilage\"). Qualquer campo pode ser sobrescrito (descricao, funcao, relevancia_fono, dificuldade, revisado, ...); em 'relacoes' as chaves sao mescladas. Exemplo: {\"thyroid-cartilage\": {\"funcao\": \"Protege as pregas vocais...\", \"revisado\": true}}. A estrutura ajustada ganha \"ajustado\": true.",
+  "ajustes": {}
+}

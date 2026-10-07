@@ -1,0 +1,97 @@
+{
+  "_ajuda": "Regras AUTOMATICAS usadas por scripts/build_database.py para preencher regiao, tipo, relevancia_fono e dificuldade. Sao julgamentos iniciais (revisado=false). Edite aqui e rode `python scripts/build_database.py` para regenerar data/estruturas.json. Correcoes pontuais de UMA estrutura vao em data/estruturas_ajustes.json.",
+
+  "tipos": {
+    "osso": "Osso",
+    "cartilagem": "Cartilagem",
+    "musculo": "Músculo",
+    "fascia": "Fáscia / aponeurose",
+    "ligamento": "Ligamento / membrana",
+    "articulacao": "Articulação / disco",
+    "nervo": "Nervo",
+    "arteria": "Artéria",
+    "veia": "Veia / seio venoso",
+    "vaso": "Vaso",
+    "glandula": "Glândula",
+    "orgao": "Órgão / víscera",
+    "linfoide": "Tecido linfoide",
+    "orgao_sentido": "Órgão dos sentidos",
+    "encefalo": "Encéfalo (sistema nervoso central)",
+    "regiao_superficie": "Região de superfície",
+    "marco_osseo": "Marco ósseo (forame, canal, sutura)"
+  },
+
+  "tipo_por_nome": [
+    {"_ajuda": "Excecoes: se o nome em ingles casar com o regex, o tipo e este (vale antes da regra por sistema).", "regex": "^epiglottis$", "tipo": "cartilagem"},
+    {"regex": "hypophysis|pituitary|pineal|thyroid gland|parathyroid", "tipo": "glandula"}
+  ],
+
+  "sistemas": {
+    "1: Skeletal system": "Esquelético",
+    "2: Muscular insertions": "Muscular (áreas de fixação)",
+    "3: Joints": "Articular (ligamentos e juntas)",
+    "4: Muscular system": "Muscular",
+    "5: Cardiovascular system": "Cardiovascular",
+    "6: Lymphoid organs": "Linfoide",
+    "7: Nervous system & Sense organs": "Nervoso e órgãos dos sentidos",
+    "8: Visceral systems": "Visceral",
+    "9: Regions of human body": "Regiões do corpo"
+  },
+  "sistema_prioridade": ["4: Muscular system", "1: Skeletal system", "3: Joints", "7: Nervous system & Sense organs", "5: Cardiovascular system", "6: Lymphoid organs", "8: Visceral systems", "9: Regions of human body", "2: Muscular insertions"],
+
+  "prioridade_categoria_app": ["nervo_", "musculos_", "orelha_nariz_cartilagem", "regioes_superficie", "vertebras_cervicais", "cerebro", "cranio_ossos", "faringe", "cavidade_oral_lingua", "laringe", "atm", "marcos_osseos"],
+
+  "regioes": [
+    {"id": "cranio", "nome": "Ossos do crânio", "ordem": 1, "categorias_app": ["cranio_ossos"]},
+    {"id": "mastigacao", "nome": "Músculos da mastigação", "ordem": 2, "categorias_app": ["musculos_mastigacao"]},
+    {"id": "laringe", "nome": "Laringe e pregas vocais", "ordem": 3, "categorias_app": ["laringe"]},
+    {"id": "cavidade_oral", "nome": "Cavidade oral e língua", "ordem": 4, "categorias_app": ["cavidade_oral_lingua"]},
+    {"id": "faringe", "nome": "Faringe", "ordem": 5, "categorias_app": ["faringe"]},
+    {"id": "atm", "nome": "ATM (temporomandibular)", "ordem": 6, "categorias_app": ["atm"]},
+    {"id": "hioideos", "nome": "Músculos supra/infra-hióideos", "ordem": 7, "categorias_app": ["musculos_supra_infra_hioideos"]},
+    {"id": "nervos_cranianos", "nome": "Nervos cranianos", "ordem": 8, "categorias_app": ["nervo_I_olfatorio", "nervo_II_optico", "nervo_III_oculomotor", "nervo_IV_troclear", "nervo_V_trigemeo", "nervo_VII_facial", "nervo_IX_glossofaringeo", "nervo_X_vago", "nervo_XI_acessorio", "nervo_XII_hipoglosso"]},
+    {"id": "faciais", "nome": "Músculos faciais (expressão)", "ordem": 9, "categorias_app": ["musculos_faciais"]},
+    {"id": "pescoco", "nome": "Músculos do pescoço", "ordem": 10, "categorias_app": ["musculos_pescoco"]},
+    {"id": "vertebras", "nome": "Vértebras cervicais", "ordem": 11, "categorias_app": ["vertebras_cervicais"]},
+    {"id": "orelha_nariz", "nome": "Cartilagens da orelha e do nariz", "ordem": 12, "categorias_app": ["orelha_nariz_cartilagem"]},
+    {"id": "extraoculares", "nome": "Músculos extraoculares", "ordem": 13, "categorias_app": ["musculos_extraoculares"]},
+    {"id": "suboccipitais", "nome": "Músculos suboccipitais", "ordem": 14, "categorias_app": ["musculos_suboccipitais"]},
+    {"id": "superficie", "nome": "Regiões de superfície (pele)", "ordem": 15, "categorias_app": ["regioes_superficie"]},
+    {"id": "marcos", "nome": "Marcos ósseos (forames, canais, suturas)", "ordem": 16, "categorias_app": ["marcos_osseos"]},
+    {"id": "cerebro", "nome": "Cérebro", "ordem": 17, "categorias_app": ["cerebro"]}
+  ],
+
+  "relevancia_fono": {
+    "_ajuda": "true se a categoria do app esta em categorias_true OU o nome em ingles casa com algum regex de nomes_true. Nervos: so V, VII, IX, X, XI, XII (escopo pedido).",
+    "categorias_true": ["laringe", "faringe", "cavidade_oral_lingua", "atm", "musculos_mastigacao", "musculos_supra_infra_hioideos", "nervo_V_trigemeo", "nervo_VII_facial", "nervo_IX_glossofaringeo", "nervo_X_vago", "nervo_XI_acessorio", "nervo_XII_hipoglosso", "orelha_nariz_cartilagem"],
+    "nomes_true": [
+      "^(mandible|maxilla|hyoid bone|palatine bone|nasal bone|sphenoid bone|temporal bone|zygomatic bone)",
+      "orbicularis oris|buccinator|bucinator|zygomaticus|risorius|levator labii|depressor labii|levator anguli|depressor anguli|mentalis|platysma|levator nasolabialis",
+      "sternocleidomastoid|trapezius",
+      "^(foramen ovale|mental foramen|hypoglossal canal|groove of pterygoid hamulus|pterygoid canal|pterygoid notch|jugular notch)",
+      "inferior frontal gyrus|superior temporal gyrus|transverse temporal gyr|angular gyrus|supramarginal gyrus|precentral gyrus|postcentral gyrus",
+      "^(buccal region|mental region)"
+    ]
+  },
+
+  "dificuldade": {
+    "_ajuda": "Comeca em 2. +1 se o nome indica parte/ramo/detalhe; +1 se for encefalo (giros/sulcos/nucleos); -1 se casa com 'principais'; marcos osseos sao sempre 3. Resultado limitado a 1..3.",
+    "principais": [
+      "^(mandible|maxilla|hyoid bone|frontal bone|parietal bone|occipital bone|temporal bone|sphenoid bone|zygomatic bone|nasal bone|palatine bone)",
+      "^(masseter|temporalis muscle|orbicularis oris muscle|orbicularis oculi|sternocleidomastoid muscle|platysma|digastric muscle|mylohyoid muscle|geniohyoid muscle|genioglossus muscle|hyoglossus muscle|medial pterygoid muscle|lateral pterygoid muscle)",
+      "^(thyroid cartilage|cricoid cartilage|arytenoid cartilage|epiglottis|corniculate cartilage)",
+      "^(tongue|pharynx|oropharynx|nasopharynx|laryngopharynx|soft palate|palatine tonsil|temporomandibular joint)",
+      "^(trigeminal|facial|glossopharyngeal|vagus|accessory|hypoglossal|optic|oculomotor|trochlear|olfactory) nerve",
+      "^(cerebrum|cerebellum|brainstem)"
+    ],
+    "detalhe": "part of|head of|belly of|branch|ramus|rami|division|segment|root of|nucleus|ganglion|fascicle|sulcus|sulci|gyrus|gyri|lobule|notch|groove|tubercle|process|canal|foramen|ligament of|membrane"
+  },
+
+  "extracao_texto": {
+    "_ajuda": "Frases COPIADAS LITERALMENTE da descricao (Wikipedia traduzida por IA / texto geral), sem reescrever. Servem para perguntas de funcao/origem/inervacao so onde existirem.",
+    "inervacao": "inerv",
+    "origem": "\\borigina|\\borigem\\b|^origem:",
+    "insercao": "\\binser[cç]|\\binsere|\\binserem",
+    "funcao": "\\bfun[cç][aã]o\\b|\\bfun[cç][oõ]es\\b|respons[aá]vel por|\\bpermite\\b|\\bserve\\b|\\batua\\b|\\bauxilia\\b|\\bfacilita\\b|\\bcontribui\\b"
+  }
+}

@@ -70,6 +70,8 @@ anatomia-fono-3d/
 ├── scripts/
 │   ├── export_head_neck.py                  # script headless do Blender que gera os .glb
 │   ├── audit_head_neck.py                   # auditoria (somente leitura) dataset x app
+│   ├── extract_source_meta.py               # Blender: sistema/coleções e links da Wikipédia -> data/source_meta.json
+│   ├── build_database.py                    # gera data/estruturas.json (base do jogo) e docs/fase-1/
 │   └── dev_server.py                        # servidor local sem cache
 ├── web/
 │   ├── index.html
@@ -156,6 +158,26 @@ estruturas mostram o placeholder "foto em breve".
 3. Anote a fonte/autor/licença em `data/photos/ATTRIBUTIONS.md`.
 4. Salve e recarregue a página. Se o arquivo não existir ou o nome não bater,
    o placeholder "foto em breve" continua aparecendo — nunca quebra a página.
+
+## Base de dados única (`data/estruturas.json`)
+
+Uma linha por estrutura (375, esquerdo/direito juntos), gerada a partir do que o
+projeto já tem. É a fonte que o modo jogo lê — nunca há listas de perguntas fixas no código.
+Campos: `id`, `nome_pt`, `nome_en`, `nome_latim`, `tipo`, `sistema`, `regiao`,
+`descricao`, `funcao`, `relacoes` (origem/inserção/inervação, só quando a descrição
+traz), `relevancia_fono`, `dificuldade` (1–3), `revisado` (sempre `false` até uma
+pessoa conferir), `objetos` (as malhas do app) e `fontes` (de onde veio cada campo,
+inclusive o link da Wikipédia).
+
+```bash
+python scripts/build_database.py      # regenera data/estruturas.json + docs/fase-1/
+```
+
+- Estruturas novas no `manifest.json` entram sozinhas (rode antes
+  `scripts/extract_source_meta.py` no Blender se vierem do `.blend`).
+- Correções manuais por estrutura: `data/estruturas_ajustes.json` (sobrevivem à regeneração).
+- Regras de região, tipo, relevância para fono e dificuldade: `data/regras_base_dados.json`.
+- Relatório com contagens e campos vazios: `docs/fase-1/`.
 
 ## Pipeline de dados
 

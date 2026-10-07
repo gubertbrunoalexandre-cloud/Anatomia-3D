@@ -1,0 +1,376 @@
+﻿id;nome_pt;nome_en;tipo;regiao;relevancia_fono;dificuldade;faltando;tem_geometria_propria;fonte_descricao
+ary-epiglottic-part-of-oblique-arytenoid-muscle;Parte ari-epiglótica do músculo aritenóideo oblíquo;Ary-epiglottic part of oblique arytenoid muscle;Músculo;Laringe e pregas vocais;sim;3;funcao, inervado_por;sim;wikipedia_traduzida_ia
+arytenoid-cartilage;Cartilagem aritenóide;Arytenoid cartilage;Cartilagem;Laringe e pregas vocais;sim;1;funcao;sim;wikipedia_traduzida_ia
+corniculate-cartilage;Cartilagem corniculada;Corniculate cartilage;Cartilagem;Laringe e pregas vocais;sim;1;funcao;sim;wikipedia_traduzida_ia
+cricoid-cartilage;Cartilagem cricoide;Cricoid cartilage;Cartilagem;Laringe e pregas vocais;sim;1;funcao;sim;wikipedia_traduzida_ia
+epiglottis;Epiglote;Epiglottis;Cartilagem;Laringe e pregas vocais;sim;1;funcao;sim;wikipedia_traduzida_ia
+laryngopharynx;Laringofaringe;Laryngopharynx;Órgão / víscera;Faringe;sim;1;funcao;sim;wikipedia_traduzida_ia
+lateral-crico-arytenoid-muscle;Músculo crico-aritenóideo lateral;Lateral crico-arytenoid muscle;Músculo;Laringe e pregas vocais;sim;2;funcao, inervado_por;sim;wikipedia_traduzida_ia
+median-cricothyroid-ligament;Ligamento cricotireóideo mediano;Median cricothyroid ligament;Ligamento / membrana;Laringe e pregas vocais;sim;2;funcao;sim;wikipedia_traduzida_ia
+posterior-crico-arytenoid-muscle;Músculo crico-aritenóide posterior;Posterior crico-arytenoid muscle;Músculo;Laringe e pregas vocais;sim;2;funcao, inervado_por;sim;wikipedia_traduzida_ia
+external-part-of-thyro-arytenoid-muscle;Parte externa do músculo tireo-aritenóideo;External part of thyro-arytenoid muscle;Músculo;Laringe e pregas vocais;sim;3;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+oblique-part-of-cricothyroid-muscle;Parte oblíqua do músculo cricotireóideo;Oblique part of cricothyroid muscle;Músculo;Laringe e pregas vocais;sim;3;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+straight-part-of-cricothyroid-muscle;Parte reta do músculo cricotireóideo;Straight part of cricothyroid muscle;Músculo;Laringe e pregas vocais;sim;3;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+thyro-epiglottic-part-of-thyro-arytenoid-muscle;Parte tireo-epiglótica do músculo tireo-aritenóideo;Thyro-epiglottic part of thyro-arytenoid muscle;Músculo;Laringe e pregas vocais;sim;3;funcao;sim;wikipedia_traduzida_ia
+thyroid-cartilage;Cartilagem da tireoide;Thyroid cartilage;Cartilagem;Laringe e pregas vocais;sim;1;funcao;sim;wikipedia_traduzida_ia
+transverse-arytenoid-muscle;Músculo aritenóideo transverso;Transverse arytenoid muscle;Músculo;Laringe e pregas vocais;sim;2;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+accessory-parotid-gland;(Glândula parótida acessória);(Accessory parotid gland);Glândula;Cavidade oral e língua;sim;2;funcao;sim;conhecimento_geral_ia
+buccal-artery;Artéria bucal;Buccal artery;Artéria;Cavidade oral e língua;sim;2;funcao;sim;wikipedia_traduzida_ia
+buccal-nerve;Nervo bucal;Buccal nerve;Nervo;Cavidade oral e língua;sim;2;funcao, inerva;sim;wikipedia_traduzida_ia
+buccal-region;Região bucal;Buccal region;Região de superfície;Regiões de superfície (pele);sim;2;funcao;sim;wikipedia_traduzida_ia
+descending-palatine-artery;Artéria palatina descendente;Descending palatine artery;Artéria;Cavidade oral e língua;sim;2;funcao;sim;wikipedia_traduzida_ia
+genioglossus-muscle;Músculo genioglosso;Genioglossus muscle;Músculo;Cavidade oral e língua;sim;1;origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+gingiva;Gengiva;Gingiva;Órgão / víscera;Cavidade oral e língua;sim;2;funcao;sim;wikipedia_traduzida_ia
+greater-palatine-artery;Artéria palatina maior;Greater palatine artery;Artéria;Cavidade oral e língua;sim;2;;sim;wikipedia_traduzida_ia
+hyoglossus-muscle;Músculo hioglosso;Hyoglossus muscle;Músculo;Cavidade oral e língua;sim;1;funcao, insercao, inervado_por;sim;wikipedia_traduzida_ia
+inferior-labial-artery;Artéria labial inferior;Inferior labial artery;Artéria;Cavidade oral e língua;sim;2;funcao;sim;wikipedia_traduzida_ia
+inferior-labial-veins;Veias labiais inferiores;Inferior labial veins;Veia / seio venoso;Cavidade oral e língua;sim;2;funcao;sim;wikipedia_traduzida_ia
+intraglandular-parotid-nodes;Nódulos parótidos intraglandulares;Intraglandular parotid nodes;Tecido linfoide;Cavidade oral e língua;sim;2;funcao;sim;conhecimento_geral_ia
+labial-commissure;Comissura labial;Labial commissure;Região de superfície;Cavidade oral e língua;sim;2;;sim;wikipedia_traduzida_ia
+levator-nasolabialis;Levantador nasolabial;Levator nasolabialis;Músculo;Cavidade oral e língua;sim;2;funcao, origem, inervado_por;sim;wikipedia_traduzida_ia
+lingual-gyrus;Giro lingual;Lingual gyrus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;conhecimento_geral_ia
+lingual-nerve;Nervo lingual;Lingual nerve;Nervo;Cavidade oral e língua;sim;2;funcao;sim;wikipedia_traduzida_ia
+lingual-vein;Veia lingual;Lingual vein;Veia / seio venoso;Cavidade oral e língua;sim;2;funcao;sim;conhecimento_geral_ia
+nasolabial-node;Nódulo nasolabial;Nasolabial node;Tecido linfoide;Cavidade oral e língua;sim;2;funcao;sim;wikipedia_traduzida_ia
+palatine-bone;Osso palatino;Palatine bone;Osso;Ossos do crânio;sim;1;funcao;sim;wikipedia_traduzida_ia
+palatine-tonsil;Amígdala palatina;Palatine tonsil;Tecido linfoide;Faringe;sim;1;funcao;sim;wikipedia_traduzida_ia
+parotideomasseteric-region;Região parotideomasseterica;Parotideomasseteric region;Região de superfície;Regiões de superfície (pele);não;2;funcao;sim;conhecimento_geral_ia
+posterior-septal-branches-of-sphenopalatine-artery;Ramos septais posteriores da artéria esfenopalatina;Posterior septal branches of sphenopalatine artery;Artéria;Cavidade oral e língua;sim;3;funcao;sim;wikipedia_traduzida_ia
+mentolabial-sulcus;Sulco mentolabial;Mentolabial sulcus;Região de superfície;Cavidade oral e língua;sim;3;funcao;sim;wikipedia_traduzida_ia
+nasolabial-sulcus;Sulco nasolabial;Nasolabial sulcus;Região de superfície;Cavidade oral e língua;sim;3;funcao;sim;wikipedia_traduzida_ia
+parotid-duct;Ducto parotídeo;Parotid duct;Órgão / víscera;Cavidade oral e língua;sim;2;funcao;sim;wikipedia_traduzida_ia
+parotid-gland;Glândula parótida;Parotid gland;Glândula;Cavidade oral e língua;sim;2;funcao;sim;wikipedia_traduzida_ia
+philtrum;Filtro;Philtrum;Região de superfície;Cavidade oral e língua;sim;2;funcao;sim;wikipedia_traduzida_ia
+posterior-lateral-nasal-branches-of-sphenopalatine-artery;Ramos nasais posterolateral da artéria esfenopalatina;Posterior lateral nasal branches of sphenopalatine artery.;Artéria;Cavidade oral e língua;sim;3;funcao;sim;conhecimento_geral_ia
+soft-palate;Palato mole;Soft palate;Órgão / víscera;Cavidade oral e língua;sim;1;funcao;sim;wikipedia_traduzida_ia
+sublingual-gland;Glândula sublingual;Sublingual gland;Glândula;Cavidade oral e língua;sim;2;funcao;sim;wikipedia_traduzida_ia
+submandibular-gland;Glândula submandibular;Submandibular gland;Glândula;Cavidade oral e língua;sim;2;;sim;wikipedia_traduzida_ia
+superficial-parotid-nodes;Nódulos parótidos superficiais;Superficial parotid nodes;Tecido linfoide;Cavidade oral e língua;sim;2;funcao;sim;conhecimento_geral_ia
+superior-labial-artery;Artéria labial superior;Superior labial artery;Artéria;Cavidade oral e língua;sim;2;funcao;sim;wikipedia_traduzida_ia
+superior-labial-vein;Veia labial superior;Superior labial vein;Veia / seio venoso;Cavidade oral e língua;sim;2;funcao;sim;wikipedia_traduzida_ia
+tongue;Língua;Tongue;Órgão / víscera;Cavidade oral e língua;sim;1;funcao;sim;wikipedia_traduzida_ia
+tubercle-of-upper-lip;Tubérculo do lábio superior;Tubercle of upper lip;Região de superfície;Cavidade oral e língua;sim;3;funcao;sim;wikipedia_traduzida_ia
+uvula-of-palate;Úvula do palato;Uvula of palate;Órgão / víscera;Cavidade oral e língua;sim;2;funcao;sim;wikipedia_traduzida_ia
+ascending-pharyngeal-artery;Artéria faríngea ascendente;Ascending pharyngeal artery;Artéria;Faringe;sim;2;funcao;sim;wikipedia_traduzida_ia
+cricopharyngeal-ligament;Ligamento cricofaríngeo;Cricopharyngeal ligament;Ligamento / membrana;Faringe;sim;2;funcao;sim;wikipedia_traduzida_ia
+glossopharyngeal-nerve-ix;Nervo glossofaríngeo (IX);Glossopharyngeal nerve (IX);Nervo;Nervos cranianos;sim;1;funcao, inerva;sim;wikipedia_traduzida_ia
+inferior-pharyngeal-constrictor;Constritor inferior da faringe;Inferior pharyngeal constrictor;Músculo;Faringe;sim;2;funcao, insercao;sim;wikipedia_traduzida_ia
+middle-pharyngeal-constrictor;Constritor médio da faringe;Middle pharyngeal constrictor;Músculo;Faringe;sim;2;funcao, origem, insercao;sim;wikipedia_traduzida_ia
+nasopharynx;Nasofaringe;Nasopharynx;Órgão / víscera;Faringe;sim;1;funcao;sim;wikipedia_traduzida_ia
+oropharynx;Orofaringe;Oropharynx;Órgão / víscera;Faringe;sim;1;funcao;sim;wikipedia_traduzida_ia
+palatopharyngeus-muscle;Músculo palatofaríngeo;Palatopharyngeus muscle;Músculo;Faringe;sim;2;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+pharynx;Faringe;Pharynx;Órgão / víscera;Faringe;sim;1;funcao;sim;wikipedia_traduzida_ia
+retropharyngeal-nodes;Nódulos retrofaríngeos;Retropharyngeal nodes;Tecido linfoide;Faringe;sim;2;funcao;sim;wikipedia_traduzida_ia
+stylopharyngeus-muscle;Músculo estilofaríngeo;Stylopharyngeus muscle;Músculo;Faringe;sim;2;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+superior-pharyngeal-constrictor;Constritor superior da faringe;Superior pharyngeal constrictor;Músculo;Faringe;sim;2;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+articular-capsule-of-temporomandibular-joint;Cápsula articular da articulação temporomandibular;Articular capsule of temporomandibular joint;Articulação / disco;ATM (temporomandibular);sim;2;funcao;sim;wikipedia_traduzida_ia
+articular-disc-of-temporomandibular-joint;Disco articular da articulação temporomandibular;Articular disc of temporomandibular joint;Articulação / disco;ATM (temporomandibular);sim;2;funcao;sim;wikipedia_traduzida_ia
+inferior-head-of-lateral-pterygoid-muscle;Cabeça inferior do músculo pterigóideo lateral;Inferior head of lateral pterygoid muscle;Músculo;Músculos da mastigação;sim;3;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+lateral-pterygoid-muscle;Músculo pterigóideo lateral;Lateral pterygoid muscle;Músculo;Músculos da mastigação;sim;1;funcao, insercao, inervado_por;não;conhecimento_geral_ia
+lateral-temporomandibular-ligament;Ligamento temporomandibular lateral;Lateral temporomandibular ligament;Ligamento / membrana;ATM (temporomandibular);sim;2;funcao;sim;wikipedia_traduzida_ia
+medial-pterygoid-muscle;Músculo pterigóideo medial;Medial pterygoid muscle;Músculo;Músculos da mastigação;sim;1;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+superior-head-of-lateral-pterygoid-muscle;Cabeça superior do músculo pterigóideo lateral;Superior head of lateral pterygoid muscle;Músculo;Músculos da mastigação;sim;3;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+olfactory-nerve-i;Nervo olfatório (I);Olfactory nerve (I);Nervo;Nervos cranianos;não;1;funcao, inerva;sim;wikipedia_traduzida_ia
+olfactory-sulcus;Sulco olfatório;Olfactory sulcus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+optic-chiasm;Quiasma óptico;Optic chiasm;Nervo;Nervos cranianos;não;2;funcao, inerva;sim;wikipedia_traduzida_ia
+optic-nerve-ii;Nervo óptico (II);Optic nerve (II);Nervo;Nervos cranianos;não;1;funcao, inerva;sim;wikipedia_traduzida_ia
+optic-tract;Trato óptico;Optic tract;Nervo;Nervos cranianos;não;2;funcao, inerva;sim;wikipedia_traduzida_ia
+accessory-nucleus-of-oculomotor-nerve;Núcleo acessório do nervo oculomotor;Accessory nucleus of oculomotor nerve;Encéfalo (sistema nervoso central);Nervos cranianos;não;3;funcao;sim;wikipedia_traduzida_ia
+nucleus-of-oculomotor-nerve;Núcleo do nervo oculomotor;Nucleus of oculomotor nerve;Encéfalo (sistema nervoso central);Nervos cranianos;não;3;funcao;sim;wikipedia_traduzida_ia
+oculomotor-nerve-iii;Nervo oculomotor (III);Oculomotor nerve (III);Nervo;Nervos cranianos;não;1;funcao;sim;wikipedia_traduzida_ia
+nucleus-of-trochlear-nerve;Núcleo do nervo troclear;Nucleus of trochlear nerve;Encéfalo (sistema nervoso central);Nervos cranianos;não;3;;sim;wikipedia_traduzida_ia
+trochlear-nerve-iv;Nervo troclear (IV);Trochlear nerve (IV);Nervo;Nervos cranianos;não;1;;sim;wikipedia_traduzida_ia
+anterior-division-of-mandibular-nerve;Divisão anterior do nervo mandibular;Anterior division of mandibular nerve;Nervo;Nervos cranianos;sim;3;funcao, inerva;sim;wikipedia_traduzida_ia
+maxillary-nerve;Nervo maxilar;Maxillary nerve;Nervo;Nervos cranianos;sim;1;funcao, inerva;sim;wikipedia_traduzida_ia
+meningeal-branch-of-maxillary-nerve;Ramo meníngeo do nervo maxilar;Meningeal branch of maxillary nerve;Nervo;Nervos cranianos;sim;3;funcao, inerva;sim;wikipedia_traduzida_ia
+motor-root-of-trigeminal-nerve;Raiz motora do nervo trigêmeo;Motor root of trigeminal nerve;Nervo;Nervos cranianos;sim;3;funcao;sim;wikipedia_traduzida_ia
+ophthalmic-nerve;Nervo oftálmico;Ophthalmic nerve;Nervo;Nervos cranianos;sim;2;funcao;sim;wikipedia_traduzida_ia
+posterior-division-of-mandibular-nerve;Divisão posterior do nervo mandibular;Posterior division of mandibular nerve;Nervo;Nervos cranianos;sim;3;funcao, inerva;sim;wikipedia_traduzida_ia
+sensory-root-of-trigeminal-nerve;Raiz sensorial do nervo trigêmeo;Sensory root of trigeminal nerve;Nervo;Nervos cranianos;sim;3;funcao, inerva;sim;wikipedia_traduzida_ia
+trigeminal-nerve-v;Nervo trigêmeo (V);Trigeminal nerve (V);Nervo;Nervos cranianos;sim;1;inerva;sim;wikipedia_traduzida_ia
+chorda-tympani;Chorda tympani;Chorda tympani;Nervo;Nervos cranianos;sim;2;funcao, inerva;sim;wikipedia_traduzida_ia
+facial-nerve-vii;Nervo facial (VII);Facial nerve (VII);Nervo;Nervos cranianos;sim;1;inerva;sim;wikipedia_traduzida_ia
+motor-nucleus-of-facial-nerve;Núcleo motor do nervo facial;Motor nucleus of facial nerve;Encéfalo (sistema nervoso central);Nervos cranianos;sim;3;funcao;sim;wikipedia_traduzida_ia
+posterior-nucleus-of-vagus-nerve;Núcleo posterior do nervo vago;Posterior nucleus of vagus nerve;Encéfalo (sistema nervoso central);Nervos cranianos;sim;3;;sim;wikipedia_traduzida_ia
+vagus-nerve-x;Nervo vago (X);Vagus nerve (X);Nervo;Nervos cranianos;sim;1;funcao, inerva;sim;wikipedia_traduzida_ia
+accessory-nerve-xi;Nervo acessório (XI);Accessory nerve (XI);Nervo;Nervos cranianos;sim;1;;sim;wikipedia_traduzida_ia
+nucleus-of-accessory-nerve;Núcleo do nervo acessório;Nucleus of accessory nerve;Encéfalo (sistema nervoso central);Nervos cranianos;sim;3;funcao;sim;wikipedia_traduzida_ia
+hypoglossal-nerve-xii;Nervo hipoglosso (XII);Hypoglossal nerve (XII);Nervo;Nervos cranianos;sim;1;;sim;wikipedia_traduzida_ia
+nucleus-of-hypoglossal-nerve;Núcleo do nervo hipoglosso;Nucleus of hypoglossal nerve;Encéfalo (sistema nervoso central);Nervos cranianos;sim;3;funcao;sim;wikipedia_traduzida_ia
+posterior-transverse-collateral-sulcus;Posterior transverse collateral sulcus;Posterior transverse collateral sulcus;Encéfalo (sistema nervoso central);Cérebro;não;3;nome_latim, funcao;sim;conhecimento_geral_ia
+accessory-branch-of-middle-meningeal-artery;Ramo acessório da artéria meníngea média;Accessory branch of middle meningeal artery;Artéria;Cérebro;não;3;funcao;sim;conhecimento_geral_ia
+adenohypophysis;Adenohipófise;Adenohypophysis;Glândula;Cérebro;não;2;funcao;sim;wikipedia_traduzida_ia
+angular-gyrus;Giro angular;Angular gyrus;Encéfalo (sistema nervoso central);Cérebro;sim;3;funcao;sim;wikipedia_traduzida_ia
+anterior-cerebral-artery;Artéria cerebral anterior;Anterior cerebral artery;Artéria;Cérebro;não;2;funcao;sim;wikipedia_traduzida_ia
+anterior-inferior-cerebellar-artery;Artéria cerebelar infero-anterior;Anterior inferior cerebellar artery;Artéria;Cérebro;não;2;funcao;sim;wikipedia_traduzida_ia
+anterior-occipital-sulcus;Anterior occipital sulcus*;Anterior occipital sulcus*;Encéfalo (sistema nervoso central);Cérebro;não;3;nome_latim, funcao;sim;conhecimento_geral_ia
+anterior-spinocerebellar-tract;Trato espinocerebelar anterior;Anterior spinocerebellar tract;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+aqueduct-of-midbrain;Aqueduto do mesencéfalo;Aqueduct of midbrain;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;conhecimento_geral_ia
+artery-of-central-sulcus;Artery of central sulcus;Artery of central sulcus;Artéria;Cérebro;não;3;nome_latim, funcao;sim;conhecimento_geral_ia
+artery-of-precentral-sulcus;Artery of precentral sulcus;Artery of precentral sulcus;Artéria;Cérebro;não;3;nome_latim, funcao;sim;conhecimento_geral_ia
+branch-to-angular-gyrus;Branch to angular gyrus;Branch to angular gyrus;Vaso;Cérebro;sim;3;nome_latim, funcao;sim;conhecimento_geral_ia
+calcarine-sulcus;Sulco calcarino;Calcarine sulcus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+caudate-nucleus;Núcleo caudado;Caudate nucleus;Encéfalo (sistema nervoso central);Cérebro;não;3;;sim;wikipedia_traduzida_ia
+central-sulcus;Sulco central;Central sulcus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+choroid-plexus;Plexo coróide;Choroid plexus;Nervo;Cérebro;não;2;funcao, inerva;sim;wikipedia_traduzida_ia
+cingulate-gyrus-posteroventral-part;Cingulate gyrus (Posteroventral part*);Cingulate gyrus (Posteroventral part*);Encéfalo (sistema nervoso central);Cérebro;não;3;nome_latim, funcao;sim;wikipedia_traduzida_ia
+cingulate-gyrus-and-sulcus-middle-anterior-part;Cingulate gyrus and sulcus (Middle anterior part);Cingulate gyrus and sulcus (Middle anterior part);Encéfalo (sistema nervoso central);Cérebro;não;3;nome_latim, funcao;sim;wikipedia_traduzida_ia
+cingulate-gyrus-and-sulcus-middle-posterior-part;Cingulate gyrus and sulcus (Middle posterior part);Cingulate gyrus and sulcus (Middle posterior part);Encéfalo (sistema nervoso central);Cérebro;não;3;nome_latim, funcao;sim;wikipedia_traduzida_ia
+cingulate-gyrus-and-sulcus-posterior-dorsal-part;Cingulate gyrus and sulcus (Posterior dorsal part);Cingulate gyrus and sulcus (Posterior dorsal part);Encéfalo (sistema nervoso central);Cérebro;não;3;nome_latim;sim;conhecimento_geral_ia
+cingulate-sulcus-marginal-part;Cingulate sulcus (Marginal part*);Cingulate sulcus (Marginal part*);Encéfalo (sistema nervoso central);Cérebro;não;3;nome_latim, funcao;sim;wikipedia_traduzida_ia
+circular-sulcus-of-insula;Sulco circular da ínsula;Circular sulcus of insula;Encéfalo (sistema nervoso central);Cérebro;não;3;;sim;wikipedia_traduzida_ia
+collateral-sulcus;Sulco colateral;Collateral sulcus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+corpus-callosum;Corpo caloso;Corpus callosum;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+falx-cerebri;Falx cerebri;Falx cerebri;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+fornix;Fornix;Fornix;Encéfalo (sistema nervoso central);Cérebro;não;3;;sim;wikipedia_traduzida_ia
+fourth-ventricle;Quarto ventrículo;Fourth ventricle;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+globus-pallidus;Globus pallidus;Globus pallidus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;conhecimento_geral_ia
+hippocampal-commissure;Comissura hipocampal;Hippocampal commissure;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+hippocampus;Hipocampo;Hippocampus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+hypothalamus;Hipotálamo;Hypothalamus;Encéfalo (sistema nervoso central);Cérebro;não;3;;sim;wikipedia_traduzida_ia
+inferior-occipital-gyrus-and-sulcus;Inferior occipital gyrus and sulcus*;Inferior occipital gyrus and sulcus*;Encéfalo (sistema nervoso central);Cérebro;não;3;nome_latim, funcao;sim;wikipedia_traduzida_ia
+inferior-temporal-gyrus;Giro temporal inferior;Inferior temporal gyrus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+insula-subcentral-gyrus-and-ant-and-post-sulci;Insula (Subcentral gyrus and ant. and post. sulci*);Insula (Subcentral gyrus and ant. and post. sulci*);Encéfalo (sistema nervoso central);Cérebro;não;3;nome_latim;sim;wikipedia_traduzida_ia
+insular-branches-of-middle-cerebral-artery-m2;Ramos insulares da artéria cerebra média (M2);Insular branches of middle cerebral artery (M2);Artéria;Cérebro;não;3;;sim;conhecimento_geral_ia
+insular-branches-of-middle-cerebral-artery-m2-segment;Insular branches of middle cerebral artery (M2-segment);Insular branches of middle cerebral artery (M2-segment);Artéria;Cérebro;não;3;nome_latim;sim;conhecimento_geral_ia
+lateral-occipital-gyrus-middle-occipital-gyrus;Lateral occipital gyrus (Middle occipital gyrus*);Lateral occipital gyrus (Middle occipital gyrus*);Encéfalo (sistema nervoso central);Cérebro;não;3;nome_latim, funcao;sim;wikipedia_traduzida_ia
+lateral-occipitotemporal-gyrus;Giro occipitotemporal lateral;Lateral occipitotemporal gyrus;Encéfalo (sistema nervoso central);Cérebro;não;3;;sim;wikipedia_traduzida_ia
+lateral-ventricle;Ventrículo lateral;Lateral ventricle;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+lentiform-nucleus;Núcleo lentiforme;Lentiform nucleus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;conhecimento_geral_ia
+lingula-of-cerebellum;Lingula de cerebelo;Lingula of cerebellum;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+lunate-sulcus;(Sulco semilunar);Lunate sulcus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+medial-occipitotemporal-gyrus-parahippocampal;Medial occipitotemporal gyrus (Parahippocampal*);Medial occipitotemporal gyrus (Parahippocampal*);Encéfalo (sistema nervoso central);Cérebro;não;3;nome_latim, funcao;sim;wikipedia_traduzida_ia
+medulla-oblongata;Medula oblongata;Medulla oblongata;Encéfalo (sistema nervoso central);Cérebro;não;3;;sim;wikipedia_traduzida_ia
+midbrain;Mesencéfalo;Midbrain;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+middle-cerebral-artery-m1-segment;Artéria cerebral média (Segmento M1);Middle cerebral artery (M1-segment);Artéria;Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+middle-cerebral-artery-m3-segment;Artéria cerebral média (Segmento M3);Middle cerebral artery (M3 segment);Artéria;Cérebro;não;3;funcao;sim;conhecimento_geral_ia
+middle-frontal-gyrus;Giro frontal médio;Middle frontal gyrus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+middle-meningeal-artery;Artéria meníngea média;Middle meningeal artery;Artéria;Cérebro;não;2;funcao;sim;wikipedia_traduzida_ia
+middle-temporal-gyrus;Giro temporal médio;Middle temporal gyrus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+neurohypophysis;Neurohipófise;Neurohypophysis;Glândula;Cérebro;não;2;funcao;sim;wikipedia_traduzida_ia
+occipitotemporal-sulcus-lateral-part;Occipitotemporal sulcus (Lateral part*);Occipitotemporal sulcus (Lateral part*);Encéfalo (sistema nervoso central);Cérebro;não;3;nome_latim, funcao;sim;conhecimento_geral_ia
+orbital-gyri-frontomarginal-gyrus-and-sulcus;Orbital gyri (Frontomarginal gyrus and sulcus*);Orbital gyri (Frontomarginal gyrus and sulcus*);Encéfalo (sistema nervoso central);Cérebro;não;3;nome_latim, funcao;sim;wikipedia_traduzida_ia
+orbital-part-of-inferior-frontal-gyrus;Parte orbital do giro frontal inferior;Orbital part of  inferior frontal gyrus;Encéfalo (sistema nervoso central);Cérebro;sim;3;funcao;sim;wikipedia_traduzida_ia
+orbital-sulci-lateral-orbital-sulcus;Orbital sulci (Lateral Orbital sulcus*);Orbital sulci (Lateral Orbital sulcus*);Encéfalo (sistema nervoso central);Cérebro;não;3;nome_latim, funcao;sim;wikipedia_traduzida_ia
+orbitofrontal-branches-of-anterior-cerebral-artery;Ramos orbitofrontais da artéria cerebral anterior;Orbitofrontal branches of anterior cerebral artery;Artéria;Cérebro;não;3;funcao;sim;conhecimento_geral_ia
+paracentral-gyrus-and-sulcus;Paracentral gyrus and sulcus*;Paracentral gyrus and sulcus*;Encéfalo (sistema nervoso central);Cérebro;não;3;nome_latim, funcao;sim;wikipedia_traduzida_ia
+parietal-branches-of-middle-cerebral-artery;Ramos parietais da artéria cerebral média;Parietal branches of middle cerebral artery;Artéria;Cérebro;não;3;funcao;sim;conhecimento_geral_ia
+postcentral-gyrus;Giro pós-central;Postcentral gyrus;Encéfalo (sistema nervoso central);Cérebro;sim;3;funcao;sim;wikipedia_traduzida_ia
+posterior-cerebral-artery;Artéria cerebral posterior;Posterior cerebral artery;Artéria;Cérebro;não;2;funcao;sim;wikipedia_traduzida_ia
+posterior-inferior-cerebellar-artery;Artéria cerebelar inferior posterior;Posterior inferior cerebellar artery;Artéria;Cérebro;não;2;funcao;sim;wikipedia_traduzida_ia
+posterior-spinocerebellar-tract;Trato espinocerebelar posterior;Posterior spinocerebellar tract;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+precentral-gyrus;Giro precentral;Precentral gyrus;Encéfalo (sistema nervoso central);Cérebro;sim;3;funcao;sim;wikipedia_traduzida_ia
+inferior-frontal-sulcus;Sulco frontal inferior;Inferior frontal sulcus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+inferior-temporal-sulcus;Sulco temporal inferior;Inferior temporal sulcus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+intraparietal-sulcus;Sulco intraparietal;Intraparietal sulcus;Encéfalo (sistema nervoso central);Cérebro;não;3;;sim;wikipedia_traduzida_ia
+opercular-part-of-inferior-frontal-gyrus;Parte opercular do giro frontal inferior;Opercular part of inferior frontal gyrus;Encéfalo (sistema nervoso central);Cérebro;sim;3;funcao;sim;wikipedia_traduzida_ia
+paracentral-sulcus;Sulco paracentral;Paracentral sulcus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;conhecimento_geral_ia
+parieto-occipital-sulcus;Sulco parieto-occipital;Parieto-occipital sulcus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+pineal-gland;Glândula pineal;Pineal gland;Glândula;Cérebro;não;2;funcao;sim;wikipedia_traduzida_ia
+pons;Pons;Pons;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+postcentral-sulcus;Sulco pós-central;Postcentral sulcus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+precentral-sulcus-inferior-part;Precentral sulcus (inferior part)*;Precentral sulcus (inferior part)*;Encéfalo (sistema nervoso central);Cérebro;não;3;nome_latim, funcao;sim;wikipedia_traduzida_ia
+precentral-sulcus-superior-part;Precentral sulcus (Superior part)*;Precentral sulcus (Superior part)*;Encéfalo (sistema nervoso central);Cérebro;não;3;nome_latim, funcao;sim;wikipedia_traduzida_ia
+putamen;Putamen;Putamen;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+pyramid-of-medulla-oblongata;Pirâmide da medula oblonga;Pyramid of medulla oblongata;Nervo;Cérebro;não;3;funcao, inerva;sim;wikipedia_traduzida_ia
+straight-gyrus-gyrus-rectus;Straight gyrus (Gyrus rectus);Straight gyrus (Gyrus rectus);Encéfalo (sistema nervoso central);Cérebro;não;3;nome_latim;sim;wikipedia_traduzida_ia
+subparietal-sulcus;Sulco subparietal;Subparietal sulcus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+sulcus-interm-prim-jensen;Sulcus interm_prim-Jensen;Sulcus interm_prim-Jensen;Encéfalo (sistema nervoso central);Cérebro;não;3;nome_latim, funcao;sim;conhecimento_geral_ia
+superior-cerebellar-artery;Artéria cerebelar superior;Superior cerebellar artery;Artéria;Cérebro;não;2;funcao;sim;wikipedia_traduzida_ia
+superior-cerebellar-peduncle;Pedúnculo cerebelar superior;Superior cerebellar peduncle;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+superior-frontal-gyrus;Giro frontal superior;Superior frontal gyrus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+superior-frontal-sulcus;Sulco frontal superior;Superior frontal sulcus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+superior-temporal-gyrus-lateral-part;Superior temporal gyrus (Lateral part);Superior temporal gyrus (Lateral part);Encéfalo (sistema nervoso central);Cérebro;sim;3;nome_latim, funcao;sim;wikipedia_traduzida_ia
+superior-temporal-sulcus;Sulco temporal superior;Superior temporal sulcus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+supramarginal-gyrus;Giro supramarginal;Supramarginal gyrus;Encéfalo (sistema nervoso central);Cérebro;sim;3;funcao;sim;wikipedia_traduzida_ia
+temporal-branches-of-middle-cerebral-artery;Ramos temporais da artéria cerebral média;Temporal branches of middle cerebral artery;Artéria;Cérebro;não;3;funcao;sim;conhecimento_geral_ia
+tentorium-cerebelli;Tentorium cerebelli;Tentorium cerebelli;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+thalamus;Thalamus;Thalamus;Encéfalo (sistema nervoso central);Cérebro;não;3;;sim;wikipedia_traduzida_ia
+third-ventricle;Terceiro ventrículo;Third ventricle;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+transverse-frontopolar-gyrus-and-sulcus;Giro e surco frontopolar transverso;Transverse frontopolar gyrus and sulcus*;Encéfalo (sistema nervoso central);Cérebro;não;3;;sim;conhecimento_geral_ia
+transverse-occipital-sulcus;Sulco occipital transverso;Transverse occipital sulcus;Encéfalo (sistema nervoso central);Cérebro;não;3;funcao;sim;wikipedia_traduzida_ia
+triangular-part-of-inferior-frontal-gyrus;Parte triangular do giro frontal inferior;Triangular part of inferior frontal gyrus;Encéfalo (sistema nervoso central);Cérebro;sim;3;funcao;sim;wikipedia_traduzida_ia
+anterior-cells-of-ethmoid-bone;Células ósseas anteriores do etmóide;Anterior cells of ethmoid bone;Osso;Ossos do crânio;não;2;funcao;sim;conhecimento_geral_ia
+anterior-ethmoidal-artery;Artéria etmoidal anterior;Anterior ethmoidal artery;Artéria;Ossos do crânio;não;2;funcao;sim;wikipedia_traduzida_ia
+anterior-septal-branches-of-anterior-ethmoidal-artery;Ramos septais anteriores da artéria etmoidal anterior;Anterior septal branches of anterior ethmoidal artery;Artéria;Ossos do crânio;não;3;funcao;sim;conhecimento_geral_ia
+ethmoid-bone;Osso etmóide;Ethmoid bone;Osso;Ossos do crânio;não;2;funcao;sim;wikipedia_traduzida_ia
+frontal-bone;Osso frontal;Frontal bone;Osso;Ossos do crânio;não;1;funcao;sim;wikipedia_traduzida_ia
+hyoid-bone;Osso hióide;Hyoid bone;Osso;Ossos do crânio;sim;1;funcao;sim;wikipedia_traduzida_ia
+inferior-nasal-concha-bone;Osso da concha nasal inferior;Inferior nasal concha bone;Osso;Ossos do crânio;não;2;funcao;sim;wikipedia_traduzida_ia
+infra-orbital-artery;Artéria infra-orbital;Infra-orbital artery;Artéria;Ossos do crânio;não;2;funcao;sim;wikipedia_traduzida_ia
+infra-orbital-region;Região infra-orbital;Infra-orbital region;Região de superfície;Regiões de superfície (pele);não;2;funcao;sim;conhecimento_geral_ia
+lacrimal-bone;Osso lacrimal;Lacrimal bone;Osso;Ossos do crânio;não;2;funcao;sim;wikipedia_traduzida_ia
+mandible;Mandíbula;Mandible;Osso;Ossos do crânio;sim;1;funcao;sim;wikipedia_traduzida_ia
+maxilla;Osso maxilar;Maxilla;Osso;Ossos do crânio;sim;1;funcao;sim;wikipedia_traduzida_ia
+maxillary-artery;Artéria maxilar;Maxillary artery;Artéria;Ossos do crânio;sim;1;funcao;sim;wikipedia_traduzida_ia
+maxillary-veins;Veias maxilares;Maxillary veins;Veia / seio venoso;Ossos do crânio;sim;1;funcao;sim;wikipedia_traduzida_ia
+middle-cells-of-ethmoid-bone;Células ósseas médias do etmóide;Middle cells of ethmoid bone;Osso;Ossos do crânio;não;2;funcao;sim;conhecimento_geral_ia
+mucosa-of-nasal-cavity;Mucosa da cavidade nasal;Mucosa of nasal cavity;Órgão / víscera;Ossos do crânio;não;2;;sim;conhecimento_geral_ia
+nasal-bone;Osso nasal;Nasal bone;Osso;Ossos do crânio;sim;1;funcao;sim;wikipedia_traduzida_ia
+occipital-bone;Osso occipital;Occipital bone;Osso;Ossos do crânio;não;1;funcao;sim;wikipedia_traduzida_ia
+orbital-gyri;Giro orbital;Orbital gyri;Encéfalo (sistema nervoso central);Ossos do crânio;não;3;funcao;sim;wikipedia_traduzida_ia
+orbital-part-of-orbicularis-oculi;Parte orbital do músculo orbicular do olho;Orbital part of orbicularis oculi;Músculo;Músculos faciais (expressão);não;3;funcao, insercao, inervado_por;sim;wikipedia_traduzida_ia
+orbital-region;Região orbital;Orbital region;Região de superfície;Regiões de superfície (pele);não;2;funcao;sim;wikipedia_traduzida_ia
+orbital-sulci-h-shaped-orbital-sulci;Orbital sulci (H-shaped orbital sulci*);Orbital sulci (H-shaped orbital sulci*);Encéfalo (sistema nervoso central);Ossos do crânio;não;3;nome_latim, funcao;sim;wikipedia_traduzida_ia
+parietal-bone;Osso parietal;Parietal bone;Osso;Ossos do crânio;não;1;funcao;sim;wikipedia_traduzida_ia
+posterior-cells-of-ethmoid-bone;Células ósseas posteriores do etmóide;Posterior cells of ethmoid bone;Osso;Ossos do crânio;não;2;funcao;sim;conhecimento_geral_ia
+posterior-ethmoidal-artery;Artéria etmoidal posterior;Posterior ethmoidal artery;Artéria;Ossos do crânio;não;2;funcao;sim;wikipedia_traduzida_ia
+sphenoid-bone;Osso esfenóide;Sphenoid bone;Osso;Ossos do crânio;sim;1;funcao;sim;wikipedia_traduzida_ia
+septal-branches-of-posterior-ethmoidal-artery;Ramos septais da artéria etmoidal posterior;Septal branches of posterior ethmoidal artery;Artéria;Ossos do crânio;não;3;funcao;sim;conhecimento_geral_ia
+sinus-of-frontal-bone;Seio do osso frontal;Sinus of frontal bone;Osso;Ossos do crânio;não;2;funcao;sim;wikipedia_traduzida_ia
+sinus-of-sphenoid-bone;Seio do osso esfenoidal;Sinus of sphenoid bone;Osso;Ossos do crânio;não;2;funcao;sim;wikipedia_traduzida_ia
+supra-orbital-artery;Artéria supra-orbital;Supra-orbital artery;Artéria;Ossos do crânio;não;2;funcao;sim;conhecimento_geral_ia
+temporal-bone;Osso temporal;Temporal bone;Osso;Ossos do crânio;sim;1;funcao;sim;wikipedia_traduzida_ia
+vomer;Vômer;Vomer;Osso;Ossos do crânio;não;2;funcao;sim;wikipedia_traduzida_ia
+zygomatic-bone;Osso zigomático;Zygomatic bone;Osso;Ossos do crânio;sim;1;funcao;sim;wikipedia_traduzida_ia
+ascending-part-of-trapezius-muscle;Parte ascendente do músculo trapézio;Ascending part of trapezius muscle;Músculo;Músculos do pescoço;sim;3;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+descending-part-of-trapezius-muscle;Parte descendente do músculo trapézio;Descending part of trapezius muscle;Músculo;Músculos do pescoço;sim;3;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+iliocostalis-colli-muscle;Músculo iliocostalis do pescoço;Iliocostalis colli muscle;Músculo;Músculos do pescoço;não;2;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+interspinales-colli-muscles;Músculos interspinales do pescoço;Interspinales colli muscles;Músculo;Músculos do pescoço;não;2;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+levator-scapulae;Levantador da escápula;Levator scapulae;Músculo;Músculos do pescoço;não;2;origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+longissimus-capitis-muscle;Músculo longuíssimo da cabeça;Longissimus capitis muscle;Músculo;Músculos do pescoço;não;2;funcao, inervado_por;sim;wikipedia_traduzida_ia
+longissimus-colli-muscle;Músculo longuíssimo do pescoço;Longissimus colli muscle;Músculo;Músculos do pescoço;não;2;funcao, inervado_por;sim;wikipedia_traduzida_ia
+longus-capitis-muscle;Músculo longo da cabeça;Longus capitis muscle;Músculo;Músculos do pescoço;não;2;funcao, insercao;sim;wikipedia_traduzida_ia
+longus-colli-muscle;Músculo longo do pescoço;Longus colli muscle;Músculo;Músculos do pescoço;não;2;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+multifidus-colli-muscle;Músculo multífido do pescoço;Multifidus colli muscle;Músculo;Músculos do pescoço;não;2;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+scalenus-anterior-muscle;Músculo escaleno anterior;Scalenus anterior muscle;Músculo;Músculos do pescoço;não;2;funcao, origem, insercao;sim;wikipedia_traduzida_ia
+scalenus-medius-muscle;Músculo escaleno médio;Scalenus medius muscle;Músculo;Músculos do pescoço;não;2;funcao, origem, insercao;sim;wikipedia_traduzida_ia
+scalenus-posterior-muscle;Músculo escaleno posterior;Scalenus posterior muscle;Músculo;Músculos do pescoço;não;2;funcao, origem, insercao;sim;wikipedia_traduzida_ia
+semispinalis-colli-muscle;Músculo semi-espinal do pescoço;Semispinalis colli muscle;Músculo;Músculos do pescoço;não;2;funcao, inervado_por;sim;wikipedia_traduzida_ia
+platysma;Platisma;Platysma;Músculo;Músculos do pescoço;sim;1;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+spinalis-capitis-muscle;Músculo espinhal da cabeça;Spinalis capitis muscle;Músculo;Músculos do pescoço;não;2;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+spinalis-colli-muscle;Músculo espinhal do pescoço;Spinalis colli muscle;Músculo;Músculos do pescoço;não;2;funcao, insercao, inervado_por;sim;wikipedia_traduzida_ia
+splenius-capitis-muscle;Músculo esplênio da cabeça;Splenius capitis muscle;Músculo;Músculos do pescoço;não;2;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+splenius-colli-muscle;Músculo esplênio do pescoço;Splenius colli muscle;Músculo;Músculos do pescoço;não;2;funcao, inervado_por;sim;wikipedia_traduzida_ia
+sternocleidomastoid-muscle;Músculo esternocleidomastóideo;Sternocleidomastoid muscle;Músculo;Músculos do pescoço;sim;1;funcao;sim;wikipedia_traduzida_ia
+sternocleidomastoid-region;Região do esternocleidomastóideo;Sternocleidomastoid region;Região de superfície;Regiões de superfície (pele);sim;2;funcao;sim;wikipedia_traduzida_ia
+subtendinous-bursa-of-trapezius-muscle;Bursa subtendínea do músculo trapézio;Subtendinous bursa of trapezius muscle;Fáscia / aponeurose;Músculos do pescoço;sim;2;funcao;sim;conhecimento_geral_ia
+transverse-part-of-trapezius-muscle;Parte transversal do músculo trapézio;Transverse part of trapezius muscle;Músculo;Músculos do pescoço;sim;3;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+obliquus-inferior-capitis-muscle;Músculo inferior oblíquo da cabeça;Obliquus inferior capitis muscle;Músculo;Músculos suboccipitais;não;2;funcao, insercao, inervado_por;sim;wikipedia_traduzida_ia
+obliquus-superior-capitis-muscle;Músculo superior oblíquo da cabeça;Obliquus superior capitis muscle;Músculo;Músculos suboccipitais;não;2;funcao, insercao, inervado_por;sim;wikipedia_traduzida_ia
+rectus-posterior-major-capitis-muscle;Músculo reto posterior maior da cabeça;Rectus posterior major capitis muscle;Músculo;Músculos suboccipitais;não;2;funcao, inervado_por;sim;wikipedia_traduzida_ia
+rectus-posterior-minor-capitis-muscle;Músculo reto posterior menor da cabeça;Rectus posterior minor capitis muscle;Músculo;Músculos suboccipitais;não;2;funcao, inervado_por;sim;wikipedia_traduzida_ia
+rectus-anterior-capitis-muscle;Músculo reto anterior da cabeça;Rectus anterior capitis muscle;Músculo;Músculos suboccipitais;não;2;inervado_por;sim;conhecimento_geral_ia
+rectus-lateralis-capitis-muscle;Músculo reto lateral da cabeça;Rectus lateralis capitis muscle;Músculo;Músculos suboccipitais;não;2;inervado_por;sim;conhecimento_geral_ia
+anterior-belly-of-digastric-muscle;Ventre anterior do músculo digástrico;Anterior belly of digastric muscle;Músculo;Músculos supra/infra-hióideos;sim;3;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+geniohyoid-muscle;Músculo geniohióideo;Geniohyoid muscle;Músculo;Músculos supra/infra-hióideos;sim;1;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+intermediate-tendon-of-digastric-muscle;Tendão intermediário do músculo digástrico;Intermediate tendon of digastric muscle;Músculo;Músculos supra/infra-hióideos;sim;2;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+jugulodigastric-node;Nódulo jugulodigástrico;Jugulodigastric node;Tecido linfoide;Músculos supra/infra-hióideos;sim;2;funcao;sim;wikipedia_traduzida_ia
+mylohyoid-branch-of-inferior-alveolar-artery;Ramo milohióideo da artéria alveolar inferior;Mylohyoid branch of inferior alveolar artery;Artéria;Músculos supra/infra-hióideos;sim;3;funcao;sim;conhecimento_geral_ia
+mylohyoid-muscle;Músculo milohióideo;Mylohyoid muscle;Músculo;Músculos supra/infra-hióideos;sim;1;funcao, origem, inervado_por;sim;wikipedia_traduzida_ia
+nerve-to-mylohyoid-muscle;Nervo ao músculo milohióideo;Nerve to mylohyoid muscle;Nervo;Músculos supra/infra-hióideos;sim;2;funcao;sim;conhecimento_geral_ia
+omohyoid-muscle;Músculo omohióideo;Omohyoid muscle;Músculo;Músculos supra/infra-hióideos;sim;2;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+posterior-belly-of-digastric-muscle;Ventre posterior do músculo digástrico;Posterior belly of digastric muscle;Músculo;Músculos supra/infra-hióideos;sim;3;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+sternohyoid-muscle;Músculo esternohióideo;Sternohyoid muscle;Músculo;Músculos supra/infra-hióideos;sim;2;funcao, origem, insercao;sim;wikipedia_traduzida_ia
+sternothyroid-muscle;Músculo esternotireóideo;Sternothyroid muscle;Músculo;Músculos supra/infra-hióideos;sim;2;origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+stylohyoid-ligament;Ligamento estilo-hióideo;Stylohyoid ligament;Ligamento / membrana;Músculos supra/infra-hióideos;sim;2;funcao;sim;wikipedia_traduzida_ia
+stylohyoid-muscle;Músculo estilohióideo;Stylohyoid muscle;Músculo;Músculos supra/infra-hióideos;sim;2;origem, insercao;sim;wikipedia_traduzida_ia
+thyrohyoid-muscle;Músculo tirohióideo;Thyrohyoid muscle;Músculo;Músculos supra/infra-hióideos;sim;2;funcao;sim;wikipedia_traduzida_ia
+deep-part-of-masseter;Parte profunda do masseter;Deep part of masseter;Músculo;Músculos da mastigação;sim;3;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+masseter;Masseter;Masseter;Músculo;Músculos da mastigação;sim;1;funcao;não;conhecimento_geral_ia
+masseteric-fascia;Fáscia massetérica;Masseteric fascia;Fáscia / aponeurose;Músculos da mastigação;sim;1;funcao;sim;wikipedia_traduzida_ia
+superficial-part-of-masseter;Parte superficial do masseter;Superficial part of masseter;Músculo;Músculos da mastigação;sim;3;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+temporalis-muscle;Músculo temporal;Temporalis muscle;Músculo;Músculos da mastigação;sim;1;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+corrugator-supercilii;Músculo corrugador do supercílio;Corrugator supercilii;Músculo;Músculos faciais (expressão);não;2;funcao, inervado_por;sim;wikipedia_traduzida_ia
+depressor-anguli-oris;Depressor do ângulo da boca;Depressor anguli oris;Músculo;Músculos faciais (expressão);sim;2;funcao, inervado_por;sim;wikipedia_traduzida_ia
+depressor-labii-inferioris;Depressor do lábio inferior;Depressor labii inferioris;Músculo;Músculos faciais (expressão);sim;2;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+frontalis-muscle;Músculo frontal;Frontalis muscle;Músculo;Músculos faciais (expressão);não;2;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+levator-anguli-oris;Levantador do ângulo da boca;Levator anguli oris;Músculo;Músculos faciais (expressão);sim;2;funcao;sim;wikipedia_traduzida_ia
+levator-labii-superioris;Levantador do lábio superior;Levator labii superioris;Músculo;Músculos faciais (expressão);sim;2;funcao, insercao, inervado_por;sim;wikipedia_traduzida_ia
+levator-palpebrae-superioris;Levantador da palpebra superior;Levator palpebrae superioris;Músculo;Músculos faciais (expressão);não;2;origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+mentalis-muscle;Músculo mentual;Mentalis muscle;Músculo;Músculos faciais (expressão);sim;2;funcao, inervado_por;sim;wikipedia_traduzida_ia
+nasalis-muscle;Músculo nasal;Nasalis muscle;Músculo;Músculos faciais (expressão);não;2;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+occipitalis-muscle;Músculo occipital;Occipitalis muscle;Músculo;Músculos faciais (expressão);não;2;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+orbicularis-oris-muscle;Músculo orbicular da boca;Orbicularis oris muscle;Músculo;Músculos faciais (expressão);sim;1;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+procerus-muscle;Músculo prócero;Procerus muscle;Músculo;Músculos faciais (expressão);não;2;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+risorius-muscle;Músculo risório;Risorius muscle;Músculo;Músculos faciais (expressão);sim;2;funcao;sim;wikipedia_traduzida_ia
+palpebral-part-of-orbicularis-oculi;Parte palpebral do músculo orbicular dos olhos;Palpebral part of orbicularis oculi;Músculo;Músculos faciais (expressão);não;3;funcao, insercao, inervado_por;sim;wikipedia_traduzida_ia
+temporoparietalis-muscle;Músculo temporoparietal;Temporoparietalis muscle;Músculo;Músculos faciais (expressão);não;2;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+zygomaticus-major-muscle;Músculo zigomático maior;Zygomaticus major muscle;Músculo;Músculos faciais (expressão);sim;2;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+zygomaticus-minor-muscle;Músculo zigomático menor;Zygomaticus minor muscle;Músculo;Músculos faciais (expressão);sim;2;funcao;sim;wikipedia_traduzida_ia
+inferior-oblique-muscle;Músculo oblíquo inferior;Inferior oblique muscle;Músculo;Músculos extraoculares;não;2;funcao;sim;wikipedia_traduzida_ia
+inferior-rectus-muscle;Músculo reto inferior;Inferior rectus muscle;Músculo;Músculos extraoculares;não;2;funcao, inervado_por;sim;wikipedia_traduzida_ia
+lateral-rectus-muscle;Músculo reto lateral;Lateral rectus muscle;Músculo;Músculos extraoculares;não;2;funcao, origem, insercao, inervado_por;sim;wikipedia_traduzida_ia
+medial-rectus-muscle;Músculo reto medial;Medial rectus muscle;Músculo;Músculos extraoculares;não;2;funcao, inervado_por;sim;wikipedia_traduzida_ia
+superior-oblique-muscle;Músculo oblíquo superior;Superior oblique muscle;Músculo;Músculos extraoculares;não;2;funcao, insercao;sim;wikipedia_traduzida_ia
+superior-rectus-muscle;Músculo reto superior;Superior rectus muscle;Músculo;Músculos extraoculares;não;2;funcao, origem, insercao;sim;wikipedia_traduzida_ia
+trochlea-of-superior-oblique-muscle;Tróclea do músculo oblíquo superior;Trochlea of superior oblique muscle;Músculo;Músculos extraoculares;não;2;funcao, origem, inervado_por;sim;wikipedia_traduzida_ia
+atlas-c1;Atlas (C1);Atlas (C1);Osso;Vértebras cervicais;não;2;funcao;sim;wikipedia_traduzida_ia
+axis-c2;Áxis (C2);Axis (C2);Osso;Vértebras cervicais;não;2;funcao;sim;wikipedia_traduzida_ia
+intervertebral-disc-c2-c3;Disco intervertebral C2-C3;Intervertebral disc C2-C3;Articulação / disco;Vértebras cervicais;não;2;funcao;sim;wikipedia_traduzida_ia
+intervertebral-disc-c3-c4;Disco intervertebral C3-C4;Intervertebral disc C3-C4;Articulação / disco;Vértebras cervicais;não;2;funcao;sim;wikipedia_traduzida_ia
+intervertebral-disc-c4-c5;Disco intervertebral C4-C5;Intervertebral disc C4-C5;Articulação / disco;Vértebras cervicais;não;2;funcao;sim;wikipedia_traduzida_ia
+intervertebral-disc-c5-c6;Disco intervertebral C5-C6;Intervertebral disc C5-C6;Articulação / disco;Vértebras cervicais;não;2;funcao;sim;wikipedia_traduzida_ia
+intervertebral-disc-c6-c7;Disco intervertebral C6-C7;Intervertebral disc C6-C7;Articulação / disco;Vértebras cervicais;não;2;funcao;sim;wikipedia_traduzida_ia
+intervertebral-disc-c7-t1;Disco intervertebral C7-T1;Intervertebral disc C7-T1;Articulação / disco;Vértebras cervicais;não;2;funcao;sim;wikipedia_traduzida_ia
+vertebra-c3;Vértebra C3;Vertebra C3;Osso;Vértebras cervicais;não;2;funcao;sim;wikipedia_traduzida_ia
+vertebra-c4;Vértebra C4;Vertebra C4;Osso;Vértebras cervicais;não;2;funcao;sim;wikipedia_traduzida_ia
+vertebra-c5;Vértebra C5;Vertebra C5;Osso;Vértebras cervicais;não;2;funcao;sim;wikipedia_traduzida_ia
+vertebra-c6;Vértebra C6;Vertebra C6;Osso;Vértebras cervicais;não;2;funcao;sim;wikipedia_traduzida_ia
+vertebra-c7;Vértebra C7;Vertebra C7;Osso;Vértebras cervicais;não;2;funcao;sim;wikipedia_traduzida_ia
+anterior-notch-of-auricle;Incisura anterior da orelha;Anterior notch of auricle;Região de superfície;Regiões de superfície (pele);não;3;funcao;sim;wikipedia_traduzida_ia
+apex-of-auricle;Ápice da orelha;Apex of auricle;Região de superfície;Regiões de superfície (pele);não;2;funcao;sim;conhecimento_geral_ia
+auricular-region;Região auricular;Auricular region;Região de superfície;Regiões de superfície (pele);não;2;funcao;sim;wikipedia_traduzida_ia
+carotid-triangle;Triângulo carotídeo;Carotid triangle;Região de superfície;Regiões de superfície (pele);não;2;funcao;sim;wikipedia_traduzida_ia
+concha-of-auricle;Concha de orelha;Concha of auricle;Região de superfície;Cartilagens da orelha e do nariz;sim;2;funcao;sim;wikipedia_traduzida_ia
+frontal-region;Região frontal;Frontal region;Região de superfície;Regiões de superfície (pele);não;2;funcao;sim;wikipedia_traduzida_ia
+lateral-region-of-neck;Região lateral do pescoço;Lateral region of neck;Região de superfície;Regiões de superfície (pele);não;2;funcao;sim;wikipedia_traduzida_ia
+lobule-of-auricle;Lóbulo da orelha;Lobule of auricle;Região de superfície;Cartilagens da orelha e do nariz;sim;3;funcao;sim;wikipedia_traduzida_ia
+mastoid-region;Região mastóide;Mastoid region;Região de superfície;Regiões de superfície (pele);não;2;funcao;sim;wikipedia_traduzida_ia
+mental-region;Região mental;Mental region;Região de superfície;Regiões de superfície (pele);sim;2;funcao;sim;wikipedia_traduzida_ia
+muscular-triangle;Triângulo muscular;Muscular triangle;Região de superfície;Regiões de superfície (pele);não;2;funcao;sim;wikipedia_traduzida_ia
+nasal-region;Região nasal;Nasal region;Região de superfície;Regiões de superfície (pele);não;2;funcao;sim;wikipedia_traduzida_ia
+occipital-region;Região occipital;Occipital region;Região de superfície;Regiões de superfície (pele);não;2;funcao;sim;wikipedia_traduzida_ia
+parietal-region;Região parietal;Parietal region;Região de superfície;Regiões de superfície (pele);não;2;funcao;sim;wikipedia_traduzida_ia
+posterior-region-of-neck;Região posterior do pescoço;Posterior region of neck;Região de superfície;Regiões de superfície (pele);não;2;funcao;sim;wikipedia_traduzida_ia
+submandibular-triangle;Triângulo submandibular;Submandibular triangle;Região de superfície;Regiões de superfície (pele);não;2;funcao;sim;wikipedia_traduzida_ia
+submental-triangle;Triângulo submentoniano;Submental triangle;Região de superfície;Regiões de superfície (pele);não;2;funcao;sim;wikipedia_traduzida_ia
+temporal-region;Região temporal;Temporal region;Região de superfície;Regiões de superfície (pele);não;2;funcao;sim;wikipedia_traduzida_ia
+zygomatic-region;Região zigomática;Zygomatic region;Região de superfície;Regiões de superfície (pele);não;2;funcao;sim;wikipedia_traduzida_ia
+antihelix;Antélice;Antihelix;Região de superfície;Cartilagens da orelha e do nariz;sim;2;funcao;sim;wikipedia_traduzida_ia
+antitragus;Antitragus;Antitragus;Região de superfície;Cartilagens da orelha e do nariz;sim;2;funcao;sim;wikipedia_traduzida_ia
+cavity-of-concha;Cavidade da concha;Cavity of concha;Região de superfície;Cartilagens da orelha e do nariz;sim;2;funcao;sim;wikipedia_traduzida_ia
+crura-of-antihelix;Cauda da antélice;Crura of antihelix;Região de superfície;Cartilagens da orelha e do nariz;sim;2;funcao;sim;wikipedia_traduzida_ia
+cymba-conchae;Concha da orelha parte superior;Cymba conchae;Região de superfície;Cartilagens da orelha e do nariz;sim;2;funcao;sim;wikipedia_traduzida_ia
+eminentia-conchae;Eminência da concha;Eminentia conchae;Região de superfície;Cartilagens da orelha e do nariz;sim;2;funcao;sim;conhecimento_geral_ia
+helix;Hélice;Helix;Região de superfície;Cartilagens da orelha e do nariz;sim;2;funcao;sim;wikipedia_traduzida_ia
+lateral-process-of-nasal-septal-cartilage;Processo lateral da cartilagem septal nasal;Lateral process of nasal septal cartilage;Cartilagem;Cartilagens da orelha e do nariz;sim;3;funcao;sim;wikipedia_traduzida_ia
+major-alar-cartilage;Cartilagem alar maior;Major alar cartilage;Cartilagem;Cartilagens da orelha e do nariz;sim;2;funcao;sim;wikipedia_traduzida_ia
+nasal-septal-cartilage;Cartilagem do septo nasal;Nasal septal cartilage;Cartilagem;Cartilagens da orelha e do nariz;sim;2;funcao;sim;wikipedia_traduzida_ia
+tragus;Trágus;Tragus;Região de superfície;Cartilagens da orelha e do nariz;sim;2;funcao;sim;wikipedia_traduzida_ia
+supra-orbital-notch;(Entalhe supra-orbital);Supra-orbital notch;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+condylar-canal;Canal condilar;Condylar canal;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+ethmoidal-notch;Entalhe etmoidal;Ethmoidal notch;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+foramen-caecum-of-frontal-bone;Forame cego do osso frontal;Foramen caecum of frontal bone;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+foramen-magnum;Forame magno;Foramen magnum;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+foramen-ovale;Forame oval;Foramen ovale;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);sim;3;funcao;sim;wikipedia_traduzida_ia
+foramen-rotundum;Forame redondo;Foramen rotundum;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;;sim;wikipedia_traduzida_ia
+foramen-spinosum;Forame espinhoso;Foramen spinosum;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;;sim;wikipedia_traduzida_ia
+groove-for-marginal-sinus;Sulco para seio marginal;Groove for marginal sinus;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;outra_fonte_traduzida_ia
+groove-for-middle-meningeal-artery;Sulco para artéria meníngea média;Groove for middle meningeal artery;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+groove-for-occipital-sinus;Sulco para seio occipital;Groove for occipital sinus;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+groove-for-transverse-sinus;Sulco para seio transverso;Groove for transverse sinus;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+groove-of-pterygoid-hamulus;Sulco de hamulus pterigóide;Groove of pterygoid hamulus;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);sim;3;;sim;escrita_para_o_projeto_ia
+hypoglossal-canal;Canal do nervo hipoglosso;Hypoglossal canal;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);sim;3;funcao;sim;wikipedia_traduzida_ia
+inferior-thyroid-notch;Incisura inferior da tireoide;Inferior thyroid notch;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+jugular-notch-of-occipital-bone;Incisura jugular do osso occipital;Jugular notch of occipital bone;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);sim;3;funcao;sim;wikipedia_traduzida_ia
+mastoid-notch;Entalhe mastóide;Mastoid notch;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+mental-foramen;Forame mentual;Mental foramen;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);sim;3;funcao;sim;wikipedia_traduzida_ia
+optic-canal;Canal óptico;Optic canal;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+parietal-foramen;Forame parietal;Parietal foramen;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+pterygoid-canal;Canal pterigóideo;Pterygoid canal;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);sim;3;funcao;sim;wikipedia_traduzida_ia
+pterygoid-notch;Entalhe pterigóide;Pterygoid notch;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);sim;3;funcao;sim;wikipedia_traduzida_ia
+superior-thyroid-notch;Incisura tireoidiano superior;Superior thyroid notch;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+anterior-semicircular-canal;Canal semicircular anterior;Anterior semicircular canal;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+lateral-semicircular-canal;Canal semicircular lateral;Lateral semicircular canal;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+posterior-semicircular-canal;Canal semicircular posterior;Posterior semicircular canal;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+spiral-canal-of-cochlea;Canal espiral da cóclea;Spiral canal of cochlea;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;escrita_para_o_projeto_ia
+denticulate-suture;Sutura denticulada;Denticulate suture;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+limbous-suture;Sutura límbica;Limbous suture;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+plane-suture;Sutura plana;Plane suture;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+serrate-suture;Sutura serrilhada;Serrate suture;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+canal-for-vertebral-artery;(Canal para a artéria vertebral);Canal for vertebral artery;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+foramen-transversarium;Forame transversário;Foramen transversarium;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+facet-for-dens;Faceta para o dente;Facet for dens;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+groove-for-spinal-nerve;Sulco para o nervo espinhal;Groove for spinal nerve;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
+uncinate-process-of-vertebra;Processo uncinado da vértebra;Uncinate process of vertebra;Marco ósseo (forame, canal, sutura);Marcos ósseos (forames, canais, suturas);não;3;funcao;sim;wikipedia_traduzida_ia
