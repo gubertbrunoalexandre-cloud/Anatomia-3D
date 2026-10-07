@@ -12,13 +12,21 @@ como malha separada).
 ## Como rodar
 
 ```bash
-python -m http.server 8080 --directory anatomia-fono-3d
+python anatomia-fono-3d/scripts/dev_server.py 8080
 ```
 
 Depois abra `http://localhost:8080/web/index.html` no navegador.
 
+`dev_server.py` é um servidor simples igual ao `python -m http.server`, mas manda
+`Cache-Control: no-store` — assim o navegador nunca mostra uma versão antiga do
+JavaScript depois de uma alteração (o `http.server` comum deixa o navegador
+guardar o `main.js` em cache). O `python -m http.server 8080 --directory
+anatomia-fono-3d` continua funcionando, só que pode exigir Ctrl+Shift+R.
+
 (O `.claude/launch.json` do projeto pai já tem essa configuração pronta como
 "anatomia-fono-3d" para quem estiver usando o Claude Code / Claude Desktop.)
+
+Relatórios de auditoria (cobertura do dataset e licenças): pasta `docs/fase-0/`.
 
 ## Como abrir no celular
 
@@ -58,8 +66,11 @@ anatomia-fono-3d/
 │   ├── photos.json                          # config de fotos por estrutura (ver abaixo)
 │   ├── photos/                              # arquivos de imagem referenciados por photos.json
 │   └── glb/                                 # modelos exportados (26 arquivos .glb + manifest.json)
+├── docs/fase-0/                             # auditoria de cobertura e inventário de licenças
 ├── scripts/
-│   └── export_head_neck.py                  # script headless do Blender que gera os .glb
+│   ├── export_head_neck.py                  # script headless do Blender que gera os .glb
+│   ├── audit_head_neck.py                   # auditoria (somente leitura) dataset x app
+│   └── dev_server.py                        # servidor local sem cache
 ├── web/
 │   ├── index.html
 │   └── js/main.js                           # visualizador Three.js

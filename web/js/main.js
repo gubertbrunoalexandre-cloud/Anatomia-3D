@@ -39,11 +39,36 @@ const state = {
   manifest: null,
   categories: {}, // key -> { root, loaded, loading, objects: Map(name->mesh), listEl, checkboxEl, headerLoadingEl }
   selected: null, // mesh
+  selectedGroup: [], // a malha selecionada + suas copias gemeas (mesmo nome em outra categoria)
+  twins: new Map(), // nome -> [malhas com esse nome, uma por categoria que a contem]
   framedOnce: false,
   photos: null, // config data/photos.json: normalized_key -> nome do arquivo em data/photos/
   pins: [], // alfinetes colocados livremente: { id, group, mesh }
   activePin: null,
 };
+
+// 59 objetos do dataset estao exportados em mais de uma categoria (ex.: "Orbital region"
+// em "Ossos do cranio" E em "Regioes de superficie") com a MESMA geometria no MESMO lugar.
+// Tratamos essas copias como uma peca so: o clique 3D escolhe a copia da categoria mais
+// apropriada, o destaque/ocultar vale para todas as copias (senao a gemea normal cobre a
+// destacada e o clique parece nao fazer nada).
+const CATEGORY_PRIORITY = [
+  "nervo_", "musculos_", "orelha_nariz_cartilagem", "regioes_superficie", "vertebras_cervicais",
+  "cerebro", "cranio_ossos", "faringe", "cavidade_oral_lingua", "laringe", "atm", "marcos_osseos",
+];
+function categoryRank(catKey, name) {
+  if (catKey === "regioes_superficie" && /\b(region|triangle)\b/i.test(name)) return -1;
+  if (catKey === "cavidade_oral_lingua" && /^(mentolabial|nasolabial) sulcus/i.test(name)) return -1;
+  if (catKey === "cerebro" && /^olfactory sulcus/i.test(name)) return -1;
+  const i = CATEGORY_PRIORITY.findIndex((p) => catKey.startsWith(p));
+  return i === -1 ? CATEGORY_PRIORITY.length : i;
+}
+function preferredTwin(a, b) {
+  return categoryRank(b.userData.category, b.name) < categoryRank(a.userData.category, a.name) ? b : a;
+}
+function twinsOf(mesh) {
+  return state.twins.get(mesh.name) || [mesh];
+}
 
 const holder = document.getElementById("canvas-holder");
 const scene = new THREE.Scene();
@@ -322,6 +347,8 @@ async function loadCategory(catKey) {
         child.name = origName;
         cat.objects.set(child.name, child);
         child.userData.category = catKey;
+        if (!state.twins.has(child.name)) state.twins.set(child.name, []);
+        state.twins.get(child.name).push(child);
         child.material = materialForMesh(child);
       }
     });
@@ -348,9 +375,8 @@ function setCategoryVisible(catKey, visible) {
 }
 
 function clearSelection() {
-  if (state.selected) {
-    state.selected.material = materialForMesh(state.selected);
-  }
+  for (const m of state.selectedGroup) m.material = materialForMesh(m);
+  state.selectedGroup = [];
   state.selected = null;
   document.querySelectorAll(".struct-item.active").forEach((el) => el.classList.remove("active"));
   if (state.activePin) {
@@ -363,7 +389,8 @@ function clearSelection() {
 function selectMesh(mesh) {
   clearSelection();
   state.selected = mesh;
-  mesh.material = HIGHLIGHT_MATERIAL;
+  state.selectedGroup = twinsOf(mesh).slice();
+  for (const m of state.selectedGroup) m.material = HIGHLIGHT_MATERIAL;
 
   const catKey = mesh.userData.category;
   const listItem = document.querySelector(`.struct-item[data-cat="${catKey}"][data-name="${CSS.escape(mesh.name)}"]`);
@@ -372,6 +399,11 @@ function selectMesh(mesh) {
     const list = listItem.closest(".struct-list");
     if (list) list.classList.add("open");
     listItem.scrollIntoView({ block: "center" });
+  }
+  for (const twin of state.selectedGroup) {
+    if (twin === mesh) continue;
+    const twinItem = document.querySelector(`.struct-item[data-cat="${twin.userData.category}"][data-name="${CSS.escape(twin.name)}"]`);
+    if (twinItem) twinItem.classList.add("active");
   }
 
   showInfoPanel(mesh.name, catKey);
@@ -476,9 +508,18 @@ function raycastAllHits(clientX, clientY) {
   // senao ela apareceria duplicada na pilha de "outras pecas neste ponto"
   const seen = new Set();
   const hits = [];
+  const indexByName = new Map();
   for (const hit of rawHits) {
     if (seen.has(hit.object)) continue;
     seen.add(hit.object);
+    // copia gemea (mesmo nome em outra categoria, mesma geometria): fica so uma entrada,
+    // a da categoria mais apropriada
+    const prev = indexByName.get(hit.object.name);
+    if (prev !== undefined) {
+      if (preferredTwin(hits[prev].object, hit.object) === hit.object) hits[prev] = hit;
+      continue;
+    }
+    indexByName.set(hit.object.name, hits.length);
     hits.push(hit);
   }
   return hits;
@@ -781,9 +822,9 @@ async function showAllMeshes() {
 }
 
 function hideMesh(mesh) {
-  mesh.visible = false;
+  for (const m of twinsOf(mesh)) m.visible = false;
   syncEyeIcons();
-  if (state.selected === mesh) closeInfoPanel();
+  if (state.selectedGroup.includes(mesh)) closeInfoPanel();
 }
 
 function searchStructure(nodeName) {
@@ -875,8 +916,8 @@ function buildSidebar(manifest) {
         setCategoryVisible(catKey, true);
         const mesh = state.categories[catKey].objects.get(objName);
         if (mesh) {
-          mesh.visible = true;
-          eyeBtn.classList.remove("hidden-eye");
+          for (const m of twinsOf(mesh)) m.visible = true;
+          syncEyeIcons();
           selectMesh(mesh);
           frameSelected(mesh);
         }
@@ -889,10 +930,10 @@ function buildSidebar(manifest) {
         setCategoryVisible(catKey, true);
         const mesh = state.categories[catKey].objects.get(objName);
         if (!mesh) return;
-        mesh.visible = !mesh.visible;
-        eyeBtn.classList.toggle("hidden-eye", !mesh.visible);
-        eyeBtn.textContent = mesh.visible ? "👁" : "🚫";
-        if (!mesh.visible && state.selected === mesh) {
+        const nowVisible = !mesh.visible;
+        for (const m of twinsOf(mesh)) m.visible = nowVisible;
+        syncEyeIcons();
+        if (!nowVisible && state.selectedGroup.includes(mesh)) {
           closeInfoPanel();
         }
       });
@@ -959,7 +1000,7 @@ function maybeHideLoadingOverlay() {
   document.getElementById("loading-overlay").style.display = "none";
 }
 
-window.__debug = { state, scene, camera, renderer, THREE };
+window.__debug = { state, scene, camera, renderer, THREE, controls };
 
 async function loadPhotosConfig() {
   try {
