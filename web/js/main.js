@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { initGame } from "./game.js";
 
 const CATEGORY_LABELS = {
   laringe: "Laringe e pregas vocais",
@@ -36,6 +37,7 @@ const MARKER_CATEGORY = "marcos_osseos";
 const DEFAULT_CHECKED = new Set(["laringe"]);
 
 const state = {
+  mode: "estudo", // "estudo" (padrao) ou "jogo" (ver game.js)
   manifest: null,
   categories: {}, // key -> { root, loaded, loading, objects: Map(name->mesh), listEl, checkboxEl, headerLoadingEl }
   selected: null, // mesh
@@ -548,6 +550,10 @@ renderer.domElement.addEventListener("click", (event) => {
     pinInteractionJustHappened = false; // clique/arraste no alfinete ja tratou tudo
     return;
   }
+  if (state.mode === "jogo") {
+    game.onCanvasClick(event); // no jogo o clique e a resposta, nao abre o painel de informacoes
+    return;
+  }
   const hits = raycastAllHits(event.clientX, event.clientY);
   if (!hits.length) {
     clickCycle = { x: null, y: null, hits: null, index: 0 };
@@ -659,6 +665,10 @@ function showContextMenu(x, y, hits) {
 
 renderer.domElement.addEventListener("contextmenu", (event) => {
   event.preventDefault();
+  if (state.mode === "jogo") {
+    game.onContextMenuAt(event.clientX, event.clientY); // menu sem nomes (nao entrega a resposta)
+    return;
+  }
   const hits = raycastAllHits(event.clientX, event.clientY);
   if (!hits.length) {
     hideContextMenu();
@@ -717,6 +727,12 @@ renderer.domElement.addEventListener("touchstart", (event) => {
   touchStartPos = { x: touch.clientX, y: touch.clientY };
   clearTimeout(touchTimer);
   touchTimer = setTimeout(() => {
+    if (state.mode === "jogo") {
+      longPressFired = true;
+      game.onContextMenuAt(touch.clientX, touch.clientY);
+      if (navigator.vibrate) navigator.vibrate(15);
+      return;
+    }
     const hits = raycastAllHits(touch.clientX, touch.clientY);
     if (hits.length) {
       longPressFired = true;
@@ -1000,7 +1016,20 @@ function maybeHideLoadingOverlay() {
   document.getElementById("loading-overlay").style.display = "none";
 }
 
-window.__debug = { state, scene, camera, renderer, THREE, controls };
+// modo jogo: recebe do visualizador apenas o que precisa (ver game.js)
+const game = initGame({
+  THREE, state, camera, controls,
+  loadCategory, materialForMesh, normalizeKey, baseName, twinsOf, raycastAllHits, syncEyeIcons,
+  prepareForGame() {
+    closeInfoPanel();
+    clearSelection();
+    removeAllPins();
+    hideContextMenu();
+  },
+});
+document.getElementById("btn-game").addEventListener("click", () => game.enter());
+
+window.__debug = { state, scene, camera, renderer, THREE, controls, game };
 
 async function loadPhotosConfig() {
   try {

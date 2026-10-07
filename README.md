@@ -75,7 +75,11 @@ anatomia-fono-3d/
 │   └── dev_server.py                        # servidor local sem cache
 ├── web/
 │   ├── index.html
-│   └── js/main.js                           # visualizador Three.js
+│   ├── css/game.css                         # estilos do modo jogo
+│   ├── js/main.js                           # visualizador Three.js
+│   ├── js/game.js                           # modo jogo: telas, 3D, progresso
+│   ├── js/game-core.js                      # modo jogo: perguntas, Leitner, pontos (logica pura)
+│   └── tests/                               # testes do motor do jogo (abrir no navegador)
 └── README.md
 ```
 
@@ -158,6 +162,30 @@ estruturas mostram o placeholder "foto em breve".
 3. Anote a fonte/autor/licença em `data/photos/ATTRIBUTIONS.md`.
 4. Salve e recarregue a página. Se o arquivo não existir ou o nome não bater,
    o placeholder "foto em breve" continua aparecendo — nunca quebra a página.
+
+## Modo jogo (🎮 Jogar)
+
+Botão **🎮 Jogar** na barra de ferramentas (o modo de estudo continua igual). Cada
+**fase** é uma região (ossos do crânio, músculos da mastigação, laringe, língua...) com
+10 perguntas sorteadas da base `data/estruturas.json`, nunca de listas fixas no código:
+
+- **Encontre a estrutura** — aparece um nome e você toca na peça no 3D (toque de novo no
+  mesmo ponto para alternar entre peças sobrepostas; botão direito/toque longo oculta a
+  peça da frente; **💡 Dica** aproxima a câmera, mas vale metade dos pontos).
+- **Que estrutura é esta?** — a peça aparece destacada em azul (mesmo atrás de outras)
+  e você escolhe entre 4 nomes.
+- **Função, origem, inserção e inervação** — múltipla escolha, só onde a base tem texto
+  curado (112 estruturas; textos escritos por IA, `revisado: false`).
+- Depois de cada resposta: certo/errado, explicação curta e a peça certa em verde no 3D.
+- **Pontos e estrelas:** 100/125/150 por pergunta (dificuldade 1/2/3) + bônus de
+  sequência; ≥50% = 1 estrela, ≥70% = 2, ≥90% = 3. Uma estrela libera a próxima fase.
+- **Revisão espaçada (Leitner):** quem erra volta na rodada seguinte; acertos espaçam o
+  retorno (1, 2, 4, 8, 16 rodadas). O botão **Revisar meus erros** junta só os pendentes.
+- **Progresso** salvo no navegador (`localStorage`), com exportar/importar arquivo JSON
+  (📊 Progresso e backup) para trocar de aparelho.
+- **🎯 Região isolada** mostra só as peças da fase; **↺ Mostrar tudo** reexibe o que você ocultou.
+
+Testes do motor (rodam no navegador): abra `web/tests/game-core.test.html`.
 
 ## Base de dados única (`data/estruturas.json`)
 

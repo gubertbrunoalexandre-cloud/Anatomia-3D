@@ -79,6 +79,26 @@ def load_ta2():
     return rows
 
 
+def glb_mesh_names(manifest):
+    """Nomes originais dos objetos que realmente tem malha em cada .glb (le o JSON do arquivo).
+    O manifest as vezes lista objetos que o exportador glTF descartou (ex.: ancora de rotulo sem faces)."""
+    import struct
+    out = {}
+    for cat, v in manifest["categories"].items():
+        names = set()
+        path = P("data", "glb", v["file"])
+        if os.path.exists(path):
+            with open(path, "rb") as f:
+                head = f.read(20)  # cabecalho GLB (12) + cabecalho do chunk JSON (8)
+                jl = struct.unpack("<I", head[12:16])[0]
+                j = json.loads(f.read(jl).decode("utf-8"))
+            for n in j.get("nodes", []):
+                if "mesh" in n:
+                    names.add((n.get("extras") or {}).get("orig_name") or n.get("name"))
+        out[cat] = names
+    return out
+
+
 def split_sentences(text):
     parts = re.split(r"(?<=[.!?])\s+|\n+", text)
     return [p.strip() for p in parts if p and p.strip()]
@@ -92,6 +112,7 @@ def main():
     photos = load_json(P("data", "photos.json")) if os.path.exists(P("data", "photos.json")) else {}
     photos = {norm_key(k): v for k, v in photos.items() if not k.startswith("_")}
     ta2 = load_ta2()
+    malhas = glb_mesh_names(manifest)
 
     meta_obj = meta["objects"]
     wiki_url = meta.get("wiki_url", {})
@@ -191,6 +212,7 @@ def main():
                 o["papel"] = "corpo"
             suf = suffix_of(o["nome"])
             o["lado"] = "l" if suf.endswith("l") else "r" if suf.endswith("r") else "unico"
+            o["malha"] = o["nome"] in malhas.get(o["categoria_app"], set())
         body = [o for o in objs if o["papel"] != "fixacao"] or objs
         systems = sorted({s for o in body for s in meta_obj.get(o["nome"], {}).get("systems", [])})
         colls = sorted({c for o in body for c in meta_obj.get(o["nome"], {}).get("colls", [])})
@@ -259,11 +281,26 @@ def main():
 
         lados = sorted({o["lado"] for o in body if o["lado"] != "unico"}) or ["unico"]
         avisos = []
-        if any(rx_inner_ear.search(c) for c in colls) or (tipo == "marco_osseo" and rx_inner_ear.search(nome_en_base)):
+        ouvido_interno = any(rx_inner_ear.search(c) for c in colls) or (tipo == "marco_osseo" and rx_inner_ear.search(nome_en_base))
+        if ouvido_interno:
             avisos.append("Ancora/posicao em colecao de ouvido interno do Z-Anatomy (conjunto 'Anatomy of the Inner Ear' e CC-BY-NC-SA); conferir licenca antes de uso comercial.")
         if aviso_texto:
             avisos.append(aviso_texto)
         aviso = " ".join(avisos) or None
+
+        # entra no modo jogo? (regras em data/regras_base_dados.json > jogo; pode ser ajustado por estrutura)
+        jr = rules.get("jogo", {})
+        jogo_motivo = None
+        if not pt_from_ta2:
+            jogo_motivo = "sem nome em português (a TA2 não traz tradução)"
+        elif ouvido_interno:
+            jogo_motivo = "aviso de licença (âncora no ouvido interno)"
+        elif tipo in jr.get("excluir_tipos", []):
+            jogo_motivo = "vasos ficam fora do jogo"
+        elif jr.get("excluir_nome_regex") and re.search(jr["excluir_nome_regex"], nome_en_base, re.I):
+            jogo_motivo = "linfonodos ficam fora do jogo"
+        elif regiao in jr.get("tipos_por_regiao", {}) and tipo not in jr["tipos_por_regiao"][regiao]:
+            jogo_motivo = "tipo não combina com a fase"
 
         estruturas.append(OrderedDict([
             ("id", k.replace(" ", "-")),
@@ -281,10 +318,12 @@ def main():
             ("relacoes", relacoes),
             ("relevancia_fono", bool(relev)),
             ("dificuldade", d),
+            ("jogo", jogo_motivo is None),
+            ("jogo_excluido_por", jogo_motivo),
             ("revisado", False),
             ("lados", lados),
-            ("tem_geometria_propria", any(o["papel"] in ("corpo", "marcador") for o in objs)),
-            ("objetos", [OrderedDict([("nome", o["nome"]), ("categoria_app", o["categoria_app"]), ("papel", o["papel"]), ("lado", o["lado"])]) for o in objs]),
+            ("tem_geometria_propria", any(o["papel"] in ("corpo", "marcador") and o["malha"] for o in objs)),
+            ("objetos", [OrderedDict([("nome", o["nome"]), ("categoria_app", o["categoria_app"]), ("papel", o["papel"]), ("lado", o["lado"]), ("malha", o["malha"])]) for o in objs]),
             ("fontes", OrderedDict([
                 ("nome_pt", "ta2" if pt_from_ta2 else "ingles"),
                 ("nome_latim", "ta2" if (ta and ta["latim"]) else None),
@@ -321,18 +360,33 @@ def main():
         a = ajustes.get(e["id"])
         if not a:
             continue
+        escritos = []
         for key, val in a.items():
+            if key == "_fonte":
+                continue
             if key == "relacoes" and isinstance(val, dict):
-                e["relacoes"].update(val)
+                for rk, rv in val.items():
+                    if rv is None:
+                        e["relacoes"].pop(rk, None)
+                    else:
+                        e["relacoes"][rk] = rv
+                        if rk in ("origem", "insercao", "inervado_por", "inerva"):
+                            escritos.append(rk)
             else:
                 e[key] = val
+                if key in ("funcao", "descricao"):
+                    escritos.append(key)
         e["ajustado"] = True
+        if a.get("_fonte") and escritos:
+            e["fontes"]["escrito_por_ia"] = sorted(set(escritos))
+            e["fontes"]["escrito_por_ia_fonte"] = a["_fonte"]
+            e["fontes"]["funcao_relacoes"] = a["_fonte"]
 
     # ---- contagem por regiao + gravacao -----------------------------------
     cont_regiao = Counter(e["regiao"] for e in estruturas)
     regioes_out = []
     for r in rules["regioes"]:
-        regioes_out.append(OrderedDict([("id", r["id"]), ("nome", r["nome"]), ("ordem", r["ordem"]), ("categorias_app", r["categorias_app"]), ("n_estruturas", cont_regiao.get(r["id"], 0))]))
+        regioes_out.append(OrderedDict([("id", r["id"]), ("nome", r["nome"]), ("ordem", r["ordem"]), ("categorias_app", r["categorias_app"]), ("contexto_app", r.get("contexto_app", [])), ("n_estruturas", cont_regiao.get(r["id"], 0))]))
     if cont_regiao.get("sem_regiao"):
         regioes_out.append(OrderedDict([("id", "sem_regiao"), ("nome", "Sem região definida"), ("ordem", 99), ("categorias_app", []), ("n_estruturas", cont_regiao["sem_regiao"])]))
 
@@ -438,17 +492,19 @@ def write_report(estruturas, out, rules, desconhecidos):
     L.append("# Fase 1 — Relatório da base de dados (`data/estruturas.json`)\n")
     L.append("Gerado automaticamente por `scripts/build_database.py`. Fonte de tudo: manifest, descrições, TA2 e metadados do `.blend` que já existiam; **nenhuma estrutura nova foi adicionada**.\n")
     L.append("## 1. Números pedidos\n")
-    L.append(f"| Item | Estruturas |\n|---|---:|\n| **Total de estruturas** (esquerdo/direito juntos) | **{N}** |\n| Com descrição | {pct(n_desc)} |\n| Com nome em latim | {pct(n_lat)} |\n| Com função | {pct(n_fun)} |\n| `revisado: false` | **{pct(n_rev_false)}** |\n")
-    L.append("`revisado` é `false` em todas porque nenhum texto foi conferido por uma pessoa especialista: as descrições são da Wikipédia traduzidas por IA (ou texto geral escrito por IA), e função/relações são frases copiadas dessas descrições.\n")
+    cur = [e for e in estruturas if e["fontes"].get("escrito_por_ia")]
+    n_jogo = sum(1 for e in estruturas if e["jogo"])
+    L.append(f"| Item | Estruturas |\n|---|---:|\n| **Total de estruturas** (esquerdo/direito juntos) | **{N}** |\n| Com descrição | {pct(n_desc)} |\n| Com nome em latim | {pct(n_lat)} |\n| Com função (qualquer origem) | {pct(n_fun)} |\n| Com função/relações **escritas por IA** (Fase 2, opção B) | {len(cur)} |\n| Entram no modo jogo (`jogo: true`) | {pct(n_jogo)} |\n| `revisado: false` | **{pct(n_rev_false)}** |\n")
+    L.append("`revisado` é `false` em todas porque nenhum texto foi conferido por uma pessoa especialista: as descrições são da Wikipédia traduzidas por IA (ou texto geral escrito por IA), e os textos de função/origem/inserção/inervação das estruturas curadas foram escritos por IA a partir de conhecimento padrão de livros-texto (campo `fontes.escrito_por_ia`).\n")
     L.append("### Origem das descrições\n")
     nomes_fonte = {"wikipedia_traduzida_ia": "Wikipédia traduzida por IA", "outra_fonte_traduzida_ia": "Outra fonte (não Wikipédia) traduzida por IA", "escrita_para_o_projeto_ia": "Escrita para o projeto (IA)", "conhecimento_geral_ia": "Conhecimento geral (IA), sem artigo-fonte", None: "Sem descrição"}
     for k, v in fonte_desc.most_common():
         L.append(f"- {nomes_fonte.get(k, k)}: {v}")
     L.append(f"\nLink da Wikipédia por estrutura (para a atribuição CC BY-SA): **{n_url}** estruturas têm `fontes.descricao_url`.\n")
-    L.append("## 2. Função e relações (frases copiadas das descrições)\n")
+    L.append("## 2. Função e relações (curadas por IA + frases copiadas das descrições)\n")
     L.append("| Campo | Estruturas |\n|---|---:|")
     L.append(f"| função | {n_fun} |\n| origem | {n_ori} |\n| inserção | {n_ins} |\n| inervado por (texto) — músculos etc. | {n_inn_m} |\n| inervado por, ligado a um nervo da base (`inervado_por_ids`) | {n_inn_ids} |\n| inerva (texto) — nervos | {n_inerva} |\n")
-    L.append("Esses campos ficam vazios quando a descrição não traz a informação; **não inventei conteúdo**. Isso limita as perguntas de função/relações (ver seção 4).\n")
+    L.append("As estruturas listadas em `data/estruturas_ajustes.json` têm texto curado (escrito por IA, não revisado). Nas demais, o campo só existe quando a própria descrição traz a frase, copiada literalmente. **As perguntas de função, origem, inserção e inervação do jogo usam apenas os textos curados** (as frases extraídas citam o nome da estrutura ou nem sempre descrevem função).\n")
     L.append("## 3. Por tipo de estrutura\n")
     L.append("| Tipo | Total | Latim | Função | Relevante p/ fono | Fácil (1) | Médio (2) | Difícil (3) |\n|---|---:|---:|---:|---:|---:|---:|---:|")
     por_tipo = defaultdict(list)
@@ -462,25 +518,31 @@ def write_report(estruturas, out, rules, desconhecidos):
     L.append("| Pergunta | Requisito | Estruturas elegíveis | Dessas, relevantes p/ fono |\n|---|---|---:|---:|")
 
     def row(nome, req, pred):
-        es = [e for e in estruturas if pred(e)]
+        es = [e for e in estruturas if e["jogo"] and pred(e)]
         L.append(f"| {nome} | {req} | {len(es)} | {sum(1 for e in es if e['relevancia_fono'])} |")
 
+    def curada(e, campo):
+        return campo in e["fontes"].get("escrito_por_ia", [])
+
     row("Encontre a estrutura / Que estrutura é esta?", "tem malha ou marcador próprio no 3D", lambda e: e["tem_geometria_propria"])
-    row("Qual a função?", "campo `funcao`", lambda e: bool(e["funcao"]))
-    row("Qual o nervo que inerva?", "`inervado_por_ids` (nervo da base)", lambda e: bool(e["relacoes"].get("inervado_por_ids")))
-    row("Origem / inserção", "`origem` ou `inserção`", lambda e: has_field(e, "origem") or has_field(e, "insercao"))
-    row("Nome em latim", "`nome_latim`", lambda e: bool(e["nome_latim"]))
-    L.append("")
+    row("Qual a função?", "`funcao` curada", lambda e: curada(e, "funcao"))
+    row("Qual o nervo que inerva?", "`inervado_por_ids` curado", lambda e: curada(e, "inervado_por") and bool(e["relacoes"].get("inervado_por_ids")))
+    row("Origem", "`origem` curada", lambda e: curada(e, "origem"))
+    row("Inserção", "`insercao` curada", lambda e: curada(e, "insercao"))
+    L.append("\n(Só estruturas com `jogo: true`. O número final de perguntas também depende de haver alternativas suficientes; o teste `web/tests/game-core.test.html` conta as perguntas realmente geradas.)\n")
     L.append("## 5. Regiões (fases do jogo) e ordem sugerida\n")
-    L.append("| Ordem | Região | Estruturas | Relevantes p/ fono |\n|---:|---|---:|---:|")
+    L.append("| Ordem | Região | Estruturas na base | No jogo | Relevantes p/ fono (no jogo) |\n|---:|---|---:|---:|---:|")
     for r in sorted(out["regioes"], key=lambda r: r["ordem"]):
         es = [e for e in estruturas if e["regiao"] == r["id"]]
-        L.append(f"| {r['ordem']} | {r['nome']} | {len(es)} | {sum(1 for e in es if e['relevancia_fono'])} |")
+        gj = [e for e in es if e["jogo"]]
+        L.append(f"| {r['ordem']} | {r['nome']} | {len(es)} | {len(gj)} | {sum(1 for e in gj if e['relevancia_fono'])} |")
+    excl = Counter(e["jogo_excluido_por"] for e in estruturas if not e["jogo"])
+    L.append("\nFora do jogo: " + "; ".join(f"{k}: {v}" for k, v in excl.most_common()) + ".")
     L.append(f"\nTotal relevante para fonoaudiologia (regra automática): **{n_rel}** de {N}. A ordem das regiões é uma sugestão inicial; a Fase 2 pode ajustar.\n")
     L.append("## 6. Estruturas com campos vazios\n")
     L.append("A lista completa (uma linha por estrutura, com o que falta) está em [`campos-vazios.csv`](campos-vazios.csv) — abre direto no Excel.\n")
     L.append(f"- **Sem nome em latim ({N - n_lat})** e **sem tradução na TA2 — nome em português cai para o inglês ({len(pt_ingles)})**: " + "; ".join(e["nome_en"] for e in pt_ingles) + "\n")
-    L.append(f"- **Sem malha nem marcador próprio ({len(sem_geo)})** — só têm áreas de fixação muscular, então ficam fora de 'Encontre a estrutura': " + ("; ".join(f"{e['nome_pt']} ({e['nome_en']})" for e in sem_geo) or "nenhuma") + "\n")
+    L.append(f"- **Sem malha própria no 3D ({len(sem_geo)})** — só têm áreas de fixação muscular ou o objeto não tem malha no .glb; ficam fora de 'Encontre a estrutura': " + ("; ".join(f"{e['nome_pt']} ({e['nome_en']})" for e in sem_geo) or "nenhuma") + "\n")
     if avisos:
         L.append(f"- **Avisos de licença ({len(avisos)})** — campo `aviso_licenca` (ver `docs/fase-0/inventario-licencas.md`):")
         for e in avisos:

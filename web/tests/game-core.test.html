@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Testes do motor do jogo</title>
+<style>
+  body { font: 14px/1.5 system-ui, sans-serif; background: #12161c; color: #e8edf4; padding: 16px; }
+  .ok { color: #3ddc84; } .fail { color: #ff6b6b; font-weight: 600; }
+  #resumo { font-size: 18px; margin-bottom: 12px; }
+  li { margin: 2px 0; }
+</style>
+</head>
+<body>
+<h1>Testes do motor do jogo (game-core.js)</h1>
+<div id="resumo">Rodando…</div>
+<ul id="lista"></ul>
+<script type="module">
+import * as core from "../js/game-core.js";
+
+const results = [];
+function check(nome, cond, detalhe = "") { results.push({ nome, ok: !!cond, detalhe }); }
+
+const db = await (await fetch("../../data/estruturas.json", { cache: "no-store" })).json();
+const data = core.prepareData(db);
+
+// ---- dados
+check("base tem estruturas", db.estruturas.length > 300, db.estruturas.length);
+check("ids unicos", new Set(db.estruturas.map((e) => e.id)).size === db.estruturas.length);
+check("estruturas sem nome PT e com aviso de ouvido interno ficam fora do jogo",
+  data.jogaveis.every((e) => e.fontes.nome_pt !== "ingles" && !/ouvido interno/i.test(e.aviso_licenca || "")));
+check("so entra no jogo quem tem jogo=true", data.jogaveis.length > 250 && data.jogaveis.every((e) => e.jogo === true));
+check("vasos e linfonodos nao entram no jogo", data.jogaveis.every((e) => !["arteria", "veia", "vaso"].includes(e.tipo) && !/\bnodes?\b/i.test(e.nome_en)));
+check("a fase 'Ossos do cranio' so tem ossos", data.phases.find((p) => p.id === "cranio").estruturas.every((e) => e.tipo === "osso"));
+check("fases ordenadas por 'ordem'", data.phases.every((p, i) => i === 0 || data.phases[i - 1].ordem <= p.ordem));
+const jogaveis = data.phases.filter((p) => p.jogavel);
+check("ha varias fases jogaveis", jogaveis.length >= 8, jogaveis.map((p) => p.id).join(","));
+
+// ---- todas as perguntas possiveis
+let totalPerguntas = 0, problemas = [];
+const porTipo = {};
+for (const e of data.jogaveis) {
+  for (const tipo of data.tiposDisp.get(e.id)) {
+    const rng = core.mulberry32(core.stripAccents(e.id).length * 7919 + tipo.length);
+    let q;
+    try { q = core.buildQuestion(data, e.id, tipo, rng); } catch (err) { problemas.push(`${e.id}|${tipo}: ${err.message}`); continue; }
+    totalPerguntas += 1;
+    porTipo[tipo] = (porTipo[tipo] || 0) + 1;
+    if (tipo === "encontre") continue;
+    const textos = q.opcoes.map((o) => core.normText(o.texto));
+    if (q.opcoes.length !== 4) problemas.push(`${q.id}: ${q.opcoes.length} opcoes`);
+    if (new Set(textos).size !== textos.length) problemas.push(`${q.id}: opcoes repetidas`);
+    if (!(q.correta >= 0 && q.correta < q.opcoes.length)) problemas.push(`${q.id}: indice correto invalido`);
+    if (tipo === "identifique" && q.opcoes[q.correta].texto !== e.nome_pt) problemas.push(`${q.id}: correta nao e o nome`);
+    if (tipo === "identifique") {
+      q.opcoes.forEach((o, i) => { if (i !== q.correta && o.estruturaId === e.id) problemas.push(`${q.id}: distrator e a propria estrutura`); });
+    }
+    if (tipo === "funcao" || tipo === "origem" || tipo === "insercao") {
+      for (const o of q.opcoes) {
+        if (core.leaks(o.texto, data.tokens.get(e.id))) problemas.push(`${q.id}: opcao cita o nome da estrutura perguntada`);
+      }
+    }
+    if (tipo === "inervacao") {
+      for (const o of q.opcoes) if (!/^Nervo .*\([IVX]+\)$/.test(o.texto)) problemas.push(`${q.id}: opcao '${o.texto}' nao e um nervo craniano numerado`);
+      const certos = e.relacoes.inervado_por_ids;
+      q.opcoes.forEach((o, i) => {
+        if (i !== q.correta && o.estruturaId && certos.includes(o.estruturaId)) problemas.push(`${q.id}: distrator tambem inerva`);
+      });
+    }
+  }
+}
+check(`todas as ${totalPerguntas} perguntas possiveis sao bem formadas`, problemas.length === 0, problemas.slice(0, 5).join(" | "));
+check("existem perguntas dos 6 tipos", Object.keys(core.TYPES).every((t) => porTipo[t] > 0), JSON.stringify(porTipo));
+
+// ---- sorteio da rodada
+for (const p of jogaveis) {
+  const prog = core.novoProgresso();
+  core.iniciarSessao(prog);
+  const rodada = core.pickRound(p.candidatos, prog, core.ROUND_SIZE, core.mulberry32(42));
+  const n = Math.min(core.ROUND_SIZE, p.candidatos.length);
+  const ids = rodada.map((c) => c.id);
+  const adj = rodada.some((c, i) => i > 0 && c.id === rodada[i - 1].id);
+  check(`fase ${p.id}: rodada com ${n} perguntas`, rodada.length === n, rodada.length);
+  check(`fase ${p.id}: sem estrutura repetida em sequencia`, !adj);
+  check(`fase ${p.id}: todas as perguntas pertencem a fase`, rodada.every((c) => c.e.regiao === p.id));
+  const temRel = p.candidatos.some((c) => c.grupo === "relacoes");
+  if (temRel && p.candidatos.length >= 10) check(`fase ${p.id}: inclui pergunta de funcao/relacoes`, rodada.some((c) => c.grupo === "relacoes"));
+}
+{
+  const p = jogaveis.find((x) => x.candidatos.length >= 20);
+  const a = core.pickRound(p.candidatos, core.novoProgresso(), 10, core.mulberry32(7)).map((c) => c.key).join();
+  const b = core.pickRound(p.candidatos, core.novoProgresso(), 10, core.mulberry32(7)).map((c) => c.key).join();
+  const c = core.pickRound(p.candidatos, core.novoProgresso(), 10, core.mulberry32(8)).map((c) => c.key).join();
+  check("mesma semente = mesma rodada", a === b);
+  check("sementes diferentes = rodadas diferentes", a !== c);
+  const ids = core.pickRound(p.candidatos, core.novoProgresso(), 10, core.mulberry32(3)).map((c) => c.id);
+  check("sem estruturas repetidas na rodada (fase grande)", new Set(ids).size === ids.length);
+}
+
+// ---- Leitner: erros voltam antes e com mais frequencia
+{
+  const p = jogaveis.find((x) => new Set(x.candidatos.map((c) => c.id)).size >= 14);
+  const prog = core.novoProgresso();
+  core.iniciarSessao(prog); // sessao 1
+  const r1 = core.pickRound(p.candidatos, prog, 10, core.mulberry32(11));
+  const erradas = r1.slice(0, 3);
+  r1.forEach((c) => core.registrarResposta(prog, c, !erradas.includes(c)));
+  check("resposta errada vai para a caixa 1 e vence na proxima sessao", erradas.every((c) => prog.itens[c.key].caixa === 1 && prog.itens[c.key].due === 2));
+  check("resposta certa sobe de caixa", r1.filter((c) => !erradas.includes(c)).every((c) => prog.itens[c.key].caixa === 2 && prog.itens[c.key].due === 1 + 2));
+  core.iniciarSessao(prog); // sessao 2
+  const r2 = core.pickRound(p.candidatos, prog, 10, core.mulberry32(12));
+  check("erros anteriores reaparecem na rodada seguinte", erradas.every((c) => r2.some((x) => x.key === c.key)), erradas.map((c) => c.key).join());
+  check("pendencias de erro listadas para revisao", core.errosPendentes(prog).length === 3);
+  const rev = core.revisaoCandidatos(data, prog);
+  check("revisao devolve so os itens errados", rev.length === 3 && rev.every((c) => erradas.some((x) => x.key === c.key)));
+  // acertar tira o item da lista de pendentes
+  core.registrarResposta(prog, erradas[0], true);
+  check("acertar um erro o remove da revisao", core.errosPendentes(prog).length === 2);
+  // caixa maxima e intervalos
+  const k = { key: "x|funcao" };
+  for (let i = 0; i < 8; i++) core.registrarResposta(prog, k, true);
+  check("caixa nunca passa de 5 (intervalo 16)", prog.itens["x|funcao"].caixa === 5 && prog.itens["x|funcao"].due === prog.sessao + 16);
+}
+
+// ---- Leitner em muitas sementes: em toda fase, os erros sempre voltam na rodada seguinte
+{
+  let falhou = [];
+  for (const p of jogaveis) {
+    const ids = new Set(p.candidatos.map((c) => c.id));
+    if (ids.size < 6) continue;
+    for (let seed = 1; seed <= 40; seed++) {
+      const prog = core.novoProgresso();
+      core.iniciarSessao(prog);
+      const r1 = core.pickRound(p.candidatos, prog, 10, core.mulberry32(seed));
+      const erradas = r1.slice(0, Math.min(3, r1.length));
+      r1.forEach((c) => core.registrarResposta(prog, c, !erradas.includes(c)));
+      core.iniciarSessao(prog);
+      const r2 = core.pickRound(p.candidatos, prog, 10, core.mulberry32(seed + 1000));
+      const faltam = erradas.filter((c) => !r2.some((x) => x.key === c.key));
+      if (faltam.length) { falhou.push(`${p.id}/seed${seed}: ${faltam.map((c) => c.key).join(",")}`); break; }
+    }
+  }
+  check("em todas as fases e 40 sorteios, os erros voltam na rodada seguinte", falhou.length === 0, falhou.slice(0, 3).join(" | "));
+}
+
+// ---- pontuacao e estrelas
+check("pontos base por dificuldade", core.pontosDaResposta(1, 1) === 100 && core.pontosDaResposta(2, 1) === 125 && core.pontosDaResposta(3, 1) === 150);
+check("bonus de sequencia limitado", core.pontosDaResposta(1, 2) === 110 && core.pontosDaResposta(1, 99) === 150);
+check("estrelas", core.estrelas(9, 10) === 3 && core.estrelas(7, 10) === 2 && core.estrelas(5, 10) === 1 && core.estrelas(4, 10) === 0 && core.estrelas(0, 0) === 0);
+{
+  const prog = core.novoProgresso();
+  const r = core.concluirRodada(prog, "laringe", { acertos: 6, total: 10, pontos: 700, melhorSequencia: 4 }, false);
+  check("rodada registra melhor resultado da fase", prog.fases.laringe.melhor.estrelas === 1 && prog.totais.pontos === 700 && prog.totais.melhor_sequencia === 4);
+  core.concluirRodada(prog, "laringe", { acertos: 10, total: 10, pontos: 1500, melhorSequencia: 10 }, false);
+  core.concluirRodada(prog, "laringe", { acertos: 3, total: 10, pontos: 300, melhorSequencia: 1 }, false);
+  check("melhor resultado nao piora", prog.fases.laringe.melhor.estrelas === 3 && prog.fases.laringe.ultima.estrelas === 0 && prog.fases.laringe.jogadas === 3);
+  core.concluirRodada(prog, null, { acertos: 5, total: 10, pontos: 100, melhorSequencia: 2 }, true);
+  check("revisao nao mexe nas fases", Object.keys(prog.fases).length === 1);
+  // desbloqueio sequencial
+  const lock = core.fasesDesbloqueadas(data.phases, core.novoProgresso());
+  const ids = jogaveis.map((p) => p.id);
+  check("so a primeira fase comeca liberada", lock[ids[0]] === true && ids.slice(1).every((i) => lock[i] === false));
+  const p2 = core.novoProgresso();
+  p2.fases[ids[0]] = { jogadas: 1, melhor: { acertos: 5, total: 10, estrelas: 1, pontos: 1 }, ultima: null };
+  check("1 estrela libera a proxima fase", core.fasesDesbloqueadas(data.phases, p2)[ids[1]] === true && core.fasesDesbloqueadas(data.phases, p2)[ids[2]] === false);
+  p2.config.liberar_tudo = true;
+  check("liberar tudo", Object.values(core.fasesDesbloqueadas(data.phases, p2)).every(Boolean));
+}
+
+// ---- exportar / importar
+{
+  const prog = core.novoProgresso();
+  core.iniciarSessao(prog);
+  core.registrarResposta(prog, { key: "genioglossus-muscle|funcao" }, true);
+  core.concluirRodada(prog, "cavidade_oral", { acertos: 8, total: 10, pontos: 900, melhorSequencia: 5 }, false);
+  const ida = JSON.parse(JSON.stringify(prog));
+  const v = core.validarProgresso(ida);
+  check("exportar -> importar preserva o progresso", v.ok && JSON.stringify(v.progresso.itens) === JSON.stringify(prog.itens) && v.progresso.fases.cavidade_oral.melhor.estrelas === 2 && v.progresso.totais.pontos === 900);
+  check("rejeita arquivo de outra versao", !core.validarProgresso({ versao: 99 }).ok);
+  check("rejeita lixo", !core.validarProgresso(null).ok && !core.validarProgresso("texto").ok);
+  const sujo = core.validarProgresso({ versao: 1, itens: { "<script>|funcao": { caixa: 3 }, "ok-id|funcao": { caixa: 99, due: "x" } }, fases: { "../x": {} }, totais: { pontos: "abc" } });
+  check("descarta chaves invalidas e limita valores", sujo.ok && !("<script>|funcao" in sujo.progresso.itens) && sujo.progresso.itens["ok-id|funcao"].caixa === 5 && sujo.progresso.itens["ok-id|funcao"].due === 0 && Object.keys(sujo.progresso.fases).length === 0 && sujo.progresso.totais.pontos === 0);
+}
+
+// ---- vazamento do nome
+check("detecta nome vazando no texto", core.leaks("O masseter eleva a mandíbula", core.nameTokens("Músculo masseter")) === true);
+check("nao acusa texto neutro", core.leaks("Eleva a mandíbula", core.nameTokens("Músculo masseter")) === false);
+check("palavras genericas nao contam", core.leaks("Músculo que eleva", core.nameTokens("Músculo masseter")) === false);
+
+const falhas = results.filter((r) => !r.ok);
+document.getElementById("resumo").innerHTML = falhas.length
+  ? `<span class="fail">${falhas.length} falha(s)</span> de ${results.length} verificações`
+  : `<span class="ok">Todas as ${results.length} verificações passaram</span> (${totalPerguntas} perguntas possíveis testadas: ${JSON.stringify(porTipo)})`;
+document.getElementById("lista").innerHTML = results.map((r) => `<li class="${r.ok ? "ok" : "fail"}">${r.ok ? "✔" : "✘"} ${r.nome}${!r.ok && r.detalhe ? " — " + r.detalhe : ""}</li>`).join("");
+window.__testResults = { total: results.length, falhas: falhas.map((f) => `${f.nome}: ${f.detalhe}`), porTipo, totalPerguntas };
+</script>
+</body>
+</html>

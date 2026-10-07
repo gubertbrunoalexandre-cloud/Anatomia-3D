@@ -49,17 +49,28 @@
     {"id": "faringe", "nome": "Faringe", "ordem": 5, "categorias_app": ["faringe"]},
     {"id": "atm", "nome": "ATM (temporomandibular)", "ordem": 6, "categorias_app": ["atm"]},
     {"id": "hioideos", "nome": "Músculos supra/infra-hióideos", "ordem": 7, "categorias_app": ["musculos_supra_infra_hioideos"]},
-    {"id": "nervos_cranianos", "nome": "Nervos cranianos", "ordem": 8, "categorias_app": ["nervo_I_olfatorio", "nervo_II_optico", "nervo_III_oculomotor", "nervo_IV_troclear", "nervo_V_trigemeo", "nervo_VII_facial", "nervo_IX_glossofaringeo", "nervo_X_vago", "nervo_XI_acessorio", "nervo_XII_hipoglosso"]},
+    {"id": "nervos_cranianos", "nome": "Nervos cranianos", "ordem": 8, "contexto_app": ["cranio_ossos"], "categorias_app": ["nervo_I_olfatorio", "nervo_II_optico", "nervo_III_oculomotor", "nervo_IV_troclear", "nervo_V_trigemeo", "nervo_VII_facial", "nervo_IX_glossofaringeo", "nervo_X_vago", "nervo_XI_acessorio", "nervo_XII_hipoglosso"]},
     {"id": "faciais", "nome": "Músculos faciais (expressão)", "ordem": 9, "categorias_app": ["musculos_faciais"]},
     {"id": "pescoco", "nome": "Músculos do pescoço", "ordem": 10, "categorias_app": ["musculos_pescoco"]},
     {"id": "vertebras", "nome": "Vértebras cervicais", "ordem": 11, "categorias_app": ["vertebras_cervicais"]},
     {"id": "orelha_nariz", "nome": "Cartilagens da orelha e do nariz", "ordem": 12, "categorias_app": ["orelha_nariz_cartilagem"]},
-    {"id": "extraoculares", "nome": "Músculos extraoculares", "ordem": 13, "categorias_app": ["musculos_extraoculares"]},
-    {"id": "suboccipitais", "nome": "Músculos suboccipitais", "ordem": 14, "categorias_app": ["musculos_suboccipitais"]},
+    {"id": "extraoculares", "nome": "Músculos extraoculares", "ordem": 13, "contexto_app": ["cranio_ossos"], "categorias_app": ["musculos_extraoculares"]},
+    {"id": "suboccipitais", "nome": "Músculos suboccipitais", "ordem": 14, "contexto_app": ["cranio_ossos", "vertebras_cervicais"], "categorias_app": ["musculos_suboccipitais"]},
     {"id": "superficie", "nome": "Regiões de superfície (pele)", "ordem": 15, "categorias_app": ["regioes_superficie"]},
-    {"id": "marcos", "nome": "Marcos ósseos (forames, canais, suturas)", "ordem": 16, "categorias_app": ["marcos_osseos"]},
+    {"id": "marcos", "nome": "Marcos ósseos (forames, canais, suturas)", "ordem": 16, "contexto_app": ["cranio_ossos", "vertebras_cervicais"], "categorias_app": ["marcos_osseos"]},
     {"id": "cerebro", "nome": "Cérebro", "ordem": 17, "categorias_app": ["cerebro"]}
   ],
+
+  "jogo": {
+    "_ajuda": "Define quais estruturas podem virar pergunta no modo jogo (campo 'jogo' na base). Fora do jogo ficam: sem nome em portugues, com aviso de licenca de ouvido interno, os tipos listados em excluir_tipos, nomes que casam com excluir_nome_regex e, nas regioes de tipos_por_regiao, tudo que nao for dos tipos permitidos (ex.: a fase 'Ossos do cranio' so aceita ossos). Vasos e linfonodos ficam de fora por serem pouco relevantes para o curriculo de fonoaudiologia e dificeis de identificar.",
+    "excluir_tipos": ["arteria", "veia", "vaso"],
+    "excluir_nome_regex": "\\bnodes?\\b",
+    "tipos_por_regiao": {
+      "cranio": ["osso"],
+      "cerebro": ["encefalo", "glandula"],
+      "pescoco": ["musculo"]
+    }
+  },
 
   "relevancia_fono": {
     "_ajuda": "true se a categoria do app esta em categorias_true OU o nome em ingles casa com algum regex de nomes_true. Nervos: so V, VII, IX, X, XI, XII (escopo pedido).",
