@@ -65,6 +65,7 @@ anatomia-fono-3d/
 │   ├── descriptions_fallback.json           # textos de conhecimento geral p/ estruturas sem artigo
 │   ├── photos.json                          # config de fotos por estrutura (ver abaixo)
 │   ├── photos/                              # arquivos de imagem referenciados por photos.json
+│   ├── explicacoes/                         # explicacoes completas por estrutura (escritas por IA, nao revisadas)
 │   └── glb/                                 # modelos exportados (26 arquivos .glb + manifest.json)
 ├── docs/fase-0/                             # auditoria de cobertura e inventário de licenças
 ├── scripts/
@@ -120,10 +121,21 @@ descrições abaixo).
   sem descarregá-la da cena. "Mostrar tudo", "Isolar selecionada" e o menu de
   contexto sincronizam esses ícones.
 - **Painel de informação**: nome em português (Terminologia Anatomica) com o
-  nome em inglês como referência, descrição detalhada, foto ilustrativa (15
+  nome em inglês e em latim como referência, **explicação completa** (o que é,
+  onde fica, para que serve), função, origem, inserção, inervação, o que a
+  estrutura inerva e **"Na fonoaudiologia"** (por que importa para a clínica),
+  seguidos da descrição original da Wikipédia, foto ilustrativa (15
   estruturas já têm — ver "Fotos explicativas" abaixo — as demais mostram um
   placeholder) e um botão que abre uma busca do Google (`nome + anatomia
-  função`) em nova aba.
+  função`) em nova aba. As explicações vêm de `data/explicacoes/`, são escritas
+  por IA e ainda **não foram revisadas por um especialista** — o painel avisa.
+- **⌖ Centralizar peça**: botão na barra de ferramentas e no painel de detalhes.
+  Com uma peça selecionada, aproxima a câmera dela; sem seleção, enquadra tudo o
+  que está visível. Em tela de celular o enquadramento afasta a câmera para não
+  cortar as laterais.
+- **👁 Ver através**: desenha a peça selecionada por cima das outras (útil para
+  músculos e cartilagens que ficam atrás de outras estruturas). Clique de novo
+  para voltar ao normal.
 - **Busca** por nome (português ou inglês) na lista lateral.
 - **Marcos ósseos como pinos clicáveis**: forames, canais e suturas do crânio
   não têm malha própria no dataset fonte (ver seção dedicada abaixo) — são
@@ -165,9 +177,33 @@ estruturas mostram o placeholder "foto em breve".
 
 ## Modo jogo (🎮 Jogar)
 
-Botão **🎮 Jogar** na barra de ferramentas (o modo de estudo continua igual). Cada
-**fase** é uma região (ossos do crânio, músculos da mastigação, laringe, língua...) com
-10 perguntas sorteadas da base `data/estruturas.json`, nunca de listas fixas no código:
+Botão **🎮 Jogar** na barra de ferramentas (o modo de estudo continua igual). Ao entrar,
+a pessoa escolhe **como quer jogar**:
+
+| Modo | Como funciona |
+|---|---|
+| 🪜 **Fases** | Sobe de nível: cada fase é uma região (ossos do crânio, músculos da mastigação, laringe, língua...) e 1 estrela libera a próxima. |
+| 🎯 **Treino por parte** | Escolhe qualquer parte (ossos, músculos, nervos...) e joga sem passar de fase e sem bloqueios. |
+| 🎲 **Tudo misturado** | 10 perguntas sorteadas de todos os conteúdos: uma de ossos, outra de nervos, outra de músculos... (sorteio balanceado por região). |
+
+Cada rodada tem 10 perguntas sorteadas da base `data/estruturas.json`, nunca de listas
+fixas no código.
+
+**Crânio completo em todas as fases:** como nas provas práticas de sala de aula (o
+professor entrega o crânio inteiro e pergunta sobre cada parte), o crânio aparece
+inteiro em todas as fases — sólido na fase de ossos e, nas demais, como um crânio
+translúcido de contexto onde a região da fase se destaca. Botões do jogo:
+**💀 Crânio sólido / transparente / oculto** (alterna a cada toque), **⌖ Crânio inteiro** e
+**🔍 Só a região**.
+
+**Jogadores e ranking (sem servidor):** vários jogadores no mesmo aparelho, cada um com
+seu progresso (**👤 trocar**). O **🏆 Ranking** soma os jogadores do aparelho e os
+**cartões de pontuação** dos colegas (cada um gera o seu em *Ranking → 📤 Compartilhar
+meu cartão de pontuação*, e os demais usam *📥 Importar cartão de colega*). Não há verificação — depende da honestidade de quem gera o
+cartão. Um ranking online de verdade exigiria um servidor/banco de dados, fora do escopo
+de um site 100% estático.
+
+Tipos de pergunta:
 
 - **Encontre a estrutura** — aparece um nome e você toca na peça no 3D (toque de novo no
   mesmo ponto para alternar entre peças sobrepostas; botão direito/toque longo oculta a
@@ -176,7 +212,8 @@ Botão **🎮 Jogar** na barra de ferramentas (o modo de estudo continua igual).
   e você escolhe entre 4 nomes.
 - **Função, origem, inserção e inervação** — múltipla escolha, só onde a base tem texto
   curado (112 estruturas; textos escritos por IA, `revisado: false`).
-- Depois de cada resposta: certo/errado, explicação curta e a peça certa em verde no 3D.
+- Depois de cada resposta: certo/errado, explicação curta, a peça certa em verde no 3D e
+  um bloco **Explicação completa** (com "Na fonoaudiologia") para aprofundar.
 - **Pontos e estrelas:** 100/125/150 por pergunta (dificuldade 1/2/3) + bônus de
   sequência; ≥50% = 1 estrela, ≥70% = 2, ≥90% = 3. Uma estrela libera a próxima fase.
 - **Revisão espaçada (Leitner):** quem erra volta na rodada seguinte; acertos espaçam o
@@ -204,6 +241,12 @@ python scripts/build_database.py      # regenera data/estruturas.json + docs/fas
 - Estruturas novas no `manifest.json` entram sozinhas (rode antes
   `scripts/extract_source_meta.py` no Blender se vierem do `.blend`).
 - Correções manuais por estrutura: `data/estruturas_ajustes.json` (sobrevivem à regeneração).
+- Explicações completas: `data/explicacoes/*.json` (`{"explicacoes": {"<id>": {"explicacao": "...",
+  "fono": "..."}}}`). Todas as 375 estruturas têm explicação; `fono` existe onde faz sentido
+  para a clínica. Escritas por IA a partir de anatomia de livro-texto, marcadas
+  `escrita_por_ia_nao_revisada` em `fontes.explicacao` — **peça revisão de um especialista
+  antes de usar como material oficial**. Um `id` que não existe na base é apontado pelo
+  `build_database.py`.
 - Regras de região, tipo, relevância para fono e dificuldade: `data/regras_base_dados.json`.
 - Relatório com contagens e campos vazios: `docs/fase-1/`.
 
@@ -365,7 +408,7 @@ acima, que pode ser posicionado em qualquer ponto da superfície do modelo.
   fonte mas não foram incluídos por não estarem no escopo original — fácil de
   adicionar depois (bastaria uma nova categoria em `CATEGORIES` no script de
   exportação, seguindo o mesmo padrão dos outros nervos).
-- Sem modo quiz ainda (mencionado no briefing original como funcionalidade do
-  Anatomy 3D Atlas a ser eventualmente replicada).
+- O modo jogo já existe (ver acima). Ainda **não** há modo offline/PWA nem tela de senha;
+  o ranking é local (cartões de pontuação), sem servidor.
 - Só 15 das ~375 estruturas têm foto ilustrativa por enquanto (ver seção
   "Fotos explicativas" acima) — as demais mostram o placeholder.

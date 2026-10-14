@@ -181,6 +181,74 @@ check("estrelas", core.estrelas(9, 10) === 3 && core.estrelas(7, 10) === 2 && co
   check("descarta chaves invalidas e limita valores", sujo.ok && !("<script>|funcao" in sujo.progresso.itens) && sujo.progresso.itens["ok-id|funcao"].caixa === 5 && sujo.progresso.itens["ok-id|funcao"].due === 0 && Object.keys(sujo.progresso.fases).length === 0 && sujo.progresso.totais.pontos === 0);
 }
 
+// ---- modos de jogo: fases / treino por parte / tudo misturado
+{
+  const prog = core.novoProgresso();
+  core.concluirRodada(prog, "laringe", { acertos: 9, total: 10, pontos: 1200, melhorSequencia: 6 }, "livre");
+  check("treino por parte nao mexe nas fases (nem desbloqueia)", Object.keys(prog.fases).length === 0 && prog.modos.livre.laringe.melhor.estrelas === 3 && prog.modos.livre.laringe.jogadas === 1);
+  const lock = core.fasesDesbloqueadas(data.phases, prog);
+  check("treino por parte nao libera a proxima fase", jogaveis.slice(1).every((p) => lock[p.id] === false));
+  core.concluirRodada(prog, null, { acertos: 7, total: 10, pontos: 800, melhorSequencia: 3 }, "misto");
+  check("tudo misturado guarda o melhor resultado", prog.modos.misto.jogadas === 1 && prog.modos.misto.melhor.estrelas === 2);
+  core.concluirRodada(prog, "laringe", { acertos: 2, total: 10, pontos: 100, melhorSequencia: 1 }, "fases");
+  check("pontos e rodadas somam em todos os modos", prog.totais.pontos === 2100 && prog.totais.rodadas === 3 && prog.totais.melhor_rodada === 1200);
+  check("estrelas totais somam fases + treino + misto", core.estrelasTotais(prog) === 3 + 2 + 0);
+  const ida = core.validarProgresso(JSON.parse(JSON.stringify(prog)));
+  check("exportar -> importar preserva os modos", ida.ok && ida.progresso.modos.livre.laringe.melhor.estrelas === 3 && ida.progresso.modos.misto.melhor.estrelas === 2 && ida.progresso.totais.melhor_rodada === 1200);
+  const velho = core.validarProgresso({ versao: 1, itens: {}, fases: {}, totais: { pontos: 50 } });
+  check("progresso antigo (sem modos) continua valido", velho.ok && velho.progresso.modos.misto.jogadas === 0 && Object.keys(velho.progresso.modos.livre).length === 0);
+  const sujo = core.validarProgresso({ versao: 1, modos: { livre: { "../x": { jogadas: 1 }, ok_id: { jogadas: -5, melhor: { estrelas: 99 } } }, misto: "lixo" } });
+  check("modos: descarta chave invalida e limita valores", sujo.ok && !("../x" in sujo.progresso.modos.livre) && sujo.progresso.modos.livre.ok_id.jogadas === 0 && sujo.progresso.modos.livre.ok_id.melhor.estrelas === 3 && sujo.progresso.modos.misto.jogadas === 0);
+}
+{
+  const mistos = core.candidatosMistos(data);
+  const regioes = new Set(mistos.map((c) => c.e.regiao));
+  check("tudo misturado reune as fases jogaveis", mistos.length > 300 && regioes.size >= jogaveis.length, `${mistos.length} cands / ${regioes.size} regioes`);
+  let min = 99, ruins = [];
+  for (let seed = 1; seed <= 30; seed++) {
+    const prog = core.novoProgresso();
+    core.iniciarSessao(prog);
+    const r = core.pickRound(mistos, prog, 10, core.mulberry32(seed), { balanceKey: (c) => c.e.regiao });
+    const dist = new Set(r.map((c) => c.e.regiao)).size;
+    min = Math.min(min, dist);
+    if (r.length !== 10) ruins.push(`seed${seed}: ${r.length} perguntas`);
+    if (new Set(r.map((c) => c.id)).size !== r.length) ruins.push(`seed${seed}: estrutura repetida`);
+  }
+  check("tudo misturado: 10 perguntas sem repetir estrutura", ruins.length === 0, ruins.slice(0, 3).join(" | "));
+  check("tudo misturado: varias regioes por rodada (balanceamento)", min >= 4, `minimo de regioes distintas = ${min}`);
+}
+
+// ---- ranking e cartao de pontuacao
+{
+  const prog = core.novoProgresso();
+  core.registrarResposta(prog, { key: "tongue|funcao" }, true);
+  core.registrarResposta(prog, { key: "tongue|origem" }, false);
+  core.concluirRodada(prog, "laringe", { acertos: 8, total: 10, pontos: 900, melhorSequencia: 5 }, "fases");
+  const cartao = core.cartaoPontuacao("  Ana <b>  ", prog);
+  const ok = core.validarCartao(JSON.parse(JSON.stringify(cartao)));
+  check("cartao de pontuacao: ida e volta", ok.ok && ok.cartao.pontos === 900 && ok.cartao.estrelas === 2 && ok.cartao.melhor_sequencia === 5);
+  check("cartao: nome nao carrega HTML", ok.ok && !/[<>]/.test(ok.cartao.nome));
+  check("cartao: rejeita lixo e outros tipos", !core.validarCartao(null).ok && !core.validarCartao({ tipo: "outro", versao: 1, nome: "x" }).ok && !core.validarCartao({ tipo: "cartao-pontuacao", versao: 1, nome: "  " }).ok);
+  const forjado = core.validarCartao({ tipo: "cartao-pontuacao", versao: 1, nome: "Zé", pontos: -10, respostas: 5, acertos: 99, estrelas: 1e9 });
+  check("cartao: limita valores absurdos", forjado.ok && forjado.cartao.pontos === 0 && forjado.cartao.acertos <= forjado.cartao.respostas && forjado.cartao.estrelas <= 1000);
+  const rk = core.montarRanking([
+    { nome: "Bia", pontos: 500, estrelas: 3, respostas: 10, acertos: 5 },
+    { nome: "Ana", pontos: 900, estrelas: 2, respostas: 10, acertos: 8 },
+    { nome: "Caio", pontos: 500, estrelas: 3, respostas: 10, acertos: 9 },
+  ]);
+  check("ranking ordena por pontos e desempata por estrelas/acertos", rk.map((r) => r.nome).join() === "Ana,Caio,Bia" && rk[0].posicao === 1 && rk[2].posicao === 3 && rk[0].pct === 80);
+}
+
+// ---- explicacoes completas
+{
+  const sem = data.jogaveis.filter((e) => !e.explicacao || e.explicacao.length < 60).map((e) => e.id);
+  check("toda estrutura jogavel tem explicacao completa", sem.length === 0, sem.slice(0, 5).join(","));
+  const e = data.jogaveis.find((x) => x.id === "genioglossus-muscle");
+  check("o feedback de 'identifique' usa a explicacao completa", e && core.explain(e, "identifique").includes(core.firstSentences(e.explicacao, 280).slice(0, 40)));
+  const semFonte = db.estruturas.filter((x) => x.explicacao && x.fontes.explicacao !== "escrita_por_ia_nao_revisada").map((x) => x.id);
+  check("toda explicacao esta marcada como escrita por IA e nao revisada", semFonte.length === 0, semFonte.slice(0, 5).join(","));
+}
+
 // ---- vazamento do nome
 check("detecta nome vazando no texto", core.leaks("O masseter eleva a mandíbula", core.nameTokens("Músculo masseter")) === true);
 check("nao acusa texto neutro", core.leaks("Eleva a mandíbula", core.nameTokens("Músculo masseter")) === false);

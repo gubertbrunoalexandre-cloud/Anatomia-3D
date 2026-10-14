@@ -261,6 +261,23 @@
     cursor: pointer;
   }
   #info-search-btn:hover { background: var(--border); }
+  .info-btn-row { display: flex; gap: 8px; margin: 0 0 12px; }
+  .info-btn-row button {
+    flex: 1; padding: 8px 8px;
+    background: var(--panel-2); border: 1px solid var(--border);
+    color: var(--accent); border-radius: 6px;
+    font-size: 12px; cursor: pointer;
+  }
+  .info-btn-row button:hover { background: var(--border); }
+  .info-btn-row button.active, #btn-xray.active { border-color: var(--accent); background: rgba(79,176,255,0.16); }
+  #info-extra .info-section { margin: 0 0 12px; }
+  #info-extra .info-section h3 {
+    margin: 0 0 3px; font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-2);
+  }
+  #info-extra .info-section p { margin: 0; font-size: 13px; line-height: 1.55; color: var(--text); }
+  #info-extra .info-source { font-size: 10.5px; line-height: 1.45; color: var(--text-dim); margin: 0 0 14px; }
+  #info-extra .info-source a { color: var(--accent); }
   #info-panel .close-btn {
     position: absolute; top: 14px; right: 14px;
     cursor: pointer; color: var(--text-dim);
@@ -375,6 +392,7 @@
       border-left: none;
       padding: 16px;
       padding-top: 56px; /* espaco pro botao de fechar nao colar no topo */
+      bottom: 72px; /* deixa o rodape de creditos visivel (e legivel) abaixo do painel */
     }
 
     .struct-eye { padding: 8px 10px; font-size: 13px; } /* alvo de toque maior */
@@ -405,6 +423,8 @@
     <div id="canvas-holder"></div>
 
     <div id="toolbar">
+      <button id="btn-center" title="Centraliza a câmera na peça selecionada (sem seleção, enquadra tudo o que está visível)">⌖ Centralizar peça</button>
+      <button id="btn-xray" title="Desenha a peça selecionada por cima das outras, para enxergar estruturas profundas">👁 Ver através</button>
       <button id="btn-isolate">Isolar selecionada</button>
       <button id="btn-reset">Mostrar tudo</button>
       <button id="btn-remove-all-pins" title="Remove todos os alfinetes colocados no modelo">📌 Remover alfinetes</button>
@@ -433,6 +453,13 @@
           <div>foto em breve</div>
         </div>
       </div>
+
+      <div class="info-btn-row">
+        <button id="info-center" type="button" title="Centraliza a câmera nesta peça">⌖ Centralizar peça</button>
+        <button id="info-xray" type="button" title="Desenha esta peça por cima das outras">👁 Ver através</button>
+      </div>
+
+      <div id="info-extra"></div>
 
       <div class="info-desc" id="info-desc">Selecione uma estrutura no modelo 3D ou na lista à esquerda.</div>
 

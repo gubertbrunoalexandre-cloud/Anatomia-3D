@@ -132,6 +132,58 @@ body.mode-jogo #credits { display: none !important; }
   padding: 8px 16px; font-size: 13px; color: var(--accent-2); z-index: 6;
 }
 
+/* ------------------------------------------------------- modos, jogador, ranking */
+.game-subtop { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-bottom: 10px; }
+.game-subtop .game-stats { margin-bottom: 0; }
+.game-section { font-size: 14px; margin: 10px 0 8px; color: var(--text-dim); font-weight: 600; }
+.player-chip {
+  display: inline-flex; align-items: baseline; gap: 8px; background: var(--panel-2); border: 1px solid var(--border);
+  color: var(--text); border-radius: 999px; padding: 6px 14px; font-size: 13px; cursor: pointer;
+}
+.player-chip:hover { border-color: var(--accent); }
+.player-chip-sub { font-size: 10.5px; color: var(--accent); }
+.mode-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin-bottom: 14px; }
+.mode-card {
+  text-align: left; background: var(--panel); border: 1px solid var(--border); color: var(--text);
+  border-radius: 14px; padding: 14px; cursor: pointer; min-height: 130px;
+}
+.mode-card:hover { border-color: var(--accent); }
+.mode-icon { font-size: 26px; margin-bottom: 4px; }
+.mode-title { font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+.mode-desc { font-size: 12.5px; line-height: 1.45; color: var(--text-dim); }
+.mode-extra { font-size: 12px; margin-top: 8px; color: #ffd24d; }
+.game-input {
+  width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border);
+  background: var(--panel-2); color: var(--text); font-size: 15px; margin: 4px 0 12px;
+}
+.game-input:focus { outline: 1px solid var(--accent); }
+.player-list { display: grid; gap: 6px; margin-bottom: 12px; }
+.player-row { display: flex; align-items: center; gap: 4px; }
+.player-pick {
+  flex: 1; display: flex; justify-content: space-between; gap: 10px; text-align: left;
+  background: var(--panel-2); border: 1px solid var(--border); color: var(--text);
+  border-radius: 8px; padding: 10px 12px; font-size: 14px; cursor: pointer;
+}
+.player-row.atual .player-pick { border-color: var(--accent); }
+.player-pts { color: var(--text-dim); font-size: 12px; }
+.player-add { display: flex; gap: 8px; align-items: center; }
+.player-add .game-input { margin: 0; }
+.rank-wrap { overflow-x: auto; margin-bottom: 12px; }
+.rank-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.rank-table th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-dim); padding: 6px 8px; border-bottom: 1px solid var(--border); }
+.rank-table td { padding: 10px 8px; border-bottom: 1px solid var(--border); }
+.rank-table td.num, .rank-table th:nth-child(n+3) { text-align: right; }
+.rank-table tr.voce { background: rgba(79, 176, 255, 0.12); }
+.rank-table tr.top td:first-child { font-size: 18px; }
+.r-nome { font-weight: 600; }
+.tag { margin-left: 6px; font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 999px; background: var(--accent); color: #07131f; vertical-align: middle; }
+.tag.imp { background: var(--panel-2); color: var(--text-dim); border: 1px solid var(--border); }
+.card-text { background: var(--panel-2); border: 1px solid var(--border); border-radius: 8px; padding: 10px; user-select: all; }
+.fb-more { margin: 4px 0 8px; font-size: 13px; line-height: 1.5; }
+.fb-more summary { cursor: pointer; color: var(--accent); margin-bottom: 4px; }
+.fb-more p { margin: 6px 0; }
+.fb-fono { font-size: 12.5px; line-height: 1.45; color: var(--accent-2); margin-bottom: 6px; }
+
 /* ------------------------------------------------------------- telas largas */
 @media (min-width: 900px) {
   .game-hud { left: 12px; right: auto; max-width: 560px; top: 12px; }

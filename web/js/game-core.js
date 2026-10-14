@@ -256,7 +256,9 @@ function finishOptions(q, opcoes, rng) {
 export function explain(e, tipo) {
   const latim = e.nome_latim ? ` (${e.nome_latim})` : "";
   if (tipo === "encontre" || tipo === "identifique") {
-    return `${e.nome_pt}${latim}. ${firstSentences(e.descricao, 230)}`.trim();
+    // prefere a explicacao completa (escrita por IA) a primeira frase da descricao da Wikipedia
+    const corpo = e.explicacao ? firstSentences(e.explicacao, 280) : firstSentences(e.descricao, 230);
+    return `${e.nome_pt}${latim}. ${corpo}`.trim();
   }
   if (tipo === "funcao") return `${e.nome_pt}: ${e.funcao}`;
   if (tipo === "inervacao") return `${e.nome_pt}: ${e.relacoes.inervado_por}`;
@@ -273,11 +275,19 @@ export function novoProgresso() {
     atualizado_em: new Date().toISOString(),
     sessao: 0,
     itens: {}, // "id|tipo" -> { caixa, due, vistas, acertos }
-    fases: {}, // regiaoId -> { jogadas, melhor: {acertos,total,estrelas,pontos}, ultima }
-    totais: { pontos: 0, rodadas: 0, respostas: 0, acertos: 0, melhor_sequencia: 0 },
+    fases: {}, // modo "Fases": regiaoId -> { jogadas, melhor: {acertos,total,estrelas,pontos}, ultima }
+    modos: { livre: {}, misto: { jogadas: 0, melhor: null, ultima: null } }, // "Treino por parte" e "Tudo misturado"
+    totais: { pontos: 0, rodadas: 0, respostas: 0, acertos: 0, melhor_sequencia: 0, melhor_rodada: 0 },
     config: { liberar_tudo: false },
   };
 }
+
+export const MODOS = {
+  fases: { nome: "Fases", icone: "🪜" },
+  livre: { nome: "Treino por parte", icone: "🎯" },
+  misto: { nome: "Tudo misturado", icone: "🎲" },
+  revisao: { nome: "Revisão de erros", icone: "🔁" },
+};
 
 export function iniciarSessao(progress) {
   progress.sessao += 1;
@@ -313,24 +323,49 @@ export function estrelas(acertos, total) {
   return p >= 0.9 ? 3 : p >= 0.7 ? 2 : p >= 0.5 ? 1 : 0;
 }
 
-export function concluirRodada(progress, faseId, resumo, ehRevisao) {
+function registrarMelhor(container, resumo) {
+  const r = { acertos: resumo.acertos, total: resumo.total, estrelas: estrelas(resumo.acertos, resumo.total), pontos: resumo.pontos };
+  container.jogadas += 1;
+  container.ultima = r;
+  let recorde = false;
+  const m = container.melhor;
+  if (!m || r.estrelas > m.estrelas || (r.estrelas === m.estrelas && r.pontos > m.pontos)) {
+    recorde = !!m;
+    container.melhor = r;
+  }
+  return recorde;
+}
+
+// modo: "fases" (sobe de nivel), "livre" (treino por parte), "misto" (tudo misturado) ou "revisao"
+export function concluirRodada(progress, regiaoId, resumo, modo = "fases") {
+  if (modo === true) modo = "revisao"; // compatibilidade com a assinatura antiga (ehRevisao)
+  if (modo === false) modo = "fases";
   progress.totais.rodadas += 1;
   progress.totais.pontos += resumo.pontos;
   progress.totais.melhor_sequencia = Math.max(progress.totais.melhor_sequencia, resumo.melhorSequencia);
+  progress.totais.melhor_rodada = Math.max(progress.totais.melhor_rodada || 0, resumo.pontos);
   let recorde = false;
-  if (!ehRevisao && faseId) {
-    const f = progress.fases[faseId] || { jogadas: 0, melhor: null, ultima: null };
-    const r = { acertos: resumo.acertos, total: resumo.total, estrelas: estrelas(resumo.acertos, resumo.total), pontos: resumo.pontos };
-    f.jogadas += 1;
-    f.ultima = r;
-    if (!f.melhor || r.estrelas > f.melhor.estrelas || (r.estrelas === f.melhor.estrelas && r.pontos > f.melhor.pontos)) {
-      recorde = !!f.melhor;
-      f.melhor = r;
-    }
-    progress.fases[faseId] = f;
+  if (modo === "fases" && regiaoId) {
+    const f = progress.fases[regiaoId] || { jogadas: 0, melhor: null, ultima: null };
+    recorde = registrarMelhor(f, resumo);
+    progress.fases[regiaoId] = f;
+  } else if (modo === "livre" && regiaoId) {
+    const f = progress.modos.livre[regiaoId] || { jogadas: 0, melhor: null, ultima: null };
+    recorde = registrarMelhor(f, resumo);
+    progress.modos.livre[regiaoId] = f;
+  } else if (modo === "misto") {
+    recorde = registrarMelhor(progress.modos.misto, resumo);
   }
   progress.atualizado_em = new Date().toISOString();
   return { recorde };
+}
+
+export function estrelasTotais(progress) {
+  let n = 0;
+  for (const f of Object.values(progress.fases)) if (f.melhor) n += f.melhor.estrelas;
+  for (const f of Object.values(progress.modos.livre)) if (f.melhor) n += f.melhor.estrelas;
+  if (progress.modos.misto.melhor) n += progress.modos.misto.melhor.estrelas;
+  return n;
 }
 
 export function fasesDesbloqueadas(phases, progress) {
@@ -358,13 +393,20 @@ export function validarProgresso(obj) {
     if (!/^[a-z0-9-]+\|(encontre|identifique|funcao|inervacao|origem|insercao)$/.test(k) || !it) continue;
     p.itens[k] = { caixa: Math.max(1, Math.min(5, Math.floor(num(it.caixa, 1)))), due: num(it.due), vistas: Math.max(0, num(it.vistas)), acertos: Math.max(0, num(it.acertos)) };
   }
+  const pick = (r) => (r && typeof r === "object" ? { acertos: num(r.acertos), total: num(r.total), estrelas: Math.max(0, Math.min(3, num(r.estrelas))), pontos: num(r.pontos) } : null);
+  const rec = (f) => ({ jogadas: Math.max(0, num(f.jogadas)), melhor: pick(f.melhor), ultima: pick(f.ultima) });
   for (const [k, f] of Object.entries(obj.fases || {})) {
     if (!/^[a-z_]+$/.test(k) || !f) continue;
-    const pick = (r) => (r && typeof r === "object" ? { acertos: num(r.acertos), total: num(r.total), estrelas: Math.max(0, Math.min(3, num(r.estrelas))), pontos: num(r.pontos) } : null);
-    p.fases[k] = { jogadas: Math.max(0, num(f.jogadas)), melhor: pick(f.melhor), ultima: pick(f.ultima) };
+    p.fases[k] = rec(f);
   }
+  const modos = obj.modos || {};
+  for (const [k, f] of Object.entries(modos.livre || {})) {
+    if (!/^[a-z_]+$/.test(k) || !f) continue;
+    p.modos.livre[k] = rec(f);
+  }
+  if (modos.misto && typeof modos.misto === "object") p.modos.misto = rec(modos.misto);
   const t = obj.totais || {};
-  p.totais = { pontos: num(t.pontos), rodadas: num(t.rodadas), respostas: num(t.respostas), acertos: num(t.acertos), melhor_sequencia: num(t.melhor_sequencia) };
+  p.totais = { pontos: num(t.pontos), rodadas: num(t.rodadas), respostas: num(t.respostas), acertos: num(t.acertos), melhor_sequencia: num(t.melhor_sequencia), melhor_rodada: num(t.melhor_rodada) };
   p.config = { liberar_tudo: !!(obj.config && obj.config.liberar_tudo) };
   return { ok: true, progresso: p };
 }
@@ -382,14 +424,18 @@ export function revisaoCandidatos(data, progress) {
   return out;
 }
 
-export function pickRound(cands, progress, n, rng) {
+// opts.balanceKey: funcao(cand) -> chave (ex.: regiao). Usada no modo "tudo misturado" para nao deixar
+// as regioes grandes (cerebro, marcos) dominarem a rodada: cada escolha reduz o peso da mesma chave.
+export function pickRound(cands, progress, n, rng, opts = {}) {
   n = Math.min(n, cands.length);
   const sessao = progress.sessao;
   const item = (c) => progress.itens[c.key];
   const due = cands.filter((c) => item(c) && item(c).due <= sessao);
   const novos = cands.filter((c) => !item(c));
   const resto = cands.filter((c) => item(c) && item(c).due > sessao);
-  const weight = (c) => (c.e.relevancia_fono ? 3 : 1) * (item(c) ? 6 - item(c).caixa : 2);
+  const porChave = new Map();
+  const balance = (c) => (opts.balanceKey ? 1 / (1 + 2 * (porChave.get(opts.balanceKey(c)) || 0)) : 1);
+  const weight = (c) => (c.e.relevancia_fono ? 3 : 1) * (item(c) ? 6 - item(c).caixa : 2) * balance(c);
 
   const chosen = [];
   const usedIds = new Set();
@@ -401,6 +447,7 @@ export function pickRound(cands, progress, n, rng) {
       while (taken < count && avail.length) {
         const c = avail[weightedPick(avail, rng, weight)];
         chosen.push(c);
+        if (opts.balanceKey) porChave.set(opts.balanceKey(c), (porChave.get(opts.balanceKey(c)) || 0) + 1);
         usedIds.add(c.id);
         usedKeys.add(c.key);
         taken += 1;
@@ -445,4 +492,56 @@ function orderRound(list, rng) {
     if (s < bestScore) { best = cand; bestScore = s; }
   }
   return best;
+}
+
+// ------------------------------------------------------------ modo "tudo misturado"
+export function candidatosMistos(data) {
+  const out = [];
+  for (const p of data.phases) out.push(...p.candidatos);
+  return out;
+}
+
+// --------------------------------------------------- ranking e cartao de pontuacao
+// Ranking SEM servidor: soma os jogadores deste aparelho + "cartoes de pontuacao" importados de
+// colegas (arquivo JSON). Nao e verificado: depende da honestidade de quem gera o cartao.
+export function cartaoPontuacao(nome, progress) {
+  const t = progress.totais;
+  return {
+    tipo: "cartao-pontuacao",
+    versao: 1,
+    nome: String(nome || "Jogador").slice(0, 24),
+    gerado_em: new Date().toISOString(),
+    pontos: t.pontos,
+    rodadas: t.rodadas,
+    respostas: t.respostas,
+    acertos: t.acertos,
+    melhor_sequencia: t.melhor_sequencia,
+    melhor_rodada: t.melhor_rodada || 0,
+    estrelas: estrelasTotais(progress),
+  };
+}
+
+export function validarCartao(obj) {
+  if (!obj || typeof obj !== "object" || obj.tipo !== "cartao-pontuacao" || obj.versao !== 1) {
+    return { ok: false, erro: "Não é um cartão de pontuação válido." };
+  }
+  const num = (v) => (Number.isFinite(v) && v >= 0 ? Math.min(Math.floor(v), 100000000) : 0);
+  const nome = String(obj.nome || "").replace(/[<>]/g, "").trim().slice(0, 24);
+  if (!nome) return { ok: false, erro: "O cartão não tem nome." };
+  const gerado = typeof obj.gerado_em === "string" && !Number.isNaN(Date.parse(obj.gerado_em)) ? obj.gerado_em : new Date().toISOString();
+  const cartao = {
+    tipo: "cartao-pontuacao", versao: 1, nome, gerado_em: gerado,
+    pontos: num(obj.pontos), rodadas: num(obj.rodadas), respostas: num(obj.respostas), acertos: Math.min(num(obj.acertos), num(obj.respostas)),
+    melhor_sequencia: num(obj.melhor_sequencia), melhor_rodada: num(obj.melhor_rodada), estrelas: Math.min(num(obj.estrelas), 1000),
+  };
+  return { ok: true, cartao };
+}
+
+export function montarRanking(entradas) {
+  const lista = entradas.map((e) => ({
+    ...e,
+    pct: e.respostas ? Math.round((100 * e.acertos) / e.respostas) : 0,
+  }));
+  lista.sort((a, b) => b.pontos - a.pontos || b.estrelas - a.estrelas || b.pct - a.pct || a.nome.localeCompare(b.nome, "pt-BR"));
+  return lista.map((e, i) => ({ ...e, posicao: i + 1 }));
 }

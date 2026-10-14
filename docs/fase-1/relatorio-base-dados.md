@@ -11,6 +11,8 @@ Gerado automaticamente por `scripts/build_database.py`. Fonte de tudo: manifest,
 | Com nome em latim | 350 (93%) |
 | Com função (qualquer origem) | 138 (37%) |
 | Com função/relações **escritas por IA** (Fase 2, opção B) | 112 |
+| Com **explicação completa** escrita por IA | 375 (100%) |
+| Com nota de relevância para fonoaudiologia | 111 |
 | Entram no modo jogo (`jogo: true`) | 303 (81%) |
 | `revisado: false` | **375 (100%)** |
 

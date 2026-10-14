@@ -39,6 +39,7 @@ const DEFAULT_CHECKED = new Set(["laringe"]);
 const state = {
   mode: "estudo", // "estudo" (padrao) ou "jogo" (ver game.js)
   manifest: null,
+  db: null, // Map id -> registro de data/estruturas.json (explicacoes, funcao, relacoes)
   categories: {}, // key -> { root, loaded, loading, objects: Map(name->mesh), listEl, checkboxEl, headerLoadingEl }
   selected: null, // mesh
   selectedGroup: [], // a malha selecionada + suas copias gemeas (mesmo nome em outra categoria)
@@ -331,9 +332,18 @@ function frameObject(object3d) {
   controls.update();
 }
 
-async function loadCategory(catKey) {
+// uma unica promessa por categoria: quem pede enquanto ela carrega espera o mesmo download
+// (o jogo pre-carrega a regiao da proxima pergunta em segundo plano). opts.startHidden: nasce oculta.
+function loadCategory(catKey, opts = {}) {
   const cat = state.categories[catKey];
-  if (cat.loaded || cat.loading) return;
+  if (cat.loaded) return Promise.resolve();
+  if (cat.loadPromise) return cat.loadPromise;
+  cat.loadPromise = doLoadCategory(catKey, opts).finally(() => { cat.loadPromise = null; });
+  return cat.loadPromise;
+}
+
+async function doLoadCategory(catKey, opts) {
+  const cat = state.categories[catKey];
   cat.loading = true;
   cat.headerLoadingEl.textContent = "carregando…";
   const meta = state.manifest.categories[catKey];
@@ -354,6 +364,7 @@ async function loadCategory(catKey) {
         child.material = materialForMesh(child);
       }
     });
+    if (opts.startHidden) root.visible = false;
     scene.add(root);
     cat.root = root;
     cat.loaded = true;
@@ -376,8 +387,20 @@ function setCategoryVisible(catKey, visible) {
   if (cat.root) cat.root.visible = visible;
 }
 
+// "Ver atraves": desenha a peca selecionada por cima das outras (util para estruturas profundas)
+let xrayOn = false;
+function applyXray() {
+  HIGHLIGHT_MATERIAL.depthTest = !xrayOn;
+  for (const m of state.selectedGroup) m.renderOrder = xrayOn ? 998 : 0;
+  document.getElementById("btn-xray").classList.toggle("active", xrayOn);
+  document.getElementById("info-xray").classList.toggle("active", xrayOn);
+}
+
 function clearSelection() {
-  for (const m of state.selectedGroup) m.material = materialForMesh(m);
+  for (const m of state.selectedGroup) {
+    m.material = materialForMesh(m);
+    m.renderOrder = 0;
+  }
   state.selectedGroup = [];
   state.selected = null;
   document.querySelectorAll(".struct-item.active").forEach((el) => el.classList.remove("active"));
@@ -392,7 +415,10 @@ function selectMesh(mesh) {
   clearSelection();
   state.selected = mesh;
   state.selectedGroup = twinsOf(mesh).slice();
-  for (const m of state.selectedGroup) m.material = HIGHLIGHT_MATERIAL;
+  for (const m of state.selectedGroup) {
+    m.material = HIGHLIGHT_MATERIAL;
+    if (xrayOn) m.renderOrder = 998;
+  }
 
   const catKey = mesh.userData.category;
   const listItem = document.querySelector(`.struct-item[data-cat="${catKey}"][data-name="${CSS.escape(mesh.name)}"]`);
@@ -415,6 +441,53 @@ function selectMesh(mesh) {
   if (window.matchMedia("(max-width: 768px)").matches) closeSidebar();
 }
 
+// registro da estrutura em data/estruturas.json (carregado em segundo plano; pode ainda nao estar pronto)
+function recordFor(nodeName) {
+  if (!state.db) return null;
+  return state.db.get(normalizeKey(baseName(nodeName)).replace(/ /g, "-")) || null;
+}
+
+// seccoes extras do painel: explicacao completa, funcao, origem/insercao/inervacao e nota de fono.
+// Funcao/relacoes so aparecem quando foram curadas (fontes.escrito_por_ia); as frases extraidas
+// automaticamente das descricoes ja aparecem no texto da descricao.
+function renderInfoExtra(rec) {
+  const box = document.getElementById("info-extra");
+  box.replaceChildren();
+  if (!rec) return;
+  const curated = (c) => !!(rec.fontes && Array.isArray(rec.fontes.escrito_por_ia) && rec.fontes.escrito_por_ia.includes(c));
+  const add = (titulo, texto) => {
+    if (!texto) return;
+    const sec = document.createElement("div");
+    sec.className = "info-section";
+    const h = document.createElement("h3");
+    h.textContent = titulo;
+    const p = document.createElement("p");
+    p.textContent = texto;
+    sec.append(h, p);
+    box.appendChild(sec);
+  };
+  add("Explicação", rec.explicacao);
+  if (curated("funcao")) add("Função", rec.funcao);
+  if (curated("origem")) add("Origem", rec.relacoes && rec.relacoes.origem);
+  if (curated("insercao")) add("Inserção", rec.relacoes && rec.relacoes.insercao);
+  if (curated("inervado_por")) add("Inervação", rec.relacoes && rec.relacoes.inervado_por);
+  if (curated("inerva")) add("O que inerva / conduz", rec.relacoes && rec.relacoes.inerva);
+  add("Na fonoaudiologia", rec.fono);
+  const foot = document.createElement("div");
+  foot.className = "info-source";
+  const partes = [];
+  if (rec.explicacao || (rec.fontes && rec.fontes.escrito_por_ia)) partes.push("Explicação, função e relações escritas por IA a partir de conhecimento anatômico padrão; ainda sem revisão profissional.");
+  const url = rec.fontes && rec.fontes.descricao_url;
+  foot.append(document.createTextNode(partes.join(" ") + (partes.length ? " " : "")));
+  if (url) {
+    const a = document.createElement("a");
+    a.href = url; a.target = "_blank"; a.rel = "noopener";
+    a.textContent = "Descrição original (Wikipédia, CC BY-SA)";
+    foot.append(a);
+  }
+  if (foot.childNodes.length) box.appendChild(foot);
+}
+
 function showInfoPanel(nodeName, catKey) {
   const panel = document.getElementById("info-panel");
   const title = document.getElementById("info-title");
@@ -426,9 +499,14 @@ function showInfoPanel(nodeName, catKey) {
 
   const pt = displayName(nodeName);
   const en = baseName(nodeName);
+  const rec = recordFor(nodeName);
   title.textContent = pt;
-  englishName.textContent = pt.toLowerCase() !== en.toLowerCase() ? `(en: ${en})` : "";
+  const nomes = [];
+  if (pt.toLowerCase() !== en.toLowerCase()) nomes.push(`en: ${en}`);
+  if (rec && rec.nome_latim) nomes.push(`lat.: ${rec.nome_latim}`);
+  englishName.textContent = nomes.length ? `(${nomes.join(" · ")})` : "";
   catLabel.textContent = CATEGORY_LABELS[catKey] || catKey;
+  renderInfoExtra(rec);
 
   const { text, fallback } = lookupDescription(nodeName);
   desc.innerHTML = "";
@@ -471,6 +549,7 @@ function showInfoPanel(nodeName, catKey) {
 }
 
 function closeInfoPanel() {
+  document.getElementById("info-extra").replaceChildren();
   document.getElementById("info-panel").classList.remove("open");
   document.getElementById("info-photo").hidden = true;
   document.getElementById("info-search-btn").hidden = true;
@@ -489,7 +568,8 @@ const pointer = new THREE.Vector2();
 // acesso as pecas encobertas sem precisar ocultar/isolar manualmente, guardamos TODAS as
 // intersecoes (nao so a primeira) e permitimos "furar" a pilha por clique repetido ou pelo
 // menu de contexto (ver showContextMenu).
-function raycastAllHits(clientX, clientY) {
+function raycastAllHits(clientX, clientY, accept) {
+  // accept (opcional): funcao(mesh) -> bool; o jogo usa para tornar o cranio de contexto "transparente" ao clique
   const rect = renderer.domElement.getBoundingClientRect();
   pointer.x = ((clientX - rect.left) / rect.width) * 2 - 1;
   pointer.y = -((clientY - rect.top) / rect.height) * 2 + 1;
@@ -499,7 +579,7 @@ function raycastAllHits(clientX, clientY) {
   for (const cat of Object.values(state.categories)) {
     if (cat.root && cat.root.visible) {
       cat.root.traverse((child) => {
-        if (child.isMesh && child.visible) pickables.push(child);
+        if (child.isMesh && child.visible && (!accept || accept(child))) pickables.push(child);
       });
     }
   }
@@ -994,6 +1074,50 @@ function frameSelected(mesh) {
   controls.update();
 }
 
+// centraliza a camera na peca selecionada; sem selecao, enquadra tudo o que esta visivel
+function frameVisible() {
+  const box = new THREE.Box3();
+  for (const cat of Object.values(state.categories)) {
+    if (!cat.root || !cat.root.visible) continue;
+    cat.root.traverse((m) => {
+      if (m.isMesh && m.visible) box.union(new THREE.Box3().setFromObject(m));
+    });
+  }
+  if (box.isEmpty()) return;
+  const center = box.getCenter(new THREE.Vector3());
+  const size = Math.max(box.getSize(new THREE.Vector3()).length(), 0.02);
+  const dir = camera.position.clone().sub(controls.target);
+  if (dir.lengthSq() === 0) dir.set(0.5, 0.35, 0.8);
+  controls.target.copy(center);
+  // em tela vertical (celular) a largura visivel e menor: afasta a camera para nao cortar as laterais
+  const retrato = Math.max(1, 1 / Math.max(camera.aspect, 0.3));
+  camera.position.copy(center.clone().add(dir.normalize().multiplyScalar(size * 0.9 * retrato)));
+  camera.near = Math.max(size / 1000, 0.001);
+  camera.far = size * 50;
+  camera.updateProjectionMatrix();
+  controls.update();
+}
+
+function centerOnPiece() {
+  if (state.selected) frameSelected(state.selected);
+  else frameVisible();
+}
+
+document.getElementById("btn-center").addEventListener("click", centerOnPiece);
+for (const id of ["btn-xray", "info-xray"]) {
+  document.getElementById(id).addEventListener("click", () => {
+    xrayOn = !xrayOn;
+    applyXray();
+  });
+}
+document.getElementById("info-center").addEventListener("click", () => {
+  centerOnPiece();
+  // no celular o painel ocupa a tela toda: fecha so a janela (mantem a peca destacada) para mostrar o resultado
+  if (window.matchMedia("(max-width: 768px)").matches) {
+    document.getElementById("info-panel").classList.remove("open");
+  }
+});
+
 // --- search ---
 document.getElementById("search").addEventListener("input", (e) => {
   const q = e.target.value.trim().toLowerCase();
@@ -1047,9 +1171,24 @@ async function loadPhotosConfig() {
   }
 }
 
+async function loadDatabase() {
+  try {
+    const res = await fetch("../data/estruturas.json", { cache: "no-store" });
+    const db = await res.json();
+    state.db = new Map(db.estruturas.map((e) => [e.id, e]));
+    // se uma peca ja estava selecionada quando a base chegou, completa o painel
+    if (state.selected && document.getElementById("info-panel").classList.contains("open")) {
+      renderInfoExtra(recordFor(state.selected.name));
+    }
+  } catch (err) {
+    console.warn("Nao foi possivel carregar data/estruturas.json (explicacoes completas ficam indisponiveis)", err);
+  }
+}
+
 async function init() {
   const res = await fetch("../data/glb/manifest.json", { cache: "no-store" });
   state.manifest = await res.json();
+  loadDatabase(); // em segundo plano: o painel funciona sem ela
   await loadPhotosConfig();
   buildSidebar(state.manifest);
 

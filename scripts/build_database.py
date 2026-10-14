@@ -79,6 +79,18 @@ def load_ta2():
     return rows
 
 
+def load_explicacoes():
+    """Explicacoes completas (escritas por IA, nao revisadas) em data/explicacoes/*.json:
+    {"explicacoes": {"<id>": {"explicacao": "...", "fono": "..."}}}"""
+    out = {}
+    d = P("data", "explicacoes")
+    if os.path.isdir(d):
+        for nome in sorted(os.listdir(d)):
+            if nome.endswith(".json"):
+                out.update(load_json(os.path.join(d, nome)).get("explicacoes", {}))
+    return out
+
+
 def glb_mesh_names(manifest):
     """Nomes originais dos objetos que realmente tem malha em cada .glb (le o JSON do arquivo).
     O manifest as vezes lista objetos que o exportador glTF descartou (ex.: ancora de rotulo sem faces)."""
@@ -109,6 +121,7 @@ def main():
     meta = load_json(P("data", "source_meta.json"))
     rules = load_json(P("data", "regras_base_dados.json"))
     ajustes = load_json(P("data", "estruturas_ajustes.json")).get("ajustes", {})
+    explicacoes = load_explicacoes()
     photos = load_json(P("data", "photos.json")) if os.path.exists(P("data", "photos.json")) else {}
     photos = {norm_key(k): v for k, v in photos.items() if not k.startswith("_")}
     ta2 = load_ta2()
@@ -314,6 +327,8 @@ def main():
             ("categorias_app", sorted({o["categoria_app"] for o in objs})),
             ("par_craniano", par),
             ("descricao", texto),
+            ("explicacao", (explicacoes.get(k.replace(" ", "-")) or {}).get("explicacao")),
+            ("fono", (explicacoes.get(k.replace(" ", "-")) or {}).get("fono")),
             ("funcao", funcao),
             ("relacoes", relacoes),
             ("relevancia_fono", bool(relev)),
@@ -329,6 +344,7 @@ def main():
                 ("nome_latim", "ta2" if (ta and ta["latim"]) else None),
                 ("descricao", dfonte),
                 ("descricao_url", url),
+                ("explicacao", "escrita_por_ia_nao_revisada" if k.replace(" ", "-") in explicacoes else None),
                 ("funcao_relacoes", "trecho_da_descricao" if (funcao or relacoes) else None),
                 ("tipo_regiao_relevancia_dificuldade", "regra_automatica"),
             ])),
@@ -355,7 +371,7 @@ def main():
 
     # ---- ajustes manuais -------------------------------------------------
     ids = {e["id"] for e in estruturas}
-    desconhecidos = [a for a in ajustes if a not in ids]
+    desconhecidos = [a for a in ajustes if a not in ids] + [f"explicacoes:{a}" for a in explicacoes if a not in ids]
     for e in estruturas:
         a = ajustes.get(e["id"])
         if not a:
@@ -494,7 +510,23 @@ def write_report(estruturas, out, rules, desconhecidos):
     L.append("## 1. Números pedidos\n")
     cur = [e for e in estruturas if e["fontes"].get("escrito_por_ia")]
     n_jogo = sum(1 for e in estruturas if e["jogo"])
-    L.append(f"| Item | Estruturas |\n|---|---:|\n| **Total de estruturas** (esquerdo/direito juntos) | **{N}** |\n| Com descrição | {pct(n_desc)} |\n| Com nome em latim | {pct(n_lat)} |\n| Com função (qualquer origem) | {pct(n_fun)} |\n| Com função/relações **escritas por IA** (Fase 2, opção B) | {len(cur)} |\n| Entram no modo jogo (`jogo: true`) | {pct(n_jogo)} |\n| `revisado: false` | **{pct(n_rev_false)}** |\n")
+    n_expl = sum(1 for e in estruturas if e.get("explicacao"))
+    n_fonotxt = sum(1 for e in estruturas if e.get("fono"))
+    tabela = [
+        "| Item | Estruturas |",
+        "|---|---:|",
+        f"| **Total de estruturas** (esquerdo/direito juntos) | **{N}** |",
+        f"| Com descrição | {pct(n_desc)} |",
+        f"| Com nome em latim | {pct(n_lat)} |",
+        f"| Com função (qualquer origem) | {pct(n_fun)} |",
+        f"| Com função/relações **escritas por IA** (Fase 2, opção B) | {len(cur)} |",
+        f"| Com **explicação completa** escrita por IA | {pct(n_expl)} |",
+        f"| Com nota de relevância para fonoaudiologia | {n_fonotxt} |",
+        f"| Entram no modo jogo (`jogo: true`) | {pct(n_jogo)} |",
+        f"| `revisado: false` | **{pct(n_rev_false)}** |",
+        "",
+    ]
+    L.extend(tabela)
     L.append("`revisado` é `false` em todas porque nenhum texto foi conferido por uma pessoa especialista: as descrições são da Wikipédia traduzidas por IA (ou texto geral escrito por IA), e os textos de função/origem/inserção/inervação das estruturas curadas foram escritos por IA a partir de conhecimento padrão de livros-texto (campo `fontes.escrito_por_ia`).\n")
     L.append("### Origem das descrições\n")
     nomes_fonte = {"wikipedia_traduzida_ia": "Wikipédia traduzida por IA", "outra_fonte_traduzida_ia": "Outra fonte (não Wikipédia) traduzida por IA", "escrita_para_o_projeto_ia": "Escrita para o projeto (IA)", "conhecimento_geral_ia": "Conhecimento geral (IA), sem artigo-fonte", None: "Sem descrição"}
