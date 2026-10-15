@@ -299,7 +299,7 @@ export function initGame(ctx) {
           h("button", { class: "game-btn", onclick: renderRanking, text: "🏆 Ranking" }),
           h("button", { class: "game-btn ghost", onclick: openProgress, text: "📊 Progresso e backup" }),
           h("button", { class: "game-btn ghost", onclick: openCredits, text: "ℹ️ Créditos e fontes" })),
-        h("p", { class: "game-note", text: "Aviso: descrições, explicações e perguntas foram traduzidas ou escritas por IA e ainda não foram revisadas por um especialista. Confira em fontes de referência antes de estudar para prova." })));
+        h("p", { class: "game-note", text: "Aviso: descrições, explicações e perguntas foram traduzidas ou escritas por IA. As explicações foram conferidas com referências abertas (veja “Referências consultadas” no painel de cada peça), mas ainda não foram revisadas por um especialista. Confira com seu professor antes de estudar para prova." })));
     showOnly("menu");
   }
 

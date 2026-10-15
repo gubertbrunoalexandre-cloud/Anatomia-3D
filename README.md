@@ -41,7 +41,8 @@ O repositório é público, então é só ativar uma vez:
 2. Em "Build and deployment" → Source, escolha **Deploy from a branch**.
 3. Branch: **main**, pasta: **/ (root)** → Save.
 4. Em 1-2 minutos o site fica disponível em
-   `https://gubertbrunoalexandre-cloud.github.io/Anatomia-fono-3D/`
+   `https://gubertbrunoalexandre-cloud.github.io/Anatomia-3D/`
+   (o repositório foi renomeado de `Anatomia-fono-3D` para `Anatomia-3D`)
    (a página raiz redireciona automaticamente pra `web/index.html`).
 
 Depois disso, qualquer atualização enviada (`git push`) pro branch `main`
@@ -128,7 +129,9 @@ descrições abaixo).
   estruturas já têm — ver "Fotos explicativas" abaixo — as demais mostram um
   placeholder) e um botão que abre uma busca do Google (`nome + anatomia
   função`) em nova aba. As explicações vêm de `data/explicacoes/`, são escritas
-  por IA e ainda **não foram revisadas por um especialista** — o painel avisa.
+  por IA, **conferidas com referências abertas** (StatPearls/NIH, Kenhub, SciELO —
+  lista em "Referências consultadas" no próprio painel) e ainda **não revisadas por um
+  especialista** — o painel avisa. Detalhes da conferência: `docs/fase-2/conferencia-explicacoes.md`.
 - **⌖ Centralizar peça**: botão na barra de ferramentas e no painel de detalhes.
   Com uma peça selecionada, aproxima a câmera dela; sem seleção, enquadra tudo o
   que está visível. Em tela de celular o enquadramento afasta a câmera para não
@@ -200,8 +203,18 @@ translúcido de contexto onde a região da fase se destaca. Botões do jogo:
 seu progresso (**👤 trocar**). O **🏆 Ranking** soma os jogadores do aparelho e os
 **cartões de pontuação** dos colegas (cada um gera o seu em *Ranking → 📤 Compartilhar
 meu cartão de pontuação*, e os demais usam *📥 Importar cartão de colega*). Não há verificação — depende da honestidade de quem gera o
-cartão. Um ranking online de verdade exigiria um servidor/banco de dados, fora do escopo
-de um site 100% estático.
+cartão. Esta versão serve para **testar a ideia**; o plano é ligar o ranking a um banco
+online (Supabase).
+
+*Ponto de encaixe para o Supabase:* toda a tela de ranking lê `rankingEntries()` em
+`web/js/game.js` (hoje: jogadores do aparelho + cartões importados). Para o ranking online,
+essa função passaria a buscar as linhas da tabela remota, e `shareCard` passaria a gravar
+a pontuação nela. Sugestão de tabela `placar` (um registro por jogador): `id` (uuid),
+`nome` (apelido, máx. 24), `pontos`, `estrelas`, `respostas`, `acertos`,
+`melhor_sequencia`, `melhor_rodada`, `atualizado_em`. Cuidados a decidir antes: políticas
+RLS (leitura pública, escrita só do próprio registro), pontuação calculada/validada no
+servidor para evitar forjar (a chave `anon` do navegador é pública), e privacidade/LGPD
+(usar apelido em vez do nome real e permitir apagar o registro).
 
 Tipos de pergunta:
 
@@ -243,9 +256,13 @@ python scripts/build_database.py      # regenera data/estruturas.json + docs/fas
 - Correções manuais por estrutura: `data/estruturas_ajustes.json` (sobrevivem à regeneração).
 - Explicações completas: `data/explicacoes/*.json` (`{"explicacoes": {"<id>": {"explicacao": "...",
   "fono": "..."}}}`). Todas as 375 estruturas têm explicação; `fono` existe onde faz sentido
-  para a clínica. Escritas por IA a partir de anatomia de livro-texto, marcadas
-  `escrita_por_ia_nao_revisada` em `fontes.explicacao` — **peça revisão de um especialista
-  antes de usar como material oficial**. Um `id` que não existe na base é apontado pelo
+  para a clínica. Escritas por IA a partir de anatomia de livro-texto e **conferidas com
+  referências** (`data/explicacoes/_referencias.json`: fontes por região e por estrutura;
+  `fontes.explicacao = "ia_conferida_com_referencias"` e campo `referencias` na base).
+  **Peça revisão de um especialista antes de usar como material oficial:** quem revisar
+  acrescenta `"revisado_por": "Nome, registro"` na estrutura e roda o `build_database.py`
+  — o painel passa a mostrar a revisão no lugar do aviso de IA (passo a passo em
+  `docs/fase-2/conferencia-explicacoes.md`). Um `id` ou fonte inexistente é apontado pelo
   `build_database.py`.
 - Regras de região, tipo, relevância para fono e dificuldade: `data/regras_base_dados.json`.
 - Relatório com contagens e campos vazios: `docs/fase-1/`.

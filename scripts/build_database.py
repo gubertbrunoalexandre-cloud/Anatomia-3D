@@ -86,9 +86,30 @@ def load_explicacoes():
     d = P("data", "explicacoes")
     if os.path.isdir(d):
         for nome in sorted(os.listdir(d)):
-            if nome.endswith(".json"):
+            if nome.endswith(".json") and not nome.startswith("_"):
                 out.update(load_json(os.path.join(d, nome)).get("explicacoes", {}))
     return out
+
+
+def load_referencias():
+    """Referencias consultadas para conferir as explicacoes: data/explicacoes/_referencias.json
+    {"fontes": {"<chave>": {"titulo", "url", "tipo"}}, "por_regiao": {"<regiao>": ["<chave>"]},
+     "por_id": {"<id>": ["<chave>"]}}. Devolve (fontes, por_regiao, por_id, problemas)."""
+    path = P("data", "explicacoes", "_referencias.json")
+    if not os.path.exists(path):
+        return {}, {}, {}, []
+    j = load_json(path)
+    fontes = j.get("fontes", {})
+    problemas = []
+    for k, v in fontes.items():
+        if not str(v.get("url", "")).startswith("https://") or not v.get("titulo"):
+            problemas.append(f"referencias:fonte invalida {k}")
+    for bloco in ("por_regiao", "por_id"):
+        for chave, lista in j.get(bloco, {}).items():
+            for r in lista:
+                if r not in fontes:
+                    problemas.append(f"referencias:{bloco}:{chave} usa fonte inexistente {r}")
+    return fontes, j.get("por_regiao", {}), j.get("por_id", {}), problemas
 
 
 def glb_mesh_names(manifest):
@@ -122,6 +143,17 @@ def main():
     rules = load_json(P("data", "regras_base_dados.json"))
     ajustes = load_json(P("data", "estruturas_ajustes.json")).get("ajustes", {})
     explicacoes = load_explicacoes()
+    ref_fontes, ref_regiao, ref_id, ref_problemas = load_referencias()
+
+    def referencias_de(sid, reg):
+        """Fontes da regiao + as especificas da estrutura, sem repetir, so para quem tem explicacao."""
+        if sid not in explicacoes:
+            return []
+        chaves = []
+        for c in list(ref_regiao.get(reg, [])) + list(ref_id.get(sid, [])):
+            if c in ref_fontes and c not in chaves:
+                chaves.append(c)
+        return [OrderedDict([("titulo", ref_fontes[c]["titulo"]), ("url", ref_fontes[c]["url"]), ("tipo", ref_fontes[c].get("tipo"))]) for c in chaves]
     photos = load_json(P("data", "photos.json")) if os.path.exists(P("data", "photos.json")) else {}
     photos = {norm_key(k): v for k, v in photos.items() if not k.startswith("_")}
     ta2 = load_ta2()
@@ -329,6 +361,9 @@ def main():
             ("descricao", texto),
             ("explicacao", (explicacoes.get(k.replace(" ", "-")) or {}).get("explicacao")),
             ("fono", (explicacoes.get(k.replace(" ", "-")) or {}).get("fono")),
+            ("referencias", referencias_de(k.replace(" ", "-"), regiao)),
+            # preenchido por quem revisar a explicacao ("revisado_por": "Nome, CRFa ...") no arquivo de explicacoes
+            ("explicacao_revisada_por", ((explicacoes.get(k.replace(" ", "-")) or {}).get("revisado_por") or None)),
             ("funcao", funcao),
             ("relacoes", relacoes),
             ("relevancia_fono", bool(relev)),
@@ -344,7 +379,7 @@ def main():
                 ("nome_latim", "ta2" if (ta and ta["latim"]) else None),
                 ("descricao", dfonte),
                 ("descricao_url", url),
-                ("explicacao", "escrita_por_ia_nao_revisada" if k.replace(" ", "-") in explicacoes else None),
+                ("explicacao", (("revisada_por_pessoa" if (explicacoes.get(k.replace(" ", "-")) or {}).get("revisado_por") else "ia_conferida_com_referencias" if referencias_de(k.replace(" ", "-"), regiao) else "escrita_por_ia_nao_revisada") if k.replace(" ", "-") in explicacoes else None)),
                 ("funcao_relacoes", "trecho_da_descricao" if (funcao or relacoes) else None),
                 ("tipo_regiao_relevancia_dificuldade", "regra_automatica"),
             ])),
@@ -371,7 +406,8 @@ def main():
 
     # ---- ajustes manuais -------------------------------------------------
     ids = {e["id"] for e in estruturas}
-    desconhecidos = [a for a in ajustes if a not in ids] + [f"explicacoes:{a}" for a in explicacoes if a not in ids]
+    desconhecidos = [a for a in ajustes if a not in ids] + [f"explicacoes:{a}" for a in explicacoes if a not in ids] + ref_problemas
+    desconhecidos += [f"referencias:id inexistente {a}" for a in ref_id if a not in ids]
     for e in estruturas:
         a = ajustes.get(e["id"])
         if not a:

@@ -476,7 +476,14 @@ function renderInfoExtra(rec) {
   const foot = document.createElement("div");
   foot.className = "info-source";
   const partes = [];
-  if (rec.explicacao || (rec.fontes && rec.fontes.escrito_por_ia)) partes.push("Explicação, função e relações escritas por IA a partir de conhecimento anatômico padrão; ainda sem revisão profissional.");
+  const refs = Array.isArray(rec.referencias) ? rec.referencias : [];
+  if (rec.explicacao && rec.explicacao_revisada_por) {
+    partes.push(`Explicação revisada por ${rec.explicacao_revisada_por}.`);
+  } else if (rec.explicacao || (rec.fontes && rec.fontes.escrito_por_ia)) {
+    partes.push(refs.length
+      ? "Explicação, função e relações escritas por IA e conferidas com as referências abaixo; ainda sem revisão de um profissional da área."
+      : "Explicação, função e relações escritas por IA a partir de conhecimento anatômico padrão; ainda sem revisão profissional.");
+  }
   const url = rec.fontes && rec.fontes.descricao_url;
   foot.append(document.createTextNode(partes.join(" ") + (partes.length ? " " : "")));
   if (url) {
@@ -486,6 +493,25 @@ function renderInfoExtra(rec) {
     foot.append(a);
   }
   if (foot.childNodes.length) box.appendChild(foot);
+  if (refs.length) {
+    const det = document.createElement("details");
+    det.className = "info-refs";
+    const sum = document.createElement("summary");
+    sum.textContent = `Referências consultadas (${refs.length})`;
+    const ul = document.createElement("ul");
+    for (const r of refs) {
+      if (!/^https:\/\//.test(r.url || "")) continue;
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = r.url; a.target = "_blank"; a.rel = "noopener";
+      a.textContent = r.titulo;
+      li.append(a);
+      if (r.tipo) li.append(document.createTextNode(` — ${r.tipo}`));
+      ul.append(li);
+    }
+    det.append(sum, ul);
+    box.appendChild(det);
+  }
 }
 
 function showInfoPanel(nodeName, catKey) {

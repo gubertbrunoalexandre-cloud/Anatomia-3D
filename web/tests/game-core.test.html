@@ -245,8 +245,20 @@ check("estrelas", core.estrelas(9, 10) === 3 && core.estrelas(7, 10) === 2 && co
   check("toda estrutura jogavel tem explicacao completa", sem.length === 0, sem.slice(0, 5).join(","));
   const e = data.jogaveis.find((x) => x.id === "genioglossus-muscle");
   check("o feedback de 'identifique' usa a explicacao completa", e && core.explain(e, "identifique").includes(core.firstSentences(e.explicacao, 280).slice(0, 40)));
-  const semFonte = db.estruturas.filter((x) => x.explicacao && x.fontes.explicacao !== "escrita_por_ia_nao_revisada").map((x) => x.id);
-  check("toda explicacao esta marcada como escrita por IA e nao revisada", semFonte.length === 0, semFonte.slice(0, 5).join(","));
+  const semFonte = db.estruturas.filter((x) => x.explicacao && !["escrita_por_ia_nao_revisada", "ia_conferida_com_referencias", "revisada_por_pessoa"].includes(x.fontes.explicacao)).map((x) => x.id);
+  check("toda explicacao tem a origem declarada (IA conferida/nao, ou revisada por pessoa identificada)", semFonte.length === 0 && db.estruturas.every((x) => (x.fontes.explicacao === "revisada_por_pessoa") === !!x.explicacao_revisada_por), semFonte.slice(0, 5).join(","));
+  const semRef = db.estruturas.filter((x) => x.explicacao && !(x.referencias && x.referencias.length)).map((x) => x.id);
+  check("toda explicacao tem ao menos uma referencia consultada", semRef.length === 0, semRef.slice(0, 5).join(","));
+  const refsRuins = [];
+  for (const x of db.estruturas) {
+    const urls = (x.referencias || []).map((r) => r.url);
+    if (new Set(urls).size !== urls.length) refsRuins.push(`${x.id}: referencia repetida`);
+    for (const r of x.referencias || []) {
+      if (!/^https:\/\/[^\s]+$/.test(r.url) || !r.titulo) refsRuins.push(`${x.id}: referencia invalida`);
+    }
+    if ((x.referencias || []).length && !["ia_conferida_com_referencias", "revisada_por_pessoa"].includes(x.fontes.explicacao)) refsRuins.push(`${x.id}: fonte da explicacao nao reflete a conferencia`);
+  }
+  check("referencias: https, sem repeticao e coerentes com fontes.explicacao", refsRuins.length === 0, refsRuins.slice(0, 3).join(" | "));
 }
 
 // ---- vazamento do nome
