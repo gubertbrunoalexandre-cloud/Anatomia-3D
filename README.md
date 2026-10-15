@@ -66,7 +66,8 @@ anatomia-fono-3d/
 │   ├── descriptions_fallback.json           # textos de conhecimento geral p/ estruturas sem artigo
 │   ├── photos.json                          # config de fotos por estrutura (ver abaixo)
 │   ├── photos/                              # arquivos de imagem referenciados por photos.json
-│   ├── explicacoes/                         # explicacoes completas por estrutura (escritas por IA, nao revisadas)
+│   ├── nomes_pt_ajustes.json                # nomes em portugues do Brasil que substituem ingles/latim da TA2
+│   ├── explicacoes/                         # explicacoes completas por estrutura (escritas por IA, conferidas com referencias)
 │   └── glb/                                 # modelos exportados (26 arquivos .glb + manifest.json)
 ├── docs/fase-0/                             # auditoria de cobertura e inventário de licenças
 ├── scripts/
@@ -140,6 +141,11 @@ descrições abaixo).
   músculos e cartilagens que ficam atrás de outras estruturas). Clique de novo
   para voltar ao normal.
 - **Busca** por nome (português ou inglês) na lista lateral.
+- **Tudo em português do Brasil:** nomes, descrições, explicações, perguntas e botões. Nomes que
+  vieram em inglês ou latim da fonte foram trocados (`data/nomes_pt_ajustes.json`, aplicado pelo
+  `build_database.py` e pelo exportador); o inglês e o latim aparecem só como referência
+  ("inglês: … · latim: …") sob o título. As imagens ilustrativas cujos rótulos estão em inglês
+  trazem uma **legenda em português** (`_legendas_pt` em `data/photos.json`).
 - **Marcos ósseos como pinos clicáveis**: forames, canais e suturas do crânio
   não têm malha própria no dataset fonte (ver seção dedicada abaixo) — são
   representados como pequenas esferas laranja posicionadas exatamente no

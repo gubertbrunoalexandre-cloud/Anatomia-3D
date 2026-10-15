@@ -2,6 +2,561 @@
   "_readme": "Mapa de fotos por estrutura. Chave = nome da estrutura em ingles (o mesmo nome base usado internamente, ex.: 'Thyroid cartilage'), normalizado automaticamente pelo app (minusculo, sem acentos/pontuacao). Valor = nome do arquivo dentro de data/photos/. Para adicionar uma foto: 1) coloque o arquivo de imagem em data/photos/ 2) adicione uma linha aqui com a chave e o nome do arquivo. Nao precisa mexer em nenhum codigo.",
   "_exemplo": "\"thyroid cartilage\": \"thyroid-cartilage.jpg\"",
   "_atribuicoes": "Ver data/photos/ATTRIBUTIONS.md para fonte, autor e licenca de cada imagem (todas do Wikimedia Commons, dominio publico ou CC BY/CC BY-SA compativel).",
+  "_legendas_pt_ajuda": "Legenda em portugues para imagens cujos rotulos estao em ingles: arquivo -> lista de [rotulo original, traducao]. Mostrada no painel da estrutura.",
+  "_legendas_pt": {
+    "larynx_cartilages.svg": [
+      [
+        "hyoid bone",
+        "osso hioide"
+      ],
+      [
+        "thyrohyoid membrane",
+        "membrana tíreo-hióidea"
+      ],
+      [
+        "median thyrohyoid ligament",
+        "ligamento tíreo-hióideo mediano"
+      ],
+      [
+        "lateral thyrohyoid ligament",
+        "ligamento tíreo-hióideo lateral"
+      ],
+      [
+        "laryngeal incisure",
+        "incisura tireóidea superior"
+      ],
+      [
+        "thyroid cartilage",
+        "cartilagem tireoide"
+      ],
+      [
+        "superior cornu of thyroid cartilage",
+        "corno superior da cartilagem tireoide"
+      ],
+      [
+        "inferior cornu of thyroid cartilage",
+        "corno inferior da cartilagem tireoide"
+      ],
+      [
+        "superior laryngeal nerve and artery",
+        "nervo e artéria laríngeos superiores"
+      ],
+      [
+        "oblique line",
+        "linha oblíqua"
+      ],
+      [
+        "cricothyroid muscle",
+        "músculo cricotireóideo"
+      ],
+      [
+        "cricothyroid joint",
+        "articulação cricotireóidea"
+      ],
+      [
+        "median cricothyroid ligament",
+        "ligamento cricotireóideo mediano"
+      ],
+      [
+        "conus elasticus",
+        "cone elástico"
+      ],
+      [
+        "cricoid cartilage",
+        "cartilagem cricoide"
+      ],
+      [
+        "trachea",
+        "traqueia"
+      ]
+    ],
+    "cricoid_cartilage.png": [
+      [
+        "Submaxillary triangle",
+        "triângulo submandibular"
+      ],
+      [
+        "Hyoid bone",
+        "osso hioide"
+      ],
+      [
+        "Thyroid cartilage",
+        "cartilagem tireoide"
+      ],
+      [
+        "Cricoid cartilage",
+        "cartilagem cricoide"
+      ],
+      [
+        "Sternocleidomastoideus",
+        "músculo esternocleidomastóideo"
+      ],
+      [
+        "Trapezius",
+        "músculo trapézio"
+      ],
+      [
+        "Supraclavicular fossa",
+        "fossa supraclavicular"
+      ],
+      [
+        "Infraclavicular fossa",
+        "fossa infraclavicular"
+      ],
+      [
+        "Clavicle",
+        "clavícula"
+      ],
+      [
+        "Sternal head",
+        "cabeça esternal"
+      ],
+      [
+        "Clavicular head",
+        "cabeça clavicular"
+      ],
+      [
+        "Jugular notch",
+        "incisura jugular"
+      ]
+    ],
+    "arytenoid_cartilage.png": [
+      [
+        "Epiglottis",
+        "epiglote"
+      ],
+      [
+        "Laryngeal surface",
+        "face laríngea"
+      ],
+      [
+        "Thyroid cartilage",
+        "cartilagem tireoide"
+      ],
+      [
+        "Upper margin / Lower margin",
+        "margem superior / margem inferior"
+      ],
+      [
+        "Superior cornu / Inferior cornu",
+        "corno superior / corno inferior"
+      ],
+      [
+        "Posterior border",
+        "margem posterior"
+      ],
+      [
+        "Attachment of epiglottis",
+        "inserção da epiglote"
+      ],
+      [
+        "False vocal cord / True vocal cord",
+        "prega vestibular (falsa) / prega vocal (verdadeira)"
+      ],
+      [
+        "Thyreo-epiglottideus",
+        "músculo tireoepiglótico"
+      ],
+      [
+        "Thyreo-arytænoideus",
+        "músculo tireoaritenóideo"
+      ],
+      [
+        "Stylo-pharyngeus",
+        "músculo estilofaríngeo"
+      ],
+      [
+        "Corniculate cartilages",
+        "cartilagens corniculadas"
+      ],
+      [
+        "Cuneiform cartilage",
+        "cartilagem cuneiforme"
+      ],
+      [
+        "Arytenoid",
+        "cartilagem aritenoide"
+      ],
+      [
+        "Inner surface",
+        "face interna"
+      ],
+      [
+        "Posterior surface",
+        "face posterior"
+      ],
+      [
+        "Insertion of Cricoarytænoideus posterior",
+        "inserção do músculo cricoaritenóideo posterior"
+      ],
+      [
+        "Cricoid",
+        "cartilagem cricoide"
+      ],
+      [
+        "Articular facet for arytenoid cartilage",
+        "faceta articular para a cartilagem aritenoide"
+      ],
+      [
+        "Articular facet for inferior cornu of thyroid cartilage",
+        "faceta articular para o corno inferior da cartilagem tireoide"
+      ],
+      [
+        "Anterior part",
+        "parte anterior"
+      ]
+    ],
+    "epiglottis.png": [
+      [
+        "Epiglottis",
+        "epiglote"
+      ],
+      [
+        "Tubercle of epiglottis",
+        "tubérculo da epiglote"
+      ],
+      [
+        "Cuneiform cartilage",
+        "cartilagem cuneiforme"
+      ],
+      [
+        "Corniculate cartilage",
+        "cartilagem corniculada"
+      ],
+      [
+        "Arytænoideus",
+        "músculo aritenóideo (transverso e oblíquo)"
+      ],
+      [
+        "Cricoarytænoideus posterior",
+        "músculo cricoaritenóideo posterior"
+      ],
+      [
+        "Trachea",
+        "traqueia"
+      ]
+    ],
+    "pharynx.jpg": [
+      [
+        "Nasal cavity",
+        "cavidade nasal"
+      ],
+      [
+        "Palate",
+        "palato"
+      ],
+      [
+        "Oral cavity",
+        "cavidade oral"
+      ],
+      [
+        "Lips",
+        "lábios"
+      ],
+      [
+        "Tongue",
+        "língua"
+      ],
+      [
+        "Jaw",
+        "mandíbula"
+      ],
+      [
+        "Pharynx",
+        "faringe"
+      ],
+      [
+        "Epiglottis",
+        "epiglote"
+      ],
+      [
+        "Larynx opening into pharynx",
+        "abertura da laringe na faringe"
+      ],
+      [
+        "Larynx",
+        "laringe"
+      ],
+      [
+        "Esophagus",
+        "esôfago"
+      ]
+    ],
+    "soft_palate.jpg": [
+      [
+        "Soft palate",
+        "palato mole"
+      ],
+      [
+        "Tonsils",
+        "tonsilas (amígdalas palatinas)"
+      ],
+      [
+        "Uvula",
+        "úvula"
+      ],
+      [
+        "Tongue",
+        "língua"
+      ]
+    ],
+    "tmj_disc.svg": [
+      [
+        "Mandible",
+        "mandíbula"
+      ],
+      [
+        "Temporal bone",
+        "osso temporal"
+      ],
+      [
+        "Zygomatic process",
+        "processo zigomático"
+      ],
+      [
+        "Zygomatic bone",
+        "osso zigomático"
+      ],
+      [
+        "Sphenoid bone",
+        "osso esfenoide"
+      ],
+      [
+        "Mastoid process",
+        "processo mastoide"
+      ],
+      [
+        "Temporomandibular joint",
+        "articulação temporomandibular"
+      ],
+      [
+        "Temporomand. ligament",
+        "ligamento temporomandibular"
+      ],
+      [
+        "Capsule",
+        "cápsula"
+      ],
+      [
+        "Condyloid process",
+        "processo condilar"
+      ],
+      [
+        "Coronoid process",
+        "processo coronoide"
+      ],
+      [
+        "Neck",
+        "colo da mandíbula"
+      ],
+      [
+        "Ramus",
+        "ramo da mandíbula"
+      ]
+    ],
+    "trigeminal_nerve.png": [
+      [
+        "Nerve V",
+        "nervo V (trigêmeo)"
+      ],
+      [
+        "V1 / V2 / V3",
+        "V1 (oftálmico) / V2 (maxilar) / V3 (mandibular)"
+      ],
+      [
+        "To dura",
+        "para a dura-máter"
+      ],
+      [
+        "Tensor tympani",
+        "músculo tensor do tímpano"
+      ],
+      [
+        "Tensor palati",
+        "músculo tensor do véu palatino"
+      ],
+      [
+        "Parotid gland",
+        "glândula parótida"
+      ],
+      [
+        "Buccal n.",
+        "nervo bucal"
+      ],
+      [
+        "Lingual n.",
+        "nervo lingual"
+      ],
+      [
+        "Inf. alveolar n.",
+        "nervo alveolar inferior"
+      ],
+      [
+        "Buccinator",
+        "músculo bucinador"
+      ],
+      [
+        "Mylohyoid",
+        "músculo milo-hióideo"
+      ],
+      [
+        "Digastric",
+        "músculo digástrico"
+      ],
+      [
+        "(see A / B below)",
+        "(ver A / B abaixo, na figura original)"
+      ]
+    ],
+    "vagus_nerve.png": [
+      [
+        "Glossopharyngeal",
+        "nervo glossofaríngeo"
+      ],
+      [
+        "Vagus",
+        "nervo vago"
+      ],
+      [
+        "Accessory",
+        "nervo acessório"
+      ],
+      [
+        "Auricular",
+        "ramo auricular"
+      ],
+      [
+        "Tympanic",
+        "ramo timpânico"
+      ],
+      [
+        "Sup. gang.",
+        "gânglio superior"
+      ],
+      [
+        "Petrous gang.",
+        "gânglio petroso"
+      ],
+      [
+        "Jugular gang.",
+        "gânglio jugular"
+      ],
+      [
+        "Gang. nodosum",
+        "gânglio nodoso (inferior)"
+      ],
+      [
+        "To facial",
+        "para o nervo facial"
+      ],
+      [
+        "To Symp.",
+        "para o simpático"
+      ],
+      [
+        "To Hypogl.",
+        "para o nervo hipoglosso"
+      ],
+      [
+        "To 1st & 2nd cerv.",
+        "para o 1º e 2º nervos cervicais"
+      ],
+      [
+        "Int. branch",
+        "ramo interno"
+      ],
+      [
+        "Ext. branch",
+        "ramo externo"
+      ],
+      [
+        "Pharyngeal",
+        "ramo faríngeo"
+      ],
+      [
+        "Laryngeal",
+        "ramo laríngeo"
+      ]
+    ],
+    "hypoglossal_nerve.png": [
+      [
+        "Hypoglossal N.",
+        "nervo hipoglosso"
+      ],
+      [
+        "Vagus N.",
+        "nervo vago"
+      ],
+      [
+        "Glossopharyngeal N.",
+        "nervo glossofaríngeo"
+      ],
+      [
+        "Lingual N.",
+        "nervo lingual"
+      ],
+      [
+        "Cervical N. (2nd, 3rd)",
+        "nervos cervicais (2º e 3º)"
+      ],
+      [
+        "Sterno-cleido-mastoideus",
+        "músculo esternocleidomastóideo"
+      ],
+      [
+        "Splenius",
+        "músculo esplênio"
+      ],
+      [
+        "Levator scapulae",
+        "músculo levantador da escápula"
+      ],
+      [
+        "Scalenus anterior / medius",
+        "músculos escalenos anterior / médio"
+      ],
+      [
+        "Trapezius",
+        "músculo trapézio"
+      ],
+      [
+        "Omohyoideus (inferior / superior belly)",
+        "músculo omo-hióideo (ventre inferior / superior)"
+      ],
+      [
+        "Sterno-hyoideus",
+        "músculo esterno-hióideo"
+      ],
+      [
+        "Sterno-thyreoideus",
+        "músculo esternotireóideo"
+      ],
+      [
+        "Genio-hyoideus",
+        "músculo gênio-hióideo"
+      ],
+      [
+        "Genio-glossus",
+        "músculo genioglosso"
+      ],
+      [
+        "Hyo-glossus",
+        "músculo hioglosso"
+      ],
+      [
+        "Stylo-glossus",
+        "músculo estiloglosso"
+      ],
+      [
+        "Internal jugular vein (azul)",
+        "veia jugular interna (azul)"
+      ],
+      [
+        "Common carotid artery (vermelho)",
+        "artéria carótida comum (vermelho)"
+      ]
+    ]
+  },
 
   "thyroid cartilage": "larynx_cartilages.svg",
   "cricoid cartilage": "cricoid_cartilage.png",

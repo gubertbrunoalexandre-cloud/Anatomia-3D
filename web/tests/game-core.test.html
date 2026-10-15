@@ -261,6 +261,19 @@ check("estrelas", core.estrelas(9, 10) === 3 && core.estrelas(7, 10) === 2 && co
   check("referencias: https, sem repeticao e coerentes com fontes.explicacao", refsRuins.length === 0, refsRuins.slice(0, 3).join(" | "));
 }
 
+// ---- tudo em portugues do Brasil
+{
+  const proibidas = /\b(gyrus|gyri|sulcus|sulci|artery|branch|branches|part|of|the|and|muscle|nerve|bone|cartilage|region|segment|lateral part|tympani|cerebri|cerebelli|pallidus|oblongata|thalamus|fornix|pons|putamen|globus|falx|tentorium|chorda|lingula|nodes?|ligament|surco|nodulos?|nódulos?)\b|\*|_/i;
+  const ruins = db.estruturas.filter((x) => proibidas.test(x.nome_pt)).map((x) => `${x.id}: ${x.nome_pt}`);
+  check("nenhum nome em portugues esta em ingles, latim ou com marcas do original", ruins.length === 0, ruins.slice(0, 5).join(" | "));
+  const comUrl = db.estruturas.filter((x) => /https?:\/\//.test(x.descricao || "")).map((x) => x.id);
+  check("descricoes nao carregam links soltos no texto", comUrl.length === 0, comUrl.slice(0, 5).join(","));
+  const eu = db.estruturas.filter((x) => /\b(infra|supra)-orbit|espinhal|antélice|esfenóide|etmóide/i.test([x.nome_pt, x.explicacao, x.fono].join(" "))).map((x) => x.id);
+  check("grafia do Brasil nos nomes e explicacoes (infraorbital, espinal, anti-hélice, esfenoide, etmoide)", eu.length === 0, eu.slice(0, 5).join(","));
+  const semAjuste = db.estruturas.filter((x) => x.fontes.nome_pt === "ingles").map((x) => x.id);
+  check("nenhuma estrutura ficou com nome vindo do ingles", semAjuste.length === 0, semAjuste.slice(0, 5).join(","));
+}
+
 // ---- vazamento do nome
 check("detecta nome vazando no texto", core.leaks("O masseter eleva a mandíbula", core.nameTokens("Músculo masseter")) === true);
 check("nao acusa texto neutro", core.leaks("Eleva a mandíbula", core.nameTokens("Músculo masseter")) === false);

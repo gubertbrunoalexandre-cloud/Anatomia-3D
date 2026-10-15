@@ -46,6 +46,7 @@ const state = {
   twins: new Map(), // nome -> [malhas com esse nome, uma por categoria que a contem]
   framedOnce: false,
   photos: null, // config data/photos.json: normalized_key -> nome do arquivo em data/photos/
+  photoLegends: {}, // data/photos.json "_legendas_pt": arquivo -> [[rotulo original, traducao]]
   pins: [], // alfinetes colocados livremente: { id, group, mesh }
   activePin: null,
 };
@@ -295,12 +296,13 @@ function normalizeKey(s) {
 function lookupDescription(nodeName) {
   if (!state.manifest) return { text: "", fallback: false };
   const key = normalizeKey(baseName(nodeName));
+  // so portugues: o texto em ingles (descriptions_en) nunca e mostrado; links soltos saem do texto
+  // (o link da fonte aparece como "Descricao original" no painel)
+  const limpo = (s) => s.replace(/\s*https?:\/\/\S+/g, "").trim();
   const pt = state.manifest.descriptions_pt && state.manifest.descriptions_pt[key];
-  if (pt) return { text: pt, fallback: false };
+  if (pt) return { text: limpo(pt), fallback: false };
   const fb = state.manifest.descriptions_fallback && state.manifest.descriptions_fallback[key];
-  if (fb) return { text: fb, fallback: true };
-  const en = state.manifest.descriptions_en && state.manifest.descriptions_en[key];
-  if (en) return { text: en, fallback: false };
+  if (fb) return { text: limpo(fb), fallback: true };
   return { text: "", fallback: false };
 }
 
@@ -489,7 +491,7 @@ function renderInfoExtra(rec) {
   if (url) {
     const a = document.createElement("a");
     a.href = url; a.target = "_blank"; a.rel = "noopener";
-    a.textContent = "Descrição original (Wikipédia, CC BY-SA)";
+    a.textContent = "Descrição original (Wikipédia em inglês, CC BY-SA), traduzida";
     foot.append(a);
   }
   if (foot.childNodes.length) box.appendChild(foot);
@@ -528,8 +530,8 @@ function showInfoPanel(nodeName, catKey) {
   const rec = recordFor(nodeName);
   title.textContent = pt;
   const nomes = [];
-  if (pt.toLowerCase() !== en.toLowerCase()) nomes.push(`en: ${en}`);
-  if (rec && rec.nome_latim) nomes.push(`lat.: ${rec.nome_latim}`);
+  if (pt.toLowerCase() !== en.toLowerCase()) nomes.push(`inglês: ${en}`);
+  if (rec && rec.nome_latim) nomes.push(`latim: ${rec.nome_latim}`);
   englishName.textContent = nomes.length ? `(${nomes.join(" · ")})` : "";
   catLabel.textContent = CATEGORY_LABELS[catKey] || catKey;
   renderInfoExtra(rec);
@@ -564,6 +566,24 @@ function showInfoPanel(nodeName, catKey) {
       photoBox.innerHTML = `<div class="photo-placeholder"><div class="icon">📷</div><div>foto em breve</div></div>`;
     };
     photoBox.appendChild(img);
+    const legenda = state.photoLegends[photoFile];
+    if (Array.isArray(legenda) && legenda.length) {
+      const det = document.createElement("details");
+      det.className = "photo-legend";
+      const sum = document.createElement("summary");
+      sum.textContent = "Legenda em português (a imagem tem rótulos em inglês)";
+      const ul = document.createElement("ul");
+      for (const par of legenda) {
+        const li = document.createElement("li");
+        const orig = document.createElement("span");
+        orig.className = "leg-orig";
+        orig.textContent = par[0];
+        li.append(orig, document.createTextNode(` → ${par[1]}`));
+        ul.append(li);
+      }
+      det.append(sum, ul);
+      photoBox.appendChild(det);
+    }
   } else {
     photoBox.innerHTML = `<div class="photo-placeholder"><div class="icon">📷</div><div>foto em breve</div></div>`;
   }
@@ -1186,6 +1206,7 @@ async function loadPhotosConfig() {
     const res = await fetch("../data/photos.json", { cache: "no-store" });
     const raw = await res.json();
     const normalized = {};
+    state.photoLegends = raw._legendas_pt || {};
     for (const [k, v] of Object.entries(raw)) {
       if (k.startsWith("_")) continue; // chaves de documentacao (_readme, _exemplo)
       normalized[normalizeKey(k)] = v;

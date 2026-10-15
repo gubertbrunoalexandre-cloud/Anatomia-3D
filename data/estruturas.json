@@ -215,7 +215,7 @@
  "estruturas": [
   {
    "id": "ary-epiglottic-part-of-oblique-arytenoid-muscle",
-   "nome_pt": "Parte ari-epiglótica do músculo aritenóideo oblíquo",
+   "nome_pt": "Parte ariepiglótica do músculo aritenóideo oblíquo",
    "nome_en": "Ary-epiglottic part of oblique arytenoid muscle",
    "nome_latim": "Pars aryepiglottica musculi arytenoidei obliqui",
    "tipo": "musculo",
@@ -227,7 +227,7 @@
    ],
    "par_craniano": null,
    "descricao": "Origem: ápice da cartilagem aritenóidea.\n\nInserção: borda da epiglote.\n\nSustentação da prega ariepiglótica.",
-   "explicacao": "É a continuação do músculo aritenóideo oblíquo que sobe pela prega ari-epiglótica até a epiglote. Funciona como um esfíncter, estreitando a entrada da laringe ao aproximar as aritenoides e a epiglote, especialmente na deglutição.",
+   "explicacao": "É a continuação do músculo aritenóideo oblíquo que sobe pela prega ariepiglótica até a epiglote. Funciona como um esfíncter, estreitando a entrada da laringe ao aproximar as aritenoides e a epiglote, especialmente na deglutição.",
    "fono": null,
    "referencias": [
     {
@@ -278,7 +278,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": null,
@@ -384,8 +384,8 @@
     "laringe"
    ],
    "par_craniano": null,
-   "descricao": "As cartilagens corniculadas são dois pequenos nódulos cônicos constituídos de cartilagem elástica, que se articulam com os ápices das cartilagens aritenóideas e servem para prolongá-las posterior e medialmente.\n\nSituam-se nas partes posteriores das pregas ariepiglóticas da mucosa e, por vezes, fundem-se às cartilagens aritenóideas. \n\nhttps://en.wikipedia.org/wiki/Corniculate_cartilages",
-   "explicacao": "As cartilagens corniculadas (de Santorini) são duas pequenas cartilagens em forma de cone que ficam sobre o ápice das aritenoides. Elevam e reforçam a parte posterior da entrada da laringe, nas pregas ari-epiglóticas.",
+   "descricao": "As cartilagens corniculadas são dois pequenos nódulos cônicos constituídos de cartilagem elástica, que se articulam com os ápices das cartilagens aritenóideas e servem para prolongá-las posterior e medialmente.\n\nSituam-se nas partes posteriores das pregas ariepiglóticas da mucosa e, por vezes, fundem-se às cartilagens aritenóideas.",
+   "explicacao": "As cartilagens corniculadas (de Santorini) são duas pequenas cartilagens em forma de cone que ficam sobre o ápice das aritenoides. Elevam e reforçam a parte posterior da entrada da laringe, nas pregas ariepiglóticas.",
    "fono": null,
    "referencias": [
     {
@@ -658,7 +658,7 @@
   },
   {
    "id": "lateral-crico-arytenoid-muscle",
-   "nome_pt": "Músculo crico-aritenóideo lateral",
+   "nome_pt": "Músculo cricoaritenóideo lateral",
    "nome_en": "Lateral crico-arytenoid muscle",
    "nome_latim": "Musculus cricoarytendoideus lateralis",
    "tipo": "musculo",
@@ -721,7 +721,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": null,
@@ -808,7 +808,7 @@
   },
   {
    "id": "posterior-crico-arytenoid-muscle",
-   "nome_pt": "Músculo crico-aritenóide posterior",
+   "nome_pt": "Músculo cricoaritenóideo posterior",
    "nome_en": "Posterior crico-arytenoid muscle",
    "nome_latim": "Musculus cricoarytenoideus posterior",
    "tipo": "musculo",
@@ -872,7 +872,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": null,
@@ -893,7 +893,7 @@
   },
   {
    "id": "external-part-of-thyro-arytenoid-muscle",
-   "nome_pt": "Parte externa do músculo tireo-aritenóideo",
+   "nome_pt": "Parte externa do músculo tireoaritenóideo",
    "nome_en": "External part of thyro-arytenoid muscle",
    "nome_latim": "Pars externa musculi thyreoarytenoidei",
    "tipo": "musculo",
@@ -956,7 +956,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": null,
@@ -1145,7 +1145,7 @@
   },
   {
    "id": "thyro-epiglottic-part-of-thyro-arytenoid-muscle",
-   "nome_pt": "Parte tireo-epiglótica do músculo tireo-aritenóideo",
+   "nome_pt": "Parte tireoepiglótica do músculo tireoaritenóideo",
    "nome_en": "Thyro-epiglottic part of thyro-arytenoid muscle",
    "nome_latim": "Pars thyreoepiglottica musculi thyreoarytenoidei",
    "tipo": "musculo",
@@ -1157,7 +1157,7 @@
    ],
    "par_craniano": null,
    "descricao": "Origem: anteriormente, na superfície interna da cartilagem tireóidea.\n\nInserção: epiglote e membrana quadrangular.\n\nInervação: nervo laríngeo recorrente.",
-   "explicacao": "É a parte do músculo tireoaritenóideo cujas fibras se prolongam pela prega ari-epiglótica até a margem da epiglote e a membrana quadrangular; alguns autores a descrevem como um músculo à parte (tireoepiglótico). É inervada pelo nervo laríngeo recorrente. Sua ação é descrita de modos diferentes: atlas modernos a apontam como alargadora da entrada da laringe, enquanto outras fontes a associam ao abaixamento da epiglote.",
+   "explicacao": "É a parte do músculo tireoaritenóideo cujas fibras se prolongam pela prega ariepiglótica até a margem da epiglote e a membrana quadrangular; alguns autores a descrevem como um músculo à parte (tireoepiglótico). É inervada pelo nervo laríngeo recorrente. Sua ação é descrita de modos diferentes: atlas modernos a apontam como alargadora da entrada da laringe, enquanto outras fontes a associam ao abaixamento da epiglote.",
    "fono": null,
    "referencias": [
     {
@@ -1215,7 +1215,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": null,
@@ -1371,7 +1371,7 @@
   },
   {
    "id": "accessory-parotid-gland",
-   "nome_pt": "(Glândula parótida acessória)",
+   "nome_pt": "Glândula parótida acessória",
    "nome_en": "(Accessory parotid gland)",
    "nome_latim": "(Glandula parotidea accessoria)",
    "tipo": "glandula",
@@ -1427,7 +1427,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -2063,7 +2063,7 @@
     "cavidade_oral_lingua"
    ],
    "par_craniano": null,
-   "descricao": "A artéria labial inferior (ramo labial inferior da artéria facial) origina-se próximo ao ângulo da boca como ramo da artéria facial; segue para cima e para frente, profundamente ao músculo triangular dos lábios, e, penetrando o músculo orbicular da boca, percorre um trajeto tortuoso ao longo da borda do lábio inferior, entre esse músculo e a mucosa.\nIrriga as glândulas labiais, a mucosa e os músculos do lábio inferior, e anastomosa-se com a artéria do lado oposto e com o ramo mentual da artéria alveolar inferior.\n\nhttps://en.wikipedia.org/wiki/Inferior_labial_artery",
+   "descricao": "A artéria labial inferior (ramo labial inferior da artéria facial) origina-se próximo ao ângulo da boca como ramo da artéria facial; segue para cima e para frente, profundamente ao músculo triangular dos lábios, e, penetrando o músculo orbicular da boca, percorre um trajeto tortuoso ao longo da borda do lábio inferior, entre esse músculo e a mucosa.\nIrriga as glândulas labiais, a mucosa e os músculos do lábio inferior, e anastomosa-se com a artéria do lado oposto e com o ramo mentual da artéria alveolar inferior.",
    "explicacao": "A artéria labial inferior é um ramo da artéria facial que se origina próximo ao ângulo da boca e segue, entre o músculo orbicular da boca e a mucosa, em direção à linha média, onde se anastomosa com a artéria do lado oposto. Irriga o lábio inferior.",
    "fono": null,
    "referencias": [
@@ -2194,7 +2194,7 @@
   },
   {
    "id": "intraglandular-parotid-nodes",
-   "nome_pt": "Nódulos parótidos intraglandulares",
+   "nome_pt": "Linfonodos parotídeos intraglandulares",
    "nome_en": "Intraglandular parotid nodes",
    "nome_latim": "Nodi parotidei intraglandulares",
    "tipo": "linfoide",
@@ -2250,7 +2250,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -2652,7 +2652,7 @@
   },
   {
    "id": "nasolabial-node",
-   "nome_pt": "Nódulo nasolabial",
+   "nome_pt": "Linfonodo nasolabial",
    "nome_en": "Nasolabial node",
    "nome_latim": "Nodus nasolabialis",
    "tipo": "linfoide",
@@ -2663,8 +2663,8 @@
     "cavidade_oral_lingua"
    ],
    "par_craniano": null,
-   "descricao": "O linfonodo nasolabial é um linfonodo facial encontrado próximo ao nariz e ao lábio superior.\n\nhttps://en.wikipedia.org/wiki/Nasolabial_lymph_node",
-   "explicacao": "O nódulo nasolabial é um pequeno linfonodo facial, localizado próximo ao nariz e ao lábio superior, que participa da drenagem linfática da face.",
+   "descricao": "O linfonodo nasolabial é um linfonodo facial encontrado próximo ao nariz e ao lábio superior.",
+   "explicacao": "O linfonodo nasolabial é um pequeno linfonodo facial, localizado próximo ao nariz e ao lábio superior, que participa da drenagem linfática da face.",
    "fono": null,
    "referencias": [
     {
@@ -2708,7 +2708,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Nasolabial_lymph_node",
@@ -2905,7 +2905,7 @@
   },
   {
    "id": "parotideomasseteric-region",
-   "nome_pt": "Região parotideomasseterica",
+   "nome_pt": "Região parotideomassetérica",
    "nome_en": "Parotideomasseteric region",
    "nome_latim": "Regio parotideomasseterica",
    "tipo": "regiao_superficie",
@@ -2986,7 +2986,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -3011,7 +3011,7 @@
     "cavidade_oral_lingua"
    ],
    "par_craniano": null,
-   "descricao": "Ao cruzar a face inferior do esfenoide, a artéria esfenopalatina termina no septo nasal como os ramos septais posteriores; estes se anastomosam com as artérias etmoidais e com o ramo septal da artéria labial superior; um ramo desce em um sulco do vômer até o canal incisivo e se anastomosa com a artéria palatina descendente.\n\nhttps://en.wikipedia.org/wiki/Posterior_septal_branches_of_sphenopalatine_artery",
+   "descricao": "Ao cruzar a face inferior do esfenoide, a artéria esfenopalatina termina no septo nasal como os ramos septais posteriores; estes se anastomosam com as artérias etmoidais e com o ramo septal da artéria labial superior; um ramo desce em um sulco do vômer até o canal incisivo e se anastomosa com a artéria palatina descendente.",
    "explicacao": "São os ramos septais posteriores da artéria esfenopalatina, que irrigam o septo nasal. O maior deles, a artéria nasopalatina, desce pelo septo até o canal incisivo e se anastomosa com a artéria palatina maior, na região de Kiesselbach.",
    "fono": null,
    "referencias": [
@@ -3478,7 +3478,7 @@
   },
   {
    "id": "posterior-lateral-nasal-branches-of-sphenopalatine-artery",
-   "nome_pt": "Ramos nasais posterolateral da artéria esfenopalatina",
+   "nome_pt": "Ramos nasais posterolaterais da artéria esfenopalatina",
    "nome_en": "Posterior lateral nasal branches of sphenopalatine artery.",
    "nome_latim": "Rami nasales latérales posteriores arteriae sphenopalatinae",
    "tipo": "arteria",
@@ -3534,7 +3534,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -3797,7 +3797,7 @@
   },
   {
    "id": "superficial-parotid-nodes",
-   "nome_pt": "Nódulos parótidos superficiais",
+   "nome_pt": "Linfonodos parotídeos superficiais",
    "nome_en": "Superficial parotid nodes",
    "nome_latim": "Nodi parotidei superficiales",
    "tipo": "linfoide",
@@ -3853,7 +3853,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -3878,7 +3878,7 @@
     "cavidade_oral_lingua"
    ],
    "par_craniano": null,
-   "descricao": "A artéria labial superior (ramo labial superior da artéria facial) é maior e mais evidente do que a artéria labial inferior.\nSegue um trajeto semelhante ao longo da borda do lábio superior, situando-se entre a mucosa e o músculo orbicular da boca, anastomosando-se com a artéria do lado oposto.\nIrriga o lábio superior e emite, em seu trajeto, dois ou três vasos que ascendem em direção ao nariz; um ramo septal ramifica-se no septo nasal até a ponta do nariz, e um ramo alar irriga a asa do nariz.\n\nhttps://en.wikipedia.org/wiki/Superior_labial_artery",
+   "descricao": "A artéria labial superior (ramo labial superior da artéria facial) é maior e mais evidente do que a artéria labial inferior.\nSegue um trajeto semelhante ao longo da borda do lábio superior, situando-se entre a mucosa e o músculo orbicular da boca, anastomosando-se com a artéria do lado oposto.\nIrriga o lábio superior e emite, em seu trajeto, dois ou três vasos que ascendem em direção ao nariz; um ramo septal ramifica-se no septo nasal até a ponta do nariz, e um ramo alar irriga a asa do nariz.",
    "explicacao": "A artéria labial superior é um ramo da artéria facial, maior e mais calibrosa que a inferior. Segue sob a mucosa do lábio superior e anastomosa-se com a do lado oposto, formando um anel arterial ao redor da boca. Irriga o lábio superior e emite ramos para o septo nasal e as narinas.",
    "fono": null,
    "referencias": [
@@ -4310,7 +4310,7 @@
     "faringe"
    ],
    "par_craniano": null,
-   "descricao": "O ligamento cricofaríngeo se estende da lâmina cricóidea até a linha média da faringe. \n\nhttps://en.wikipedia.org/wiki/Cricopharyngeal_ligament",
+   "descricao": "O ligamento cricofaríngeo se estende da lâmina cricóidea até a linha média da faringe.",
    "explicacao": "O ligamento cricofaríngeo é uma faixa fibrosa que liga a lâmina da cartilagem cricoide à parede da faringe, fixando a parte inferior da faringe à laringe.",
    "fono": null,
    "referencias": [
@@ -4951,7 +4951,7 @@
   },
   {
    "id": "retropharyngeal-nodes",
-   "nome_pt": "Nódulos retrofaríngeos",
+   "nome_pt": "Linfonodos retrofaríngeos",
    "nome_en": "Retropharyngeal nodes",
    "nome_latim": "Nodi retropharyngei",
    "tipo": "linfoide",
@@ -5012,7 +5012,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Retropharyngeal_lymph_nodes",
@@ -7215,7 +7215,7 @@
   },
   {
    "id": "chorda-tympani",
-   "nome_pt": "Chorda tympani",
+   "nome_pt": "Corda do tímpano",
    "nome_en": "Chorda tympani",
    "nome_latim": "Chorda tympani",
    "tipo": "nervo",
@@ -7278,7 +7278,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Chorda_tympani",
@@ -7890,7 +7890,7 @@
   },
   {
    "id": "posterior-transverse-collateral-sulcus",
-   "nome_pt": "Posterior transverse collateral sulcus",
+   "nome_pt": "Sulco colateral transverso posterior",
    "nome_en": "Posterior transverse collateral sulcus",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -7941,7 +7941,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -8238,7 +8238,7 @@
   },
   {
    "id": "anterior-inferior-cerebellar-artery",
-   "nome_pt": "Artéria cerebelar infero-anterior",
+   "nome_pt": "Artéria cerebelar anteroinferior",
    "nome_en": "Anterior inferior cerebellar artery",
    "nome_latim": "Arteria cerebelli inferior anterior",
    "tipo": "arteria",
@@ -8296,7 +8296,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Anterior_inferior_cerebellar_artery",
@@ -8310,7 +8310,7 @@
   },
   {
    "id": "anterior-occipital-sulcus",
-   "nome_pt": "Anterior occipital sulcus*",
+   "nome_pt": "Sulco occipital anterior",
    "nome_en": "Anterior occipital sulcus*",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -8361,7 +8361,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -8499,7 +8499,7 @@
   },
   {
    "id": "artery-of-central-sulcus",
-   "nome_pt": "Artery of central sulcus",
+   "nome_pt": "Artéria do sulco central",
    "nome_en": "Artery of central sulcus",
    "nome_latim": null,
    "tipo": "arteria",
@@ -8550,7 +8550,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -8564,7 +8564,7 @@
   },
   {
    "id": "artery-of-precentral-sulcus",
-   "nome_pt": "Artery of precentral sulcus",
+   "nome_pt": "Artéria do sulco pré-central",
    "nome_en": "Artery of precentral sulcus",
    "nome_latim": null,
    "tipo": "arteria",
@@ -8615,7 +8615,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -8629,7 +8629,7 @@
   },
   {
    "id": "branch-to-angular-gyrus",
-   "nome_pt": "Branch to angular gyrus",
+   "nome_pt": "Ramo para o giro angular",
    "nome_en": "Branch to angular gyrus",
    "nome_latim": null,
    "tipo": "vaso",
@@ -8680,7 +8680,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -8966,7 +8966,7 @@
   },
   {
    "id": "cingulate-gyrus-posteroventral-part",
-   "nome_pt": "Cingulate gyrus (Posteroventral part*)",
+   "nome_pt": "Giro do cíngulo (parte posteroventral)",
    "nome_en": "Cingulate gyrus (Posteroventral part*)",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -9017,7 +9017,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Cingulate_cortex",
@@ -9031,7 +9031,7 @@
   },
   {
    "id": "cingulate-gyrus-and-sulcus-middle-anterior-part",
-   "nome_pt": "Cingulate gyrus and sulcus (Middle anterior part)",
+   "nome_pt": "Giro e sulco do cíngulo (parte média anterior)",
    "nome_en": "Cingulate gyrus and sulcus (Middle anterior part)",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -9082,7 +9082,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Cingulate_cortex",
@@ -9096,7 +9096,7 @@
   },
   {
    "id": "cingulate-gyrus-and-sulcus-middle-posterior-part",
-   "nome_pt": "Cingulate gyrus and sulcus (Middle posterior part)",
+   "nome_pt": "Giro e sulco do cíngulo (parte média posterior)",
    "nome_en": "Cingulate gyrus and sulcus (Middle posterior part)",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -9147,7 +9147,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Cingulate_sulcus",
@@ -9161,7 +9161,7 @@
   },
   {
    "id": "cingulate-gyrus-and-sulcus-posterior-dorsal-part",
-   "nome_pt": "Cingulate gyrus and sulcus (Posterior dorsal part)",
+   "nome_pt": "Giro e sulco do cíngulo (parte posterior dorsal)",
    "nome_en": "Cingulate gyrus and sulcus (Posterior dorsal part)",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -9212,7 +9212,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -9226,7 +9226,7 @@
   },
   {
    "id": "cingulate-sulcus-marginal-part",
-   "nome_pt": "Cingulate sulcus (Marginal part*)",
+   "nome_pt": "Sulco do cíngulo (parte marginal)",
    "nome_en": "Cingulate sulcus (Marginal part*)",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -9277,7 +9277,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Cingulate_sulcus",
@@ -9367,7 +9367,7 @@
     "cerebro"
    ],
    "par_craniano": null,
-   "descricao": "A fissura (ou sulco) colateral situa-se na face tentorial do hemisfério e se estende desde as proximidades do polo occipital até uma curta distância do polo temporal.\n\nPosteriormente, situa-se abaixo e lateralmente à fissura calcarina, da qual é separada pelo giro lingual; anteriormente, situa-se entre o giro para-hipocampal e a parte anterior do giro fusiforme.\n\nhttps://en.wikipedia.org/wiki/Collateral_fissure",
+   "descricao": "A fissura (ou sulco) colateral situa-se na face tentorial do hemisfério e se estende desde as proximidades do polo occipital até uma curta distância do polo temporal.\n\nPosteriormente, situa-se abaixo e lateralmente à fissura calcarina, da qual é separada pelo giro lingual; anteriormente, situa-se entre o giro para-hipocampal e a parte anterior do giro fusiforme.",
    "explicacao": "O sulco colateral fica na face inferior do hemisfério, entre o giro fusiforme e o giro para-hipocampal, e se estende da região occipital até o polo temporal.",
    "fono": null,
    "referencias": [
@@ -9478,7 +9478,7 @@
   },
   {
    "id": "falx-cerebri",
-   "nome_pt": "Falx cerebri",
+   "nome_pt": "Foice do cérebro",
    "nome_en": "Falx cerebri",
    "nome_latim": "Falx cerebri",
    "tipo": "encefalo",
@@ -9531,7 +9531,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Falx_cerebri",
@@ -9545,7 +9545,7 @@
   },
   {
    "id": "fornix",
-   "nome_pt": "Fornix",
+   "nome_pt": "Fórnix",
    "nome_en": "Fornix",
    "nome_latim": "Fornix",
    "tipo": "encefalo",
@@ -9601,7 +9601,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Fornix_(neuroanatomy)",
@@ -9677,7 +9677,7 @@
   },
   {
    "id": "globus-pallidus",
-   "nome_pt": "Globus pallidus",
+   "nome_pt": "Globo pálido",
    "nome_en": "Globus pallidus",
    "nome_latim": "Globus pallidus",
    "tipo": "encefalo",
@@ -9733,7 +9733,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -9936,7 +9936,7 @@
   },
   {
    "id": "inferior-occipital-gyrus-and-sulcus",
-   "nome_pt": "Inferior occipital gyrus and sulcus*",
+   "nome_pt": "Giro e sulco occipital inferior",
    "nome_en": "Inferior occipital gyrus and sulcus*",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -9987,7 +9987,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Occipital_gyri",
@@ -10066,7 +10066,7 @@
   },
   {
    "id": "insula-subcentral-gyrus-and-ant-and-post-sulci",
-   "nome_pt": "Insula (Subcentral gyrus and ant. and post. sulci*)",
+   "nome_pt": "Ínsula (giro subcentral e sulcos anterior e posterior)",
    "nome_en": "Insula (Subcentral gyrus and ant. and post. sulci*)",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -10117,7 +10117,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Insular_cortex",
@@ -10131,7 +10131,7 @@
   },
   {
    "id": "insular-branches-of-middle-cerebral-artery-m2",
-   "nome_pt": "Ramos insulares da artéria cerebra média (M2)",
+   "nome_pt": "Ramos insulares da artéria cerebral média (M2)",
    "nome_en": "Insular branches of middle cerebral artery (M2)",
    "nome_latim": "Rami insulares arteriae mediae cerebri (M2)",
    "tipo": "arteria",
@@ -10179,7 +10179,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -10193,7 +10193,7 @@
   },
   {
    "id": "insular-branches-of-middle-cerebral-artery-m2-segment",
-   "nome_pt": "Insular branches of middle cerebral artery (M2-segment)",
+   "nome_pt": "Ramos insulares da artéria cerebral média (segmento M2)",
    "nome_en": "Insular branches of middle cerebral artery (M2-segment)",
    "nome_latim": null,
    "tipo": "arteria",
@@ -10241,7 +10241,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -10255,7 +10255,7 @@
   },
   {
    "id": "lateral-occipital-gyrus-middle-occipital-gyrus",
-   "nome_pt": "Lateral occipital gyrus (Middle occipital gyrus*)",
+   "nome_pt": "Giro occipital lateral (giro occipital médio)",
    "nome_en": "Lateral occipital gyrus (Middle occipital gyrus*)",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -10306,7 +10306,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Occipital_gyri",
@@ -10525,7 +10525,7 @@
   },
   {
    "id": "lingula-of-cerebellum",
-   "nome_pt": "Lingula de cerebelo",
+   "nome_pt": "Língula do cerebelo",
    "nome_en": "Lingula of cerebellum",
    "nome_latim": "Lingula cerebelli",
    "tipo": "encefalo",
@@ -10536,7 +10536,7 @@
     "cerebro"
    ],
    "par_craniano": null,
-   "descricao": "A língula do cerebelo é um pequeno processo em forma de língua, composto por quatro ou cinco fólias; situa-se à frente do lóbulo central e é encoberta por ele.\nAnteriormente, apoia-se na superfície dorsal do véu medular anterior, e sua substância branca continua-se com a do véu.\n\nhttps://en.wikipedia.org/wiki/Lingula_of_cerebellum",
+   "descricao": "A língula do cerebelo é um pequeno processo em forma de língua, composto por quatro ou cinco fólias; situa-se à frente do lóbulo central e é encoberta por ele.\nAnteriormente, apoia-se na superfície dorsal do véu medular anterior, e sua substância branca continua-se com a do véu.",
    "explicacao": "A língula do cerebelo é um pequeno processo em forma de língua, com quatro ou cinco folhas (fólias), na parte anterior do vérmis cerebelar. Situa-se à frente do lóbulo central, que a encobre, e apoia-se no véu medular superior. O vérmis relaciona-se ao controle do tronco, da postura e do equilíbrio.",
    "fono": null,
    "referencias": [
@@ -10568,7 +10568,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Lingula_of_cerebellum",
@@ -10582,7 +10582,7 @@
   },
   {
    "id": "lunate-sulcus",
-   "nome_pt": "(Sulco semilunar)",
+   "nome_pt": "Sulco lunado",
    "nome_en": "Lunate sulcus",
    "nome_latim": "(Sulcus lunatus)",
    "tipo": "encefalo",
@@ -10633,7 +10633,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Lunate_sulcus",
@@ -10647,7 +10647,7 @@
   },
   {
    "id": "medial-occipitotemporal-gyrus-parahippocampal",
-   "nome_pt": "Medial occipitotemporal gyrus (Parahippocampal*)",
+   "nome_pt": "Giro occipitotemporal medial (giro para-hipocampal)",
    "nome_en": "Medial occipitotemporal gyrus (Parahippocampal*)",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -10698,7 +10698,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Parahippocampal_gyrus",
@@ -10712,7 +10712,7 @@
   },
   {
    "id": "medulla-oblongata",
-   "nome_pt": "Medula oblongata",
+   "nome_pt": "Bulbo (medula oblonga)",
    "nome_en": "Medulla oblongata",
    "nome_latim": "Medulla oblongata",
    "tipo": "encefalo",
@@ -10768,7 +10768,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Medulla_oblongata",
@@ -11256,7 +11256,7 @@
   },
   {
    "id": "occipitotemporal-sulcus-lateral-part",
-   "nome_pt": "Occipitotemporal sulcus (Lateral part*)",
+   "nome_pt": "Sulco occipitotemporal (parte lateral)",
    "nome_en": "Occipitotemporal sulcus (Lateral part*)",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -11307,7 +11307,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -11321,7 +11321,7 @@
   },
   {
    "id": "orbital-gyri-frontomarginal-gyrus-and-sulcus",
-   "nome_pt": "Orbital gyri (Frontomarginal gyrus and sulcus*)",
+   "nome_pt": "Giros orbitais (giro e sulco frontomarginal)",
    "nome_en": "Orbital gyri (Frontomarginal gyrus and sulcus*)",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -11387,7 +11387,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Orbital_gyri",
@@ -11485,7 +11485,7 @@
   },
   {
    "id": "orbital-sulci-lateral-orbital-sulcus",
-   "nome_pt": "Orbital sulci (Lateral Orbital sulcus*)",
+   "nome_pt": "Sulcos orbitais (sulco orbital lateral)",
    "nome_en": "Orbital sulci (Lateral Orbital sulcus*)",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -11497,7 +11497,7 @@
     "cranio_ossos"
    ],
    "par_craniano": null,
-   "descricao": "A superfície inferior, ou orbital, do lobo frontal é côncava e repousa sobre a lâmina orbital do osso frontal. \n\nÉ dividida em quatro giros orbitais por um sulco orbital bem demarcado, em forma de H\n\nhttps://en.wikipedia.org/wiki/Orbital_sulcus",
+   "descricao": "A superfície inferior, ou orbital, do lobo frontal é côncava e repousa sobre a lâmina orbital do osso frontal. \n\nÉ dividida em quatro giros orbitais por um sulco orbital bem demarcado, em forma de H",
    "explicacao": "O sulco orbital lateral é um dos sulcos em H da face orbital do lobo frontal. Delimita os giros orbitais, parte do córtex orbitofrontal.",
    "fono": null,
    "referencias": [
@@ -11551,7 +11551,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Orbital_sulcus",
@@ -11645,7 +11645,7 @@
   },
   {
    "id": "paracentral-gyrus-and-sulcus",
-   "nome_pt": "Paracentral gyrus and sulcus*",
+   "nome_pt": "Giro e sulco paracentral",
    "nome_en": "Paracentral gyrus and sulcus*",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -11696,7 +11696,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Paracentral_sulcus",
@@ -11926,7 +11926,7 @@
   },
   {
    "id": "posterior-inferior-cerebellar-artery",
-   "nome_pt": "Artéria cerebelar inferior posterior",
+   "nome_pt": "Artéria cerebelar posteroinferior",
    "nome_en": "Posterior inferior cerebellar artery",
    "nome_latim": "Arteria cerebelli inferior posterior",
    "tipo": "arteria",
@@ -11982,7 +11982,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Posterior_inferior_cerebellar_artery",
@@ -12140,7 +12140,7 @@
     "cerebro"
    ],
    "par_craniano": null,
-   "descricao": "O sulco frontal inferior é um sulco situado entre o giro frontal médio e o giro frontal inferior.\n\nhttps://en.wikipedia.org/wiki/Inferior_frontal_sulcus",
+   "descricao": "O sulco frontal inferior é um sulco situado entre o giro frontal médio e o giro frontal inferior.",
    "explicacao": "O sulco frontal inferior separa o giro frontal médio do giro frontal inferior, na face lateral do lobo frontal.",
    "fono": null,
    "referencias": [
@@ -12205,7 +12205,7 @@
     "cerebro"
    ],
    "par_craniano": null,
-   "descricao": "A face inferior do lobo temporal é côncava e continua-se posteriormente com a superfície tentorial do lobo occipital. \n\nÉ percorrida pelo sulco temporal inferior, que se estende desde as proximidades do polo occipital, posteriormente, até uma pequena distância do polo temporal, anteriormente, mas é frequentemente subdividido por giros de transição (pontes).\n\nhttps://en.wikipedia.org/wiki/Inferior_temporal_sulcus",
+   "descricao": "A face inferior do lobo temporal é côncava e continua-se posteriormente com a superfície tentorial do lobo occipital. \n\nÉ percorrida pelo sulco temporal inferior, que se estende desde as proximidades do polo occipital, posteriormente, até uma pequena distância do polo temporal, anteriormente, mas é frequentemente subdividido por giros de transição (pontes).",
    "explicacao": "O sulco temporal inferior separa os giros temporal médio e inferior, na face lateral do lobo temporal.",
    "fono": null,
    "referencias": [
@@ -12602,7 +12602,7 @@
   },
   {
    "id": "pons",
-   "nome_pt": "Pons",
+   "nome_pt": "Ponte",
    "nome_en": "Pons",
    "nome_latim": "Pons",
    "tipo": "encefalo",
@@ -12658,7 +12658,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Pons",
@@ -12737,7 +12737,7 @@
   },
   {
    "id": "precentral-sulcus-inferior-part",
-   "nome_pt": "Precentral sulcus (inferior part)*",
+   "nome_pt": "Sulco pré-central (parte inferior)",
    "nome_en": "Precentral sulcus (inferior part)*",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -12788,7 +12788,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Precentral_sulcus",
@@ -12802,7 +12802,7 @@
   },
   {
    "id": "precentral-sulcus-superior-part",
-   "nome_pt": "Precentral sulcus (Superior part)*",
+   "nome_pt": "Sulco pré-central (parte superior)",
    "nome_en": "Precentral sulcus (Superior part)*",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -12853,7 +12853,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Precentral_sulcus",
@@ -12867,7 +12867,7 @@
   },
   {
    "id": "putamen",
-   "nome_pt": "Putamen",
+   "nome_pt": "Putame",
    "nome_en": "Putamen",
    "nome_latim": "Putamen",
    "tipo": "encefalo",
@@ -12928,7 +12928,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Putamen",
@@ -12942,7 +12942,7 @@
   },
   {
    "id": "pyramid-of-medulla-oblongata",
-   "nome_pt": "Pirâmide da medula oblonga",
+   "nome_pt": "Pirâmide do bulbo",
    "nome_en": "Pyramid of medulla oblongata",
    "nome_latim": "Pyramis medullae oblongatae",
    "tipo": "nervo",
@@ -12998,7 +12998,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Medullary_pyramids_(brainstem)",
@@ -13012,7 +13012,7 @@
   },
   {
    "id": "straight-gyrus-gyrus-rectus",
-   "nome_pt": "Straight gyrus (Gyrus rectus)",
+   "nome_pt": "Giro reto",
    "nome_en": "Straight gyrus (Gyrus rectus)",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -13023,7 +13023,7 @@
     "cerebro"
    ],
    "par_craniano": null,
-   "descricao": "A parte do lobo frontal inferior imediatamente adjacente à fissura longitudinal (e medial ao giro orbital medial e ao trato olfatório) é denominada giro reto (gyrus rectus), e é contínua com o giro frontal superior na superfície medial.\n\nUma função específica para o giro reto ainda não foi esclarecida; entretanto, em homens, uma maior ativação do giro reto dentro do córtex orbitofrontal medial durante a observação de imagens sexualmente visuais tem sido fortemente associada ao TDSH (transtorno do desejo sexual hipoativo).\n\nhttps://en.wikipedia.org/wiki/Straight_gyrus",
+   "descricao": "A parte do lobo frontal inferior imediatamente adjacente à fissura longitudinal (e medial ao giro orbital medial e ao trato olfatório) é denominada giro reto (gyrus rectus), e é contínua com o giro frontal superior na superfície medial.\n\nUma função específica para o giro reto ainda não foi esclarecida; entretanto, em homens, uma maior ativação do giro reto dentro do córtex orbitofrontal medial durante a observação de imagens sexualmente visuais tem sido fortemente associada ao TDSH (transtorno do desejo sexual hipoativo).",
    "explicacao": "O giro reto é a circunvolução da face orbital do lobo frontal, ao lado da fissura inter-hemisférica. Fica medialmente ao sulco olfatório e participa de funções ligadas ao processamento emocional e à tomada de decisões.",
    "fono": null,
    "referencias": [
@@ -13063,7 +13063,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Straight_gyrus",
@@ -13142,7 +13142,7 @@
   },
   {
    "id": "sulcus-interm-prim-jensen",
-   "nome_pt": "Sulcus interm_prim-Jensen",
+   "nome_pt": "Sulco intermediário primário (de Jensen)",
    "nome_en": "Sulcus interm_prim-Jensen",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -13193,7 +13193,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -13420,7 +13420,7 @@
     "cerebro"
    ],
    "par_craniano": null,
-   "descricao": "O sulco frontal superior é um sulco situado entre o giro frontal superior e o giro frontal médio.\n\nhttps://en.wikipedia.org/wiki/Superior_frontal_sulcus",
+   "descricao": "O sulco frontal superior é um sulco situado entre o giro frontal superior e o giro frontal médio.",
    "explicacao": "O sulco frontal superior separa o giro frontal superior do giro frontal médio, na face lateral do lobo frontal.",
    "fono": null,
    "referencias": [
@@ -13474,7 +13474,7 @@
   },
   {
    "id": "superior-temporal-gyrus-lateral-part",
-   "nome_pt": "Superior temporal gyrus (Lateral part)",
+   "nome_pt": "Giro temporal superior (parte lateral)",
    "nome_en": "Superior temporal gyrus (Lateral part)",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -13540,7 +13540,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Superior_temporal_gyrus",
@@ -13772,7 +13772,7 @@
   },
   {
    "id": "tentorium-cerebelli",
-   "nome_pt": "Tentorium cerebelli",
+   "nome_pt": "Tenda do cerebelo (tentório)",
    "nome_en": "Tentorium cerebelli",
    "nome_latim": "Tentorium cerebelli",
    "tipo": "encefalo",
@@ -13828,7 +13828,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Cerebellar_tentorium",
@@ -13842,7 +13842,7 @@
   },
   {
    "id": "thalamus",
-   "nome_pt": "Thalamus",
+   "nome_pt": "Tálamo",
    "nome_en": "Thalamus",
    "nome_latim": "Thalamus",
    "tipo": "encefalo",
@@ -13898,7 +13898,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Thalamus",
@@ -13974,7 +13974,7 @@
   },
   {
    "id": "transverse-frontopolar-gyrus-and-sulcus",
-   "nome_pt": "Giro e surco frontopolar transverso",
+   "nome_pt": "Giro e sulco frontopolar transverso",
    "nome_en": "Transverse frontopolar gyrus and sulcus*",
    "nome_latim": "Gyrus et sulcus transversus frontopolar",
    "tipo": "encefalo",
@@ -14025,7 +14025,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -14050,7 +14050,7 @@
     "cerebro"
    ],
    "par_craniano": null,
-   "descricao": "O sulco occipital transverso é uma estrutura do lobo occipital.\n\nO sulco occipital transverso é contínuo com a extremidade posterior do ramo occipital do sulco intraparietal, e percorre a parte superior do lobo, a uma curta distância atrás da fissura parietoccipital.\n\nhttps://en.wikipedia.org/wiki/Transverse_occipital_sulcus",
+   "descricao": "O sulco occipital transverso é uma estrutura do lobo occipital.\n\nO sulco occipital transverso é contínuo com a extremidade posterior do ramo occipital do sulco intraparietal, e percorre a parte superior do lobo, a uma curta distância atrás da fissura parietoccipital.",
    "explicacao": "O sulco occipital transverso é um sulco do lobo occipital, na parte posterior do lobo parietal, e é uma referência para a delimitação do córtex visual associativo.",
    "fono": null,
    "referencias": [
@@ -14188,7 +14188,7 @@
   },
   {
    "id": "anterior-cells-of-ethmoid-bone",
-   "nome_pt": "Células ósseas anteriores do etmóide",
+   "nome_pt": "Células etmoidais anteriores",
    "nome_en": "Anterior cells of ethmoid bone",
    "nome_latim": "Cellulae anteriores ossis ethmoidei",
    "tipo": "osso",
@@ -14249,7 +14249,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -14403,7 +14403,7 @@
   },
   {
    "id": "ethmoid-bone",
-   "nome_pt": "Osso etmóide",
+   "nome_pt": "Osso etmoide",
    "nome_en": "Ethmoid bone",
    "nome_latim": "Os ethmoideum",
    "tipo": "osso",
@@ -14456,7 +14456,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Ethmoid_bone",
@@ -14678,7 +14678,7 @@
   },
   {
    "id": "infra-orbital-artery",
-   "nome_pt": "Artéria infra-orbital",
+   "nome_pt": "Artéria infraorbital",
    "nome_en": "Infra-orbital artery",
    "nome_latim": "Arteria infraorbitalis",
    "tipo": "arteria",
@@ -14734,7 +14734,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Infraorbital_artery",
@@ -14748,7 +14748,7 @@
   },
   {
    "id": "infra-orbital-region",
-   "nome_pt": "Região infra-orbital",
+   "nome_pt": "Região infraorbital",
    "nome_en": "Infra-orbital region",
    "nome_latim": "Regio infraorbitalis",
    "tipo": "regiao_superficie",
@@ -14814,7 +14814,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -15178,7 +15178,7 @@
   },
   {
    "id": "middle-cells-of-ethmoid-bone",
-   "nome_pt": "Células ósseas médias do etmóide",
+   "nome_pt": "Células etmoidais médias",
    "nome_en": "Middle cells of ethmoid bone",
    "nome_latim": "Cellulae mediae ossis ethmoidei",
    "tipo": "osso",
@@ -15239,7 +15239,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -15456,7 +15456,7 @@
   },
   {
    "id": "orbital-gyri",
-   "nome_pt": "Giro orbital",
+   "nome_pt": "Giros orbitais",
    "nome_en": "Orbital gyri",
    "nome_latim": "Gyri orbitales",
    "tipo": "encefalo",
@@ -15512,7 +15512,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Orbital_gyri",
@@ -15721,7 +15721,7 @@
   },
   {
    "id": "orbital-sulci-h-shaped-orbital-sulci",
-   "nome_pt": "Orbital sulci (H-shaped orbital sulci*)",
+   "nome_pt": "Sulcos orbitais (sulcos em forma de H)",
    "nome_en": "Orbital sulci (H-shaped orbital sulci*)",
    "nome_latim": null,
    "tipo": "encefalo",
@@ -15732,7 +15732,7 @@
     "cranio_ossos"
    ],
    "par_craniano": null,
-   "descricao": "A superfície inferior, ou orbital, do lobo frontal é côncava e repousa sobre a lâmina orbital do osso frontal. \n\nÉ dividida em quatro giros orbitais por um sulco orbital bem demarcado, em forma de H\n\nhttps://en.wikipedia.org/wiki/Orbital_sulcus",
+   "descricao": "A superfície inferior, ou orbital, do lobo frontal é côncava e repousa sobre a lâmina orbital do osso frontal. \n\nÉ dividida em quatro giros orbitais por um sulco orbital bem demarcado, em forma de H",
    "explicacao": "São os sulcos em forma de H que dividem a face orbital (inferior) do lobo frontal em quatro giros orbitais. Delimitam essa região do córtex orbitofrontal, que repousa sobre o teto da órbita.",
    "fono": null,
    "referencias": [
@@ -15777,7 +15777,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ingles",
+    "nome_pt": "ajuste_manual",
     "nome_latim": null,
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Orbital_sulcus",
@@ -15861,7 +15861,7 @@
   },
   {
    "id": "posterior-cells-of-ethmoid-bone",
-   "nome_pt": "Células ósseas posteriores do etmóide",
+   "nome_pt": "Células etmoidais posteriores",
    "nome_en": "Posterior cells of ethmoid bone",
    "nome_latim": "Cellulae posteriores ossis ethmoidei",
    "tipo": "osso",
@@ -15922,7 +15922,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -16006,7 +16006,7 @@
   },
   {
    "id": "sphenoid-bone",
-   "nome_pt": "Osso esfenóide",
+   "nome_pt": "Osso esfenoide",
    "nome_en": "Sphenoid bone",
    "nome_latim": "Os sphenoideum",
    "tipo": "osso",
@@ -16054,7 +16054,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Sphenoid_bone",
@@ -16276,7 +16276,7 @@
   },
   {
    "id": "supra-orbital-artery",
-   "nome_pt": "Artéria supra-orbital",
+   "nome_pt": "Artéria supraorbital",
    "nome_en": "Supra-orbital artery",
    "nome_latim": "Arteria supraorbitalis",
    "tipo": "arteria",
@@ -16332,7 +16332,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -16781,7 +16781,7 @@
   },
   {
    "id": "iliocostalis-colli-muscle",
-   "nome_pt": "Músculo iliocostalis do pescoço",
+   "nome_pt": "Músculo iliocostal do pescoço",
    "nome_en": "Iliocostalis colli muscle",
    "nome_latim": "Musculus iliocostalis colli",
    "tipo": "musculo",
@@ -16850,7 +16850,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Iliocostalis",
@@ -16864,7 +16864,7 @@
   },
   {
    "id": "interspinales-colli-muscles",
-   "nome_pt": "Músculos interspinales do pescoço",
+   "nome_pt": "Músculos interespinais do pescoço",
    "nome_en": "Interspinales colli muscles",
    "nome_latim": "Musculi interspinales colli",
    "tipo": "musculo",
@@ -16875,7 +16875,7 @@
     "musculos_pescoco"
    ],
    "par_craniano": null,
-   "descricao": "Na região cervical, os interespinhais cervicais (músculos interespinhais do pescoço) são mais nítidos e consistem em seis pares, sendo o primeiro situado entre o áxis e a terceira vértebra, e o último entre a sétima vértebra cervical e a primeira torácica.\n\nhttps://en.wikipedia.org/wiki/Interspinales_muscles",
+   "descricao": "Na região cervical, os interespinhais cervicais (músculos interespinhais do pescoço) são mais nítidos e consistem em seis pares, sendo o primeiro situado entre o áxis e a terceira vértebra, e o último entre a sétima vértebra cervical e a primeira torácica.",
    "explicacao": "Os interespinais do pescoço são pequenos músculos pareados entre os processos espinhosos das vértebras cervicais. Estendem o pescoço e atuam na estabilização e na propriocepção da coluna cervical.",
    "fono": null,
    "referencias": [
@@ -16920,7 +16920,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Interspinales_muscles",
@@ -17158,7 +17158,7 @@
     "musculos_pescoco"
    ],
    "par_craniano": null,
-   "descricao": "O longuíssimo do pescoço, situado medialmente ao longuíssimo do tórax, origina-se por tendões longos e finos a partir dos ápices dos processos transversos das vértebras torácicas de T1 a T5, e insere-se, por tendões semelhantes, nos tubérculos posteriores dos processos transversos das vértebras cervicais de C2 a C6.\n\nhttps://en.wikipedia.org/wiki/Longissimus",
+   "descricao": "O longuíssimo do pescoço, situado medialmente ao longuíssimo do tórax, origina-se por tendões longos e finos a partir dos ápices dos processos transversos das vértebras torácicas de T1 a T5, e insere-se, por tendões semelhantes, nos tubérculos posteriores dos processos transversos das vértebras cervicais de C2 a C6.",
    "explicacao": "O longuíssimo do pescoço faz parte do grupo eretor da espinha, na região cervical. Origina-se nos processos transversos das vértebras torácicas superiores e insere-se nos processos transversos das cervicais. Estende e inclina o pescoço.",
    "fono": null,
    "referencias": [
@@ -17789,7 +17789,7 @@
   },
   {
    "id": "semispinalis-colli-muscle",
-   "nome_pt": "Músculo semi-espinal do pescoço",
+   "nome_pt": "Músculo semiespinal do pescoço",
    "nome_en": "Semispinalis colli muscle",
    "nome_latim": "Musculus semispinalis colli",
    "tipo": "musculo",
@@ -17800,7 +17800,7 @@
     "musculos_pescoco"
    ],
    "par_craniano": null,
-   "descricao": "O semiespinal cervical (ou semiespinal do pescoço) origina-se por uma série de fibras tendíneas e carnosas nos processos transversos das cinco ou seis vértebras torácicas superiores, e se insere nos processos espinhosos cervicais, do áxis até a quinta vértebra cervical, inclusive. \n\nO semiespinal cervical é mais espesso que o semiespinal torácico. O fascículo conectado ao áxis é o maior e apresenta estrutura predominantemente muscular.\n\nhttps://en.wikipedia.org/wiki/Semispinalis_muscles",
+   "descricao": "O semiespinal cervical (ou semiespinal do pescoço) origina-se por uma série de fibras tendíneas e carnosas nos processos transversos das cinco ou seis vértebras torácicas superiores, e se insere nos processos espinhosos cervicais, do áxis até a quinta vértebra cervical, inclusive. \n\nO semiespinal cervical é mais espesso que o semiespinal torácico. O fascículo conectado ao áxis é o maior e apresenta estrutura predominantemente muscular.",
    "explicacao": "O semiespinal do pescoço faz parte da musculatura profunda do dorso. Vai dos processos transversos das vértebras torácicas superiores aos processos espinhosos das cervicais. Estende o pescoço e o gira para o lado oposto.",
    "fono": null,
    "referencias": [
@@ -17847,7 +17847,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Semispinalis_muscles",
@@ -17945,7 +17945,7 @@
   },
   {
    "id": "spinalis-capitis-muscle",
-   "nome_pt": "Músculo espinhal da cabeça",
+   "nome_pt": "Músculo espinal da cabeça",
    "nome_en": "Spinalis capitis muscle",
    "nome_latim": "Musculus spinalis capitis",
    "tipo": "musculo",
@@ -17957,7 +17957,7 @@
    ],
    "par_craniano": null,
    "descricao": "O espinal da cabeça (biventer cervicis) geralmente está indissociavelmente conectado ao semiespinal da cabeça.\n\nO espinal da cabeça não é bem caracterizado nos livros-texto e atlas de anatomia modernos, sendo frequentemente omitido das ilustrações anatômicas. \n\nContudo, pode ser identificado como fibras que se estendem dos processos espinhosos de T1 e C7 até o crânio, frequentemente se fundindo com o semiespinal da cabeça.",
-   "explicacao": "O espinhal da cabeça é o prolongamento superior do músculo espinhal, geralmente fundido ao semiespinal da cabeça. Estende a cabeça e o pescoço.",
+   "explicacao": "O espinal da cabeça é o prolongamento superior do músculo espinal, geralmente fundido ao semiespinal da cabeça. Estende a cabeça e o pescoço.",
    "fono": null,
    "referencias": [
     {
@@ -18015,7 +18015,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Spinalis",
@@ -18029,7 +18029,7 @@
   },
   {
    "id": "spinalis-colli-muscle",
-   "nome_pt": "Músculo espinhal do pescoço",
+   "nome_pt": "Músculo espinal do pescoço",
    "nome_en": "Spinalis colli muscle",
    "nome_latim": "Musculus spinalis colli",
    "tipo": "musculo",
@@ -18040,8 +18040,8 @@
     "musculos_pescoco"
    ],
    "par_craniano": null,
-   "descricao": "O espinal cervical, ou espinal do pescoço, é um músculo inconstante, que se origina na parte inferior do ligamento nucal, no processo espinhoso da sétima vértebra cervical e, por vezes, nos processos espinhosos da primeira e segunda vértebras torácicas, inserindo-se no processo espinhoso do áxis e, ocasionalmente, nos processos espinhosos das duas vértebras cervicais abaixo dele.\n\nhttps://en.wikipedia.org/wiki/Spinalis",
-   "explicacao": "O espinhal do pescoço é um músculo inconstante que se origina no ligamento nucal e nos processos espinhosos das vértebras torácicas superiores. Estende o pescoço.",
+   "descricao": "O espinal cervical, ou espinal do pescoço, é um músculo inconstante, que se origina na parte inferior do ligamento nucal, no processo espinhoso da sétima vértebra cervical e, por vezes, nos processos espinhosos da primeira e segunda vértebras torácicas, inserindo-se no processo espinhoso do áxis e, ocasionalmente, nos processos espinhosos das duas vértebras cervicais abaixo dele.",
+   "explicacao": "O espinal do pescoço é um músculo inconstante que se origina no ligamento nucal e nos processos espinhosos das vértebras torácicas superiores. Estende o pescoço.",
    "fono": null,
    "referencias": [
     {
@@ -18087,7 +18087,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Spinalis",
@@ -18655,7 +18655,7 @@
   },
   {
    "id": "obliquus-inferior-capitis-muscle",
-   "nome_pt": "Músculo inferior oblíquo da cabeça",
+   "nome_pt": "Músculo oblíquo inferior da cabeça",
    "nome_en": "Obliquus inferior capitis muscle",
    "nome_latim": "Musculus obliquus inferior capitis",
    "tipo": "musculo",
@@ -18741,7 +18741,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Obliquus_capitis_inferior_muscle",
@@ -18755,7 +18755,7 @@
   },
   {
    "id": "obliquus-superior-capitis-muscle",
-   "nome_pt": "Músculo superior oblíquo da cabeça",
+   "nome_pt": "Músculo oblíquo superior da cabeça",
    "nome_en": "Obliquus superior capitis muscle",
    "nome_latim": "Musculus obliquus superior capitis",
    "tipo": "musculo",
@@ -18827,7 +18827,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Obliquus_capitis_superior_muscle",
@@ -19325,7 +19325,7 @@
   },
   {
    "id": "geniohyoid-muscle",
-   "nome_pt": "Músculo geniohióideo",
+   "nome_pt": "Músculo gênio-hióideo",
    "nome_en": "Geniohyoid muscle",
    "nome_latim": "Musculus geniohyoideus",
    "tipo": "musculo",
@@ -19421,7 +19421,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Geniohyoid_muscle",
@@ -19453,7 +19453,7 @@
     "musculos_supra_infra_hioideos"
    ],
    "par_craniano": null,
-   "descricao": "Os dois ventres terminam em um tendão intermédio que perfura o músculo estilo-hióideo, sendo mantido em conexão com a face lateral do corpo e o corno maior do osso hioide por uma alça fibrosa, que às vezes é revestida por uma bainha mucosa. \n\nhttps://en.wikipedia.org/wiki/Digastric_muscle#Intermediate_tendon",
+   "descricao": "Os dois ventres terminam em um tendão intermédio que perfura o músculo estilo-hióideo, sendo mantido em conexão com a face lateral do corpo e o corno maior do osso hioide por uma alça fibrosa, que às vezes é revestida por uma bainha mucosa.",
    "explicacao": "O tendão intermediário do digástrico une os dois ventres do músculo, deslizando em uma alça fibrosa fixada ao osso hioide. Essa polia permite que o músculo eleve o hioide ou abaixe a mandíbula, conforme o ponto fixo.",
    "fono": null,
    "referencias": [
@@ -19516,7 +19516,7 @@
   },
   {
    "id": "jugulodigastric-node",
-   "nome_pt": "Nódulo jugulodigástrico",
+   "nome_pt": "Linfonodo jugulodigástrico",
    "nome_en": "Jugulodigastric node",
    "nome_latim": "Nodus jugulodigastricus",
    "tipo": "linfoide",
@@ -19572,7 +19572,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Jugulodigastric_lymph_node",
@@ -19586,7 +19586,7 @@
   },
   {
    "id": "mylohyoid-branch-of-inferior-alveolar-artery",
-   "nome_pt": "Ramo milohióideo da artéria alveolar inferior",
+   "nome_pt": "Ramo milo-hióideo da artéria alveolar inferior",
    "nome_en": "Mylohyoid branch of inferior alveolar artery",
    "nome_latim": "Ramus mylohyoideus arteriae alveolaris inferioris",
    "tipo": "arteria",
@@ -19642,7 +19642,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -19656,7 +19656,7 @@
   },
   {
    "id": "mylohyoid-muscle",
-   "nome_pt": "Músculo milohióideo",
+   "nome_pt": "Músculo milo-hióideo",
    "nome_en": "Mylohyoid muscle",
    "nome_latim": "Musculus mylohyoideus",
    "tipo": "musculo",
@@ -19738,7 +19738,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Mylohyoid_muscle",
@@ -19759,7 +19759,7 @@
   },
   {
    "id": "nerve-to-mylohyoid-muscle",
-   "nome_pt": "Nervo ao músculo milohióideo",
+   "nome_pt": "Nervo para o músculo milo-hióideo",
    "nome_en": "Nerve to mylohyoid muscle",
    "nome_latim": "Nervus mylohyoideus",
    "tipo": "nervo",
@@ -19817,7 +19817,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "conhecimento_geral_ia",
     "descricao_url": null,
@@ -19836,7 +19836,7 @@
   },
   {
    "id": "omohyoid-muscle",
-   "nome_pt": "Músculo omohióideo",
+   "nome_pt": "Músculo omo-hióideo",
    "nome_en": "Omohyoid muscle",
    "nome_latim": "Musculus omohyoideus",
    "tipo": "musculo",
@@ -19924,7 +19924,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Omohyoid_muscle",
@@ -20029,7 +20029,7 @@
   },
   {
    "id": "sternohyoid-muscle",
-   "nome_pt": "Músculo esternohióideo",
+   "nome_pt": "Músculo esterno-hióideo",
    "nome_en": "Sternohyoid muscle",
    "nome_latim": "Musculus sternohyoideus",
    "tipo": "musculo",
@@ -20117,7 +20117,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Sternohyoid_muscle",
@@ -20293,7 +20293,7 @@
   },
   {
    "id": "stylohyoid-muscle",
-   "nome_pt": "Músculo estilohióideo",
+   "nome_pt": "Músculo estilo-hióideo",
    "nome_en": "Stylohyoid muscle",
    "nome_latim": "Musculus stylohyoideus",
    "tipo": "musculo",
@@ -20356,7 +20356,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Stylohyoid_muscle",
@@ -20377,7 +20377,7 @@
   },
   {
    "id": "thyrohyoid-muscle",
-   "nome_pt": "Músculo tirohióideo",
+   "nome_pt": "Músculo tíreo-hióideo",
    "nome_en": "Thyrohyoid muscle",
    "nome_latim": "Musculus thyreohyoideus",
    "tipo": "musculo",
@@ -20389,7 +20389,7 @@
    ],
    "par_craniano": null,
    "descricao": "O músculo tireo-hióideo é um pequeno músculo esquelético do pescoço. \n\nOrigina-se na lâmina da cartilagem tireoide e se insere no corno maior do osso hioide. \n\nÉ inervado pelo nervo hipoglosso e por um ramo dos ramos ventrais do plexo cervical, o nervo espinal C1, que trafega junto ao nervo hipoglosso.",
-   "explicacao": "O tireo-hióideo é um músculo plano e quadrangular, que se estende da linha oblíqua da tireoide ao corpo e ao corno maior do hioide. Abaixa o hioide ou, com o hioide fixo, eleva a laringe durante a deglutição. É inervado por fibras de C1 que acompanham o hipoglosso.",
+   "explicacao": "O tíreo-hióideo é um músculo plano e quadrangular, que se estende da linha oblíqua da tireoide ao corpo e ao corno maior do hioide. Abaixa o hioide ou, com o hioide fixo, eleva a laringe durante a deglutição. É inervado por fibras de C1 que acompanham o hipoglosso.",
    "fono": "Aproxima a laringe do hioide, auxiliando a proteção da via aérea durante a deglutição.",
    "referencias": [
     {
@@ -20468,7 +20468,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Thyrohyoid_muscle",
@@ -21542,7 +21542,7 @@
   },
   {
    "id": "levator-palpebrae-superioris",
-   "nome_pt": "Levantador da palpebra superior",
+   "nome_pt": "Músculo levantador da pálpebra superior",
    "nome_en": "Levator palpebrae superioris",
    "nome_latim": "Levator palpebrae superioris",
    "tipo": "musculo",
@@ -21603,7 +21603,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Levator_palpebrae_superioris_muscle",
@@ -22178,7 +22178,7 @@
   },
   {
    "id": "palpebral-part-of-orbicularis-oculi",
-   "nome_pt": "Parte palpebral do músculo orbicular dos olhos",
+   "nome_pt": "Parte palpebral do músculo orbicular do olho",
    "nome_en": "Palpebral part of orbicularis oculi",
    "nome_latim": "Pars palpebralis musculi orbicularis oculi",
    "tipo": "musculo",
@@ -22236,7 +22236,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Orbicularis_oculi_muscle",
@@ -22974,7 +22974,7 @@
     "musculos_extraoculares"
    ],
    "par_craniano": null,
-   "descricao": "O músculo oblíquo superior passa por uma estrutura em forma de polia (a tróclea do oblíquo superior) e se insere na esclera, na superfície posterotemporal do globo ocular. \n\nÉ esse sistema de polia que confere ao oblíquo superior suas ações, causando a depressão do globo ocular apesar de sua inserção na superfície superior. \n\nhttps://en.wikipedia.org/wiki/Superior_oblique_muscle",
+   "descricao": "O músculo oblíquo superior passa por uma estrutura em forma de polia (a tróclea do oblíquo superior) e se insere na esclera, na superfície posterotemporal do globo ocular. \n\nÉ esse sistema de polia que confere ao oblíquo superior suas ações, causando a depressão do globo ocular apesar de sua inserção na superfície superior.",
    "explicacao": "A tróclea é uma polia de cartilagem fibrosa, fixada ao osso frontal, na parte superomedial da órbita. O tendão do músculo oblíquo superior passa por ela e muda de direção antes de se inserir no globo ocular.",
    "fono": null,
    "referencias": [
@@ -24051,7 +24051,7 @@
   },
   {
    "id": "concha-of-auricle",
-   "nome_pt": "Concha de orelha",
+   "nome_pt": "Concha da orelha",
    "nome_en": "Concha of auricle",
    "nome_latim": "Concha auriculae",
    "tipo": "regiao_superficie",
@@ -24122,7 +24122,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": null,
@@ -24361,7 +24361,7 @@
   },
   {
    "id": "mastoid-region",
-   "nome_pt": "Região mastóide",
+   "nome_pt": "Região mastóidea",
    "nome_en": "Mastoid region",
    "nome_latim": "Regio mastoidea",
    "tipo": "regiao_superficie",
@@ -24412,7 +24412,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": null,
@@ -25106,7 +25106,7 @@
   },
   {
    "id": "antihelix",
-   "nome_pt": "Antélice",
+   "nome_pt": "Anti-hélice",
    "nome_en": "Antihelix",
    "nome_latim": "Antihelix",
    "tipo": "regiao_superficie",
@@ -25118,7 +25118,7 @@
    ],
    "par_craniano": null,
    "descricao": "Relevo arciforme da aurícula (pavilhão auricular), localizado à frente da parte posterior da hélice.",
-   "explicacao": "A antélice é a crista curva da orelha, situada à frente da hélice e paralela a ela. Em cima, divide-se em dois ramos (cruras) que envolvem a fossa triangular. Contribui para a forma do pavilhão auricular e para a captação do som.",
+   "explicacao": "A anti-hélice é a crista curva da orelha, situada à frente da hélice e paralela a ela. Em cima, divide-se em dois ramos (cruras) que envolvem a fossa triangular. Contribui para a forma do pavilhão auricular e para a captação do som.",
    "fono": null,
    "referencias": [
     {
@@ -25162,7 +25162,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": null,
@@ -25176,7 +25176,7 @@
   },
   {
    "id": "antitragus",
-   "nome_pt": "Antitragus",
+   "nome_pt": "Antitrago",
    "nome_en": "Antitragus",
    "nome_latim": "Antitragus",
    "tipo": "regiao_superficie",
@@ -25232,7 +25232,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": null,
@@ -25316,7 +25316,7 @@
   },
   {
    "id": "crura-of-antihelix",
-   "nome_pt": "Cauda da antélice",
+   "nome_pt": "Cruras da anti-hélice",
    "nome_en": "Crura of antihelix",
    "nome_latim": "Crura antihelicis",
    "tipo": "regiao_superficie",
@@ -25328,7 +25328,7 @@
    ],
    "par_craniano": null,
    "descricao": "Cada uma das duas divisões superiores da anti-hélice, que envolvem a fossa triangular.",
-   "explicacao": "As cruras da antélice são os dois ramos superiores em que se divide a antélice (superior e inferior), delimitando entre si a fossa triangular da orelha.",
+   "explicacao": "As cruras da anti-hélice são os dois ramos superiores em que se divide a anti-hélice (superior e inferior), delimitando entre si a fossa triangular da orelha.",
    "fono": null,
    "referencias": [
     {
@@ -25372,7 +25372,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": null,
@@ -25386,7 +25386,7 @@
   },
   {
    "id": "cymba-conchae",
-   "nome_pt": "Concha da orelha parte superior",
+   "nome_pt": "Cimba da concha",
    "nome_en": "Cymba conchae",
    "nome_latim": "Cymba conchae",
    "tipo": "regiao_superficie",
@@ -25442,7 +25442,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": null,
@@ -25806,7 +25806,7 @@
   },
   {
    "id": "tragus",
-   "nome_pt": "Trágus",
+   "nome_pt": "Trago",
    "nome_en": "Tragus",
    "nome_latim": "Tragus",
    "tipo": "regiao_superficie",
@@ -25862,7 +25862,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Tragus_(ear)",
@@ -25876,7 +25876,7 @@
   },
   {
    "id": "supra-orbital-notch",
-   "nome_pt": "(Entalhe supra-orbital)",
+   "nome_pt": "Incisura supraorbital",
    "nome_en": "Supra-orbital notch",
    "nome_latim": "(Incisura supraorbitalis)",
    "tipo": "marco_osseo",
@@ -25887,7 +25887,7 @@
     "marcos_osseos"
    ],
    "par_craniano": null,
-   "descricao": "Em algumas pessoas, o forame supraorbital é incompleto, sendo então denominado incisura supraorbital.\n\nhttps://en.wikipedia.org/wiki/Supraorbital_foramen",
+   "descricao": "Em algumas pessoas, o forame supraorbital é incompleto, sendo então denominado incisura supraorbital.",
    "explicacao": "A incisura (ou forame) supraorbital é uma pequena reentrância na margem superior da órbita. Por ela passam o nervo e os vasos supraorbitais, que suprem a testa e a pálpebra superior. Em alguns indivíduos é um forame completo.",
    "fono": null,
    "referencias": [
@@ -25924,7 +25924,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Supraorbital_foramen",
@@ -26000,7 +26000,7 @@
   },
   {
    "id": "ethmoidal-notch",
-   "nome_pt": "Entalhe etmoidal",
+   "nome_pt": "Incisura etmoidal",
    "nome_en": "Ethmoidal notch",
    "nome_latim": "Incisura ethmoidea",
    "tipo": "marco_osseo",
@@ -26048,7 +26048,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Ethmoidal_notch",
@@ -26073,7 +26073,7 @@
     "marcos_osseos"
    ],
    "par_craniano": null,
-   "descricao": "A crista frontal do osso frontal termina inferiormente em uma pequena incisura, que se converte em um forame, o forame cego, pela articulação com o etmoide.\n\nO forame cego varia de tamanho entre diferentes indivíduos e, com frequência, é impérvio; quando aberto, transmite a veia emissária do nariz para o seio sagital superior. Isso tem importância clínica, pois infecções do nariz e de áreas próximas podem ser transmitidas às meninges e ao encéfalo a partir do que se conhece como o triângulo de perigo da face. \n\nhttps://en.wikipedia.org/wiki/Foramen_cecum_%28frontal_bone%29",
+   "descricao": "A crista frontal do osso frontal termina inferiormente em uma pequena incisura, que se converte em um forame, o forame cego, pela articulação com o etmoide.\n\nO forame cego varia de tamanho entre diferentes indivíduos e, com frequência, é impérvio; quando aberto, transmite a veia emissária do nariz para o seio sagital superior. Isso tem importância clínica, pois infecções do nariz e de áreas próximas podem ser transmitidas às meninges e ao encéfalo a partir do que se conhece como o triângulo de perigo da face.",
    "explicacao": "O forame cego do osso frontal é uma pequena depressão entre a crista frontal e a crista etmoidal (crista galli). Pode conter uma veia emissária que liga as veias do nariz ao seio sagital superior.",
    "fono": null,
    "referencias": [
@@ -26386,7 +26386,7 @@
   },
   {
    "id": "groove-for-marginal-sinus",
-   "nome_pt": "Sulco para seio marginal",
+   "nome_pt": "Sulco do seio marginal",
    "nome_en": "Groove for marginal sinus",
    "nome_latim": "Sulcus sinus marginalis",
    "tipo": "marco_osseo",
@@ -26434,7 +26434,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "outra_fonte_traduzida_ia",
     "descricao_url": "https://dictionnaire.academie-medecine.fr/index.php?q=sillon%20du%20sinus%20marginal",
@@ -26448,7 +26448,7 @@
   },
   {
    "id": "groove-for-middle-meningeal-artery",
-   "nome_pt": "Sulco para artéria meníngea média",
+   "nome_pt": "Sulco da artéria meníngea média",
    "nome_en": "Groove for middle meningeal artery",
    "nome_latim": "Sulcus arteriae meningeae mediae",
    "tipo": "marco_osseo",
@@ -26459,7 +26459,7 @@
     "marcos_osseos"
    ],
    "par_craniano": null,
-   "descricao": "A superfície interna do osso parietal é côncava; apresenta depressões correspondentes às circunvoluções cerebrais e numerosos sulcos (goteiras) para as ramificações da artéria meníngea média; estas seguem para cima e para trás a partir do ângulo esfenoidal, e a partir da parte central e posterior da borda escamosa.\n\nhttps://en.wikipedia.org/wiki/Parietal_bone",
+   "descricao": "A superfície interna do osso parietal é côncava; apresenta depressões correspondentes às circunvoluções cerebrais e numerosos sulcos (goteiras) para as ramificações da artéria meníngea média; estas seguem para cima e para trás a partir do ângulo esfenoidal, e a partir da parte central e posterior da borda escamosa.",
    "explicacao": "O sulco da artéria meníngea média é uma depressão ramificada na face interna do osso parietal e do esfenoide. Aloja a artéria meníngea média, que irriga a dura-máter. Fraturas nessa região podem romper o vaso e causar hematoma extradural.",
    "fono": null,
    "referencias": [
@@ -26501,7 +26501,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Parietal_bone",
@@ -26515,7 +26515,7 @@
   },
   {
    "id": "groove-for-occipital-sinus",
-   "nome_pt": "Sulco para seio occipital",
+   "nome_pt": "Sulco do seio occipital",
    "nome_en": "Groove for occipital sinus",
    "nome_latim": "Sulcus sinus occipitalis",
    "tipo": "marco_osseo",
@@ -26563,7 +26563,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": null,
@@ -26577,7 +26577,7 @@
   },
   {
    "id": "groove-for-transverse-sinus",
-   "nome_pt": "Sulco para seio transverso",
+   "nome_pt": "Sulco do seio transverso",
    "nome_en": "Groove for transverse sinus",
    "nome_latim": "Sulcus sinus transversi",
    "tipo": "marco_osseo",
@@ -26625,7 +26625,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Groove_for_transverse_sinus",
@@ -26639,7 +26639,7 @@
   },
   {
    "id": "groove-of-pterygoid-hamulus",
-   "nome_pt": "Sulco de hamulus pterigóide",
+   "nome_pt": "Sulco do hâmulo pterigóideo",
    "nome_en": "Groove of pterygoid hamulus",
    "nome_latim": "Sulcus hamuli pterygoidei",
    "tipo": "marco_osseo",
@@ -26687,7 +26687,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "escrita_para_o_projeto_ia",
     "descricao_url": null,
@@ -26771,7 +26771,7 @@
   },
   {
    "id": "inferior-thyroid-notch",
-   "nome_pt": "Incisura inferior da tireoide",
+   "nome_pt": "Incisura tireóidea inferior",
    "nome_en": "Inferior thyroid notch",
    "nome_latim": "Incisura thyreoidea inferior",
    "tipo": "marco_osseo",
@@ -26819,7 +26819,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Thyroid_cartilage",
@@ -26899,7 +26899,7 @@
   },
   {
    "id": "mastoid-notch",
-   "nome_pt": "Entalhe mastóide",
+   "nome_pt": "Incisura mastóidea",
    "nome_en": "Mastoid notch",
    "nome_latim": "Incisura mastoidea",
    "tipo": "marco_osseo",
@@ -26949,7 +26949,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": null,
@@ -27219,7 +27219,7 @@
   },
   {
    "id": "pterygoid-notch",
-   "nome_pt": "Entalhe pterigóide",
+   "nome_pt": "Incisura pterigóidea",
    "nome_en": "Pterygoid notch",
    "nome_latim": "Incisura pterygoidea",
    "tipo": "marco_osseo",
@@ -27267,7 +27267,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Pterygoid_notch",
@@ -27281,7 +27281,7 @@
   },
   {
    "id": "superior-thyroid-notch",
-   "nome_pt": "Incisura tireoidiano superior",
+   "nome_pt": "Incisura tireóidea superior",
    "nome_en": "Superior thyroid notch",
    "nome_latim": "Incisura thyreoidea superior",
    "tipo": "marco_osseo",
@@ -27329,7 +27329,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Thyroid_cartilage",
@@ -27876,7 +27876,7 @@
   },
   {
    "id": "canal-for-vertebral-artery",
-   "nome_pt": "(Canal para a artéria vertebral)",
+   "nome_pt": "Sulco da artéria vertebral",
    "nome_en": "Canal for vertebral artery",
    "nome_latim": "(Canalis arteriae vertebralis)",
    "tipo": "marco_osseo",
@@ -27929,7 +27929,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": null,
@@ -27954,7 +27954,7 @@
     "marcos_osseos"
    ],
    "par_craniano": null,
-   "descricao": "Os processos transversos são perfurados, cada um, pelo forame transversário, que, nas seis vértebras superiores, dá passagem à artéria e à veia vertebrais, bem como a um plexo de nervos simpáticos. \n\nhttps://en.wikipedia.org/wiki/Cervical_vertebrae",
+   "descricao": "Os processos transversos são perfurados, cada um, pelo forame transversário, que, nas seis vértebras superiores, dá passagem à artéria e à veia vertebrais, bem como a um plexo de nervos simpáticos.",
    "explicacao": "O forame transversário é a abertura em cada processo transverso das vértebras cervicais. Nas seis primeiras (C1 a C6), dá passagem à artéria vertebral e às veias vertebrais; em C7, em geral, passa somente a veia.",
    "fono": null,
    "referencias": [
@@ -28010,7 +28010,7 @@
   },
   {
    "id": "facet-for-dens",
-   "nome_pt": "Faceta para o dente",
+   "nome_pt": "Fóvea do dente",
    "nome_en": "Facet for dens",
    "nome_latim": "Fovea dentis",
    "tipo": "marco_osseo",
@@ -28021,7 +28021,7 @@
     "marcos_osseos"
    ],
    "par_craniano": null,
-   "descricao": "Na superfície posterior côncava do arco anterior do atlas (C1), a faceta para o dente é uma faceta lisa, oval ou circular (fovea dentis), para articulação com o processo odontoide (dente) do áxis. \n\nhttps://en.wikipedia.org/wiki/Atlas_(anatomy)",
+   "descricao": "Na superfície posterior côncava do arco anterior do atlas (C1), a faceta para o dente é uma faceta lisa, oval ou circular (fovea dentis), para articulação com o processo odontoide (dente) do áxis.",
    "explicacao": "A faceta para o dente é uma superfície articular na face posterior do arco anterior do atlas, onde se articula o dente (processo odontoide) do áxis. Permite a rotação da cabeça.",
    "fono": null,
    "referencias": [
@@ -28063,7 +28063,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": "https://en.wikipedia.org/wiki/Atlas_(anatomy)",
@@ -28077,7 +28077,7 @@
   },
   {
    "id": "groove-for-spinal-nerve",
-   "nome_pt": "Sulco para o nervo espinhal",
+   "nome_pt": "Sulco do nervo espinal",
    "nome_en": "Groove for spinal nerve",
    "nome_latim": "Sulcus nervi spinalis",
    "tipo": "marco_osseo",
@@ -28089,7 +28089,7 @@
    ],
    "par_craniano": null,
    "descricao": "Cada processo transverso das vértebras cervicais é composto por uma parte anterior e uma parte posterior. \n\nEssas duas partes são unidas, fora do forame, por uma barra óssea que apresenta um sulco profundo em sua face superior para a passagem do nervo espinhal correspondente.",
-   "explicacao": "O sulco do nervo espinhal é uma depressão na face superior do processo transverso das vértebras cervicais, onde passa o ramo anterior de cada nervo espinhal cervical.",
+   "explicacao": "O sulco do nervo espinal é uma depressão na face superior do processo transverso das vértebras cervicais, onde passa o ramo anterior de cada nervo espinal cervical.",
    "fono": null,
    "referencias": [
     {
@@ -28125,7 +28125,7 @@
     }
    ],
    "fontes": {
-    "nome_pt": "ta2",
+    "nome_pt": "ajuste_manual",
     "nome_latim": "ta2",
     "descricao": "wikipedia_traduzida_ia",
     "descricao_url": null,

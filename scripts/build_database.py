@@ -162,6 +162,20 @@ def main():
     meta_obj = meta["objects"]
     wiki_url = meta.get("wiki_url", {})
     names_pt = manifest["names_pt"]
+    # nomes em portugues do Brasil que substituem ingles/latim/grafia europeia vindos do TA2
+    nomes_ajuste = {}
+    _pn = P("data", "nomes_pt_ajustes.json")
+    if os.path.exists(_pn):
+        nomes_ajuste = {k.replace("-", " "): v for k, v in load_json(_pn).get("nomes", {}).items()}
+    mudou_manifest = False
+    for _k, _v in nomes_ajuste.items():
+        if names_pt.get(_k) != _v:
+            names_pt[_k] = _v
+            mudou_manifest = True
+    if mudou_manifest:  # o app le names_pt do manifest: mantem os dois em sincronia sem precisar do Blender
+        with open(P("data", "glb", "manifest.json"), "w", encoding="utf-8") as _f:
+            json.dump(manifest, _f, ensure_ascii=False, indent=2)
+        print("manifest.json: names_pt sincronizado com data/nomes_pt_ajustes.json")
     desc_pt = manifest.get("descriptions_pt", {})
     desc_fb = manifest.get("descriptions_fallback", {})
     desc_en = manifest.get("descriptions_en", {})
@@ -276,6 +290,7 @@ def main():
         ta = ta2.get(k)
         nome_pt = names_pt.get(k) or nome_en_base
         pt_from_ta2 = bool(ta and ta["pt"])
+        nome_ajustado = k in nomes_ajuste
 
         # descricao
         d_pt, d_fb = desc_pt.get(k), desc_fb.get(k)
@@ -285,6 +300,8 @@ def main():
             texto, dfonte = d_fb, "conhecimento_geral_ia"
         else:
             texto, dfonte = None, None
+        if texto:
+            texto = re.sub(r"\s*https?://\S+", "", texto).strip()  # links soltos ficam em fontes.descricao_url
         url = wiki_url.get(k) if dfonte == "wikipedia_traduzida_ia" else None
         aviso_texto = None
         if url and "wikipedia.org" not in url:
@@ -375,7 +392,7 @@ def main():
             ("tem_geometria_propria", any(o["papel"] in ("corpo", "marcador") and o["malha"] for o in objs)),
             ("objetos", [OrderedDict([("nome", o["nome"]), ("categoria_app", o["categoria_app"]), ("papel", o["papel"]), ("lado", o["lado"]), ("malha", o["malha"])]) for o in objs]),
             ("fontes", OrderedDict([
-                ("nome_pt", "ta2" if pt_from_ta2 else "ingles"),
+                ("nome_pt", "ajuste_manual" if nome_ajustado else ("ta2" if pt_from_ta2 else "ingles")),
                 ("nome_latim", "ta2" if (ta and ta["latim"]) else None),
                 ("descricao", dfonte),
                 ("descricao_url", url),

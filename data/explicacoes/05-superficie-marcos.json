@@ -62,7 +62,7 @@
     "foramen-transversarium": {"explicacao": "O forame transversário é a abertura em cada processo transverso das vértebras cervicais. Nas seis primeiras (C1 a C6), dá passagem à artéria vertebral e às veias vertebrais; em C7, em geral, passa somente a veia."},
     "canal-for-vertebral-artery": {"explicacao": "O sulco da artéria vertebral é uma depressão na face superior do arco posterior do atlas, por onde a artéria vertebral passa antes de entrar no crânio. Às vezes é convertido em um canal pela ossificação do ligamento atlantoccipital posterior."},
     "facet-for-dens": {"explicacao": "A faceta para o dente é uma superfície articular na face posterior do arco anterior do atlas, onde se articula o dente (processo odontoide) do áxis. Permite a rotação da cabeça."},
-    "groove-for-spinal-nerve": {"explicacao": "O sulco do nervo espinhal é uma depressão na face superior do processo transverso das vértebras cervicais, onde passa o ramo anterior de cada nervo espinhal cervical."},
+    "groove-for-spinal-nerve": {"explicacao": "O sulco do nervo espinal é uma depressão na face superior do processo transverso das vértebras cervicais, onde passa o ramo anterior de cada nervo espinal cervical."},
     "uncinate-process-of-vertebra": {"explicacao": "O processo uncinado é um gancho ósseo nas bordas laterais da face superior dos corpos das vértebras cervicais C3 a C7. Limita o movimento lateral do disco e forma as articulações uncovertebrais, importantes para a estabilidade da coluna cervical."}
   }
 }

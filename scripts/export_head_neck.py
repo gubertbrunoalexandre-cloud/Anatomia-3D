@@ -489,6 +489,14 @@ def main():
         if key not in names_pt:
             names_pt[key] = pt_name_for(name, ta2_pt)
 
+    # nomes em portugues do Brasil que substituem ingles/latim vindos da TA2 (sobrevivem a re-exportacoes)
+    ajustes_path = os.path.normpath(os.path.join(os.path.dirname(MANIFEST_PATH), "..", "nomes_pt_ajustes.json"))
+    if os.path.exists(ajustes_path):
+        with open(ajustes_path, encoding="utf-8") as f:
+            for sid, nome in json.load(f).get("nomes", {}).items():
+                names_pt[sid.replace("-", " ")] = nome
+        print(f"[info] nomes_pt_ajustes aplicados de {ajustes_path}")
+
     manifest = {"categories": {}, "descriptions_en": descriptions, "names_pt": names_pt}
     for cat, names in category_names.items():
         result = export_category(cat, names, lookup, ta2_pt)

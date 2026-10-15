@@ -105,7 +105,7 @@ Total relevante para fonoaudiologia (regra automática): **160** de 375. A ordem
 
 A lista completa (uma linha por estrutura, com o que falta) está em [`campos-vazios.csv`](campos-vazios.csv) — abre direto no Excel.
 
-- **Sem nome em latim (25)** e **sem tradução na TA2 — nome em português cai para o inglês (25)**: Posterior transverse collateral sulcus; Anterior occipital sulcus*; Artery of central sulcus; Artery of precentral sulcus; Branch to angular gyrus; Cingulate gyrus (Posteroventral part*); Cingulate gyrus and sulcus (Middle anterior part); Cingulate gyrus and sulcus (Middle posterior part); Cingulate gyrus and sulcus (Posterior dorsal part); Cingulate sulcus (Marginal part*); Inferior occipital gyrus and sulcus*; Insula (Subcentral gyrus and ant. and post. sulci*); Insular branches of middle cerebral artery (M2-segment); Lateral occipital gyrus (Middle occipital gyrus*); Medial occipitotemporal gyrus (Parahippocampal*); Occipitotemporal sulcus (Lateral part*); Orbital gyri (Frontomarginal gyrus and sulcus*); Orbital sulci (Lateral Orbital sulcus*); Paracentral gyrus and sulcus*; Precentral sulcus (inferior part)*; Precentral sulcus (Superior part)*; Straight gyrus (Gyrus rectus); Sulcus interm_prim-Jensen; Superior temporal gyrus (Lateral part); Orbital sulci (H-shaped orbital sulci*)
+- **Sem nome em latim (25)** e **sem tradução na TA2 — nome em português cai para o inglês (0)**: 
 
 - **Sem malha própria no 3D (3)** — só têm áreas de fixação muscular ou o objeto não tem malha no .glb; ficam fora de 'Encontre a estrutura': Faringe (Pharynx); Músculo pterigóideo lateral (Lateral pterygoid muscle); Masseter (Masseter)
 
